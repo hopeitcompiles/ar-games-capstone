@@ -16,8 +16,15 @@ public class ContainerPiece : MonoBehaviour
     }
     void Start()
     {
+        GameManager.Instance.OnMainMenu += Instance_OnMainMenu;
        
     }
+
+    private void Instance_OnMainMenu()
+    {
+        gameObject.SetActive(false);
+    }
+
 
     public void MakeItDrop(bool state)
     {
@@ -28,11 +35,9 @@ public class ContainerPiece : MonoBehaviour
             LeanDragTranslate leanDrag = gameObject.AddComponent<LeanDragTranslate>();
             leanDrag.Camera = FindAnyObjectByType<Camera>();
             rb.freezeRotation = true;
-            rb.isKinematic = false;
+            rb.isKinematic = true;
             rb.useGravity = true;
         }
-        GetComponent<Rigidbody>().isKinematic = !state;
-        Debug.Log("changed"+state.ToString());
     }
 
 }

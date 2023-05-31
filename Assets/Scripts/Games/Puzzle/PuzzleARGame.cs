@@ -39,7 +39,7 @@ public class PuzzleARGame : ARGame
         }
        
     }
-    private void FixedUpdate()
+    private void FixedUpdatessss()
     {
         if (Input.touchCount == 0)
         {

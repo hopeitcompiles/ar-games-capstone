@@ -951,9 +951,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2438bb54112ef3648a4143d0f44f3b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  modelPrefab: {fileID: 0}
+  modelPrefab: {fileID: 3788849941361037125, guid: 0b0a40841055ec14b8a7b9cc6ba61037,
+    type: 3}
   UIPoints: {fileID: 5314206128662977681}
   canvas: {fileID: 7901298970832898753}
+  impostorsModel: {fileID: 0}
 --- !u!1 &7642258412300302872
 GameObject:
   m_ObjectHideFlags: 0
