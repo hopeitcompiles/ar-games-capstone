@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f09884924c2fc84fafadd77b4247ddf, type: 3}
+  m_Name: Respiratory System
+  m_EditorClassIdentifier: 
+  title: Sistema Respiratorio
+  image: {fileID: 21300042, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  description: Este es el sistema respiratorio
+  model: {fileID: 8483562911725306328, guid: ef6fed7b01509eb4986ea806b240c755, type: 3}

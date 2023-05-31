@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716e07840db168c42a93bdd90037e901, type: 3}
+  m_Name: Find the Impostor
+  m_EditorClassIdentifier: 
+  title: Encuentra al impostor
+  image: {fileID: 21300012, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  description: "Algunas piezas estar\xE1n cambiadas entre s\xED, por pares, deber\xE1s
+    identificar qu\xE9 par de piezas han cambiado posiciones en el sistema."
+  models:
+  - system: {fileID: 11400000, guid: 3070a41c54f79fa4795881ca6c57b3a2, type: 2}
+    gameObject: {fileID: 7642258412231839618, guid: 5d13903cd33ad5b44a980305212a3993,
+      type: 3}

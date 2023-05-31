@@ -1,0 +1,768 @@
+fileFormatVersion: 2
+guid: 3309fb09b54f95049b3510ab076f0a14
+timeCreated: 1507145081
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Anatomy
+    100002: //RootNode
+    100004: Appendix
+    100006: Bladder
+    100008: Cardio
+    100010: Circle004
+    100012: Colon
+    100014: Cuerpo_Humano_circ_Flecha_003
+    100016: Cuerpo_Humano_circ_Flecha_004
+    100018: Cuerpo_Humano_circ_Flecha_005
+    100020: Cuerpo_Humano_circ_Flecha_006
+    100022: Cuerpo_Humano_circ_Flecha_007
+    100024: Cuerpo_Humano_circ_Flecha_008
+    100026: Cuerpo_Humano_circ_Flecha_009
+    100028: Cuerpo_Humano_circ_Flecha_010
+    100030: Cuerpo_Humano_circ_Flecha_011
+    100032: Cuerpo_Humano_circ_Flecha_013
+    100034: Cuerpo_Humano_circ_Flecha_014
+    100036: Cuerpo_Humano_circ_Flecha_015
+    100038: Cuerpo_Humano_circ_Flecha_016
+    100040: Cuerpo_Humano_circ_Flecha_018
+    100042: Cuerpo_Humano_circ_Flecha_019
+    100044: Cuerpo_Humano_circ_Flecha_020
+    100046: Cuerpo_Humano_circ_Flecha_021
+    100048: Cuerpo_Humano_circ_Flecha_023
+    100050: Cuerpo_Humano_circ_Flecha_024
+    100052: Cuerpo_Humano_circ_Flecha_025
+    100054: Cuerpo_Humano_circ_Flecha_026
+    100056: Cuerpo_Humano_circ_Flecha_027
+    100058: Cuerpo_Humano_circ_Flecha_028
+    100060: Cuerpo_Humano_circ_Flecha_029
+    100062: Cuerpo_Humano_circ_Flecha_030
+    100064: Cuerpo_Humano_circ_Flecha_031
+    100066: Cuerpo_Humano_circ_Flecha_032
+    100068: Cuerpo_Humano_circ_Flecha_033
+    100070: Cuerpo_Humano_circ_Flecha_034
+    100072: Cuerpo_Humano_circ_Flecha_035
+    100074: Cuerpo_Humano_circ_Flecha_037
+    100076: Cuerpo_Humano_circ_Flecha_038
+    100078: Cuerpo_Humano_circ_Flecha_039
+    100080: Cuerpo_Humano_circ_Flecha_040
+    100082: Cuerpo_Humano_circ_Flecha_042
+    100084: Cuerpo_Humano_circ_Flecha_043
+    100086: Cuerpo_Humano_circ_Flecha_044
+    100088: Cuerpo_Humano_circ_Flecha_045
+    100090: Cuerpo_Humano_circ_Text_01
+    100092: Cuerpo_Humano_circ_Text_01a
+    100094: Cuerpo_Humano_circ_Text_01b
+    100096: Cuerpo_Humano_circ_Text_02
+    100098: Cuerpo_Humano_circ_Text_03
+    100100: Cuerpo_Humano_dig_Text_01
+    100102: Cuerpo_Humano_dig_Text_01b
+    100104: Cuerpo_Humano_dig_Text_01c
+    100106: Cuerpo_Humano_dig_Text_01d
+    100108: Cuerpo_Humano_dig_Text_01e
+    100110: Cuerpo_Humano_dig_Text_01f
+    100112: Cuerpo_Humano_dig_Text_02
+    100114: Cuerpo_Humano_dig_Text_03
+    100116: Cuerpo_Humano_resp_Text_01
+    100118: Cuerpo_Humano_resp_Text_01b
+    100120: Cuerpo_Humano_resp_Text_01c
+    100122: Cuerpo_Humano_resp_Text_01e
+    100124: Cuerpo_Humano_resp_Text_02
+    100126: Cuerpo_Humano_resp_Text_03
+    100128: Diaphragm
+    100130: Digestive
+    100132: Falciform_ligament
+    100134: Gull_Bladder
+    100136: Kidney_L
+    100138: Kidney_R
+    100140: Larynx
+    100142: Liver
+    100144: Lungs
+    100146: Man
+    100148: Pancreas
+    100150: Prostate_gland
+    100152: Scene_Root
+    100154: Sphere001
+    100156: Sphere002
+    100158: Sphere003
+    100160: Suprarenal_gland_L
+    100162: Suprarenal_gland_R
+    100164: Urethra_L
+    100166: Urethra_Right
+    100168: Windpipe
+    400000: Anatomy
+    400002: //RootNode
+    400004: Appendix
+    400006: Bladder
+    400008: Cardio
+    400010: Circle004
+    400012: Colon
+    400014: Cuerpo_Humano_circ_Flecha_003
+    400016: Cuerpo_Humano_circ_Flecha_004
+    400018: Cuerpo_Humano_circ_Flecha_005
+    400020: Cuerpo_Humano_circ_Flecha_006
+    400022: Cuerpo_Humano_circ_Flecha_007
+    400024: Cuerpo_Humano_circ_Flecha_008
+    400026: Cuerpo_Humano_circ_Flecha_009
+    400028: Cuerpo_Humano_circ_Flecha_010
+    400030: Cuerpo_Humano_circ_Flecha_011
+    400032: Cuerpo_Humano_circ_Flecha_013
+    400034: Cuerpo_Humano_circ_Flecha_014
+    400036: Cuerpo_Humano_circ_Flecha_015
+    400038: Cuerpo_Humano_circ_Flecha_016
+    400040: Cuerpo_Humano_circ_Flecha_018
+    400042: Cuerpo_Humano_circ_Flecha_019
+    400044: Cuerpo_Humano_circ_Flecha_020
+    400046: Cuerpo_Humano_circ_Flecha_021
+    400048: Cuerpo_Humano_circ_Flecha_023
+    400050: Cuerpo_Humano_circ_Flecha_024
+    400052: Cuerpo_Humano_circ_Flecha_025
+    400054: Cuerpo_Humano_circ_Flecha_026
+    400056: Cuerpo_Humano_circ_Flecha_027
+    400058: Cuerpo_Humano_circ_Flecha_028
+    400060: Cuerpo_Humano_circ_Flecha_029
+    400062: Cuerpo_Humano_circ_Flecha_030
+    400064: Cuerpo_Humano_circ_Flecha_031
+    400066: Cuerpo_Humano_circ_Flecha_032
+    400068: Cuerpo_Humano_circ_Flecha_033
+    400070: Cuerpo_Humano_circ_Flecha_034
+    400072: Cuerpo_Humano_circ_Flecha_035
+    400074: Cuerpo_Humano_circ_Flecha_037
+    400076: Cuerpo_Humano_circ_Flecha_038
+    400078: Cuerpo_Humano_circ_Flecha_039
+    400080: Cuerpo_Humano_circ_Flecha_040
+    400082: Cuerpo_Humano_circ_Flecha_042
+    400084: Cuerpo_Humano_circ_Flecha_043
+    400086: Cuerpo_Humano_circ_Flecha_044
+    400088: Cuerpo_Humano_circ_Flecha_045
+    400090: Cuerpo_Humano_circ_Text_01
+    400092: Cuerpo_Humano_circ_Text_01a
+    400094: Cuerpo_Humano_circ_Text_01b
+    400096: Cuerpo_Humano_circ_Text_02
+    400098: Cuerpo_Humano_circ_Text_03
+    400100: Cuerpo_Humano_dig_Text_01
+    400102: Cuerpo_Humano_dig_Text_01b
+    400104: Cuerpo_Humano_dig_Text_01c
+    400106: Cuerpo_Humano_dig_Text_01d
+    400108: Cuerpo_Humano_dig_Text_01e
+    400110: Cuerpo_Humano_dig_Text_01f
+    400112: Cuerpo_Humano_dig_Text_02
+    400114: Cuerpo_Humano_dig_Text_03
+    400116: Cuerpo_Humano_resp_Text_01
+    400118: Cuerpo_Humano_resp_Text_01b
+    400120: Cuerpo_Humano_resp_Text_01c
+    400122: Cuerpo_Humano_resp_Text_01e
+    400124: Cuerpo_Humano_resp_Text_02
+    400126: Cuerpo_Humano_resp_Text_03
+    400128: Diaphragm
+    400130: Digestive
+    400132: Falciform_ligament
+    400134: Gull_Bladder
+    400136: Kidney_L
+    400138: Kidney_R
+    400140: Larynx
+    400142: Liver
+    400144: Lungs
+    400146: Man
+    400148: Pancreas
+    400150: Prostate_gland
+    400152: Scene_Root
+    400154: Sphere001
+    400156: Sphere002
+    400158: Sphere003
+    400160: Suprarenal_gland_L
+    400162: Suprarenal_gland_R
+    400164: Urethra_L
+    400166: Urethra_Right
+    400168: Windpipe
+    2300000: Appendix
+    2300002: Bladder
+    2300004: Cardio
+    2300006: Circle004
+    2300008: Colon
+    2300010: Cuerpo_Humano_circ_Text_01
+    2300012: Cuerpo_Humano_circ_Text_01a
+    2300014: Cuerpo_Humano_circ_Text_01b
+    2300016: Cuerpo_Humano_circ_Text_02
+    2300018: Cuerpo_Humano_circ_Text_03
+    2300020: Cuerpo_Humano_dig_Text_01
+    2300022: Cuerpo_Humano_dig_Text_01b
+    2300024: Cuerpo_Humano_dig_Text_01c
+    2300026: Cuerpo_Humano_dig_Text_01d
+    2300028: Cuerpo_Humano_dig_Text_01e
+    2300030: Cuerpo_Humano_dig_Text_01f
+    2300032: Cuerpo_Humano_dig_Text_02
+    2300034: Cuerpo_Humano_dig_Text_03
+    2300036: Cuerpo_Humano_resp_Text_01
+    2300038: Cuerpo_Humano_resp_Text_01b
+    2300040: Cuerpo_Humano_resp_Text_01c
+    2300042: Cuerpo_Humano_resp_Text_01e
+    2300044: Cuerpo_Humano_resp_Text_02
+    2300046: Cuerpo_Humano_resp_Text_03
+    2300048: Diaphragm
+    2300050: Digestive
+    2300052: Falciform_ligament
+    2300054: Gull_Bladder
+    2300056: Kidney_L
+    2300058: Kidney_R
+    2300060: Larynx
+    2300062: Liver
+    2300064: Man
+    2300066: Pancreas
+    2300068: Prostate_gland
+    2300070: Sphere001
+    2300072: Sphere002
+    2300074: Sphere003
+    2300076: Suprarenal_gland_L
+    2300078: Suprarenal_gland_R
+    2300080: Urethra_L
+    2300082: Urethra_Right
+    2300084: Windpipe
+    2300086: Lungs
+    3300000: Appendix
+    3300002: Bladder
+    3300004: Cardio
+    3300006: Circle004
+    3300008: Colon
+    3300010: Cuerpo_Humano_circ_Text_01
+    3300012: Cuerpo_Humano_circ_Text_01a
+    3300014: Cuerpo_Humano_circ_Text_01b
+    3300016: Cuerpo_Humano_circ_Text_02
+    3300018: Cuerpo_Humano_circ_Text_03
+    3300020: Cuerpo_Humano_dig_Text_01
+    3300022: Cuerpo_Humano_dig_Text_01b
+    3300024: Cuerpo_Humano_dig_Text_01c
+    3300026: Cuerpo_Humano_dig_Text_01d
+    3300028: Cuerpo_Humano_dig_Text_01e
+    3300030: Cuerpo_Humano_dig_Text_01f
+    3300032: Cuerpo_Humano_dig_Text_02
+    3300034: Cuerpo_Humano_dig_Text_03
+    3300036: Cuerpo_Humano_resp_Text_01
+    3300038: Cuerpo_Humano_resp_Text_01b
+    3300040: Cuerpo_Humano_resp_Text_01c
+    3300042: Cuerpo_Humano_resp_Text_01e
+    3300044: Cuerpo_Humano_resp_Text_02
+    3300046: Cuerpo_Humano_resp_Text_03
+    3300048: Diaphragm
+    3300050: Digestive
+    3300052: Falciform_ligament
+    3300054: Gull_Bladder
+    3300056: Kidney_L
+    3300058: Kidney_R
+    3300060: Larynx
+    3300062: Liver
+    3300064: Man
+    3300066: Pancreas
+    3300068: Prostate_gland
+    3300070: Sphere001
+    3300072: Sphere002
+    3300074: Sphere003
+    3300076: Suprarenal_gland_L
+    3300078: Suprarenal_gland_R
+    3300080: Urethra_L
+    3300082: Urethra_Right
+    3300084: Windpipe
+    3300086: Lungs
+    4300000: Appendix
+    4300002: Bladder
+    4300004: Cardio
+    4300006: Colon
+    4300008: Diaphragm
+    4300010: Digestive
+    4300012: Falciform_ligament
+    4300014: Gull_Bladder
+    4300016: Kidney_R
+    4300018: Larynx
+    4300020: Liver
+    4300022: Man
+    4300024: Pancreas
+    4300026: Prostate_gland
+    4300028: Suprarenal_gland_R
+    4300030: Urethra_Right
+    4300032: Windpipe
+    4300034: Urethra_L
+    4300036: Suprarenal_gland_L
+    4300038: Kidney_L
+    4300040: Lungs
+    4300042: Cuerpo_Humano_circ_Text_01
+    4300044: Cuerpo_Humano_circ_Text_02
+    4300046: Cuerpo_Humano_circ_Text_01a
+    4300048: Cuerpo_Humano_circ_Text_01b
+    4300050: Cuerpo_Humano_circ_Text_03
+    4300052: Cuerpo_Humano_dig_Text_03
+    4300054: Cuerpo_Humano_dig_Text_02
+    4300056: Cuerpo_Humano_dig_Text_01
+    4300058: Cuerpo_Humano_resp_Text_03
+    4300060: Cuerpo_Humano_resp_Text_02
+    4300062: Cuerpo_Humano_resp_Text_01
+    4300064: Cuerpo_Humano_dig_Text_01b
+    4300066: Cuerpo_Humano_dig_Text_01c
+    4300068: Cuerpo_Humano_dig_Text_01d
+    4300070: Cuerpo_Humano_dig_Text_01e
+    4300072: Cuerpo_Humano_dig_Text_01f
+    4300074: Cuerpo_Humano_resp_Text_01b
+    4300076: Cuerpo_Humano_resp_Text_01c
+    4300078: Cuerpo_Humano_resp_Text_01e
+    4300080: Cuerpo_Humano_circ_Flecha_003
+    4300082: Cuerpo_Humano_circ_Flecha_004
+    4300084: Cuerpo_Humano_circ_Flecha_005
+    4300086: Cuerpo_Humano_circ_Flecha_006
+    4300088: Cuerpo_Humano_circ_Flecha_007
+    4300090: Cuerpo_Humano_circ_Flecha_008
+    4300092: Cuerpo_Humano_circ_Flecha_009
+    4300094: Cuerpo_Humano_circ_Flecha_010
+    4300096: Cuerpo_Humano_circ_Flecha_011
+    4300098: Cuerpo_Humano_circ_Flecha_013
+    4300100: Cuerpo_Humano_circ_Flecha_014
+    4300102: Cuerpo_Humano_circ_Flecha_015
+    4300104: Cuerpo_Humano_circ_Flecha_016
+    4300106: Cuerpo_Humano_circ_Flecha_018
+    4300108: Cuerpo_Humano_circ_Flecha_019
+    4300110: Cuerpo_Humano_circ_Flecha_020
+    4300112: Cuerpo_Humano_circ_Flecha_021
+    4300114: Cuerpo_Humano_circ_Flecha_023
+    4300116: Cuerpo_Humano_circ_Flecha_024
+    4300118: Cuerpo_Humano_circ_Flecha_025
+    4300120: Cuerpo_Humano_circ_Flecha_026
+    4300122: Cuerpo_Humano_circ_Flecha_027
+    4300124: Cuerpo_Humano_circ_Flecha_028
+    4300126: Cuerpo_Humano_circ_Flecha_029
+    4300128: Cuerpo_Humano_circ_Flecha_030
+    4300130: Cuerpo_Humano_circ_Flecha_031
+    4300132: Sphere001
+    4300134: Cuerpo_Humano_circ_Flecha_032
+    4300136: Cuerpo_Humano_circ_Flecha_033
+    4300138: Cuerpo_Humano_circ_Flecha_034
+    4300140: Cuerpo_Humano_circ_Flecha_035
+    4300142: Sphere002
+    4300144: Cuerpo_Humano_circ_Flecha_037
+    4300146: Cuerpo_Humano_circ_Flecha_038
+    4300148: Cuerpo_Humano_circ_Flecha_039
+    4300150: Cuerpo_Humano_circ_Flecha_040
+    4300152: Cuerpo_Humano_circ_Flecha_042
+    4300154: Cuerpo_Humano_circ_Flecha_043
+    4300156: Cuerpo_Humano_circ_Flecha_044
+    4300158: Cuerpo_Humano_circ_Flecha_045
+    4300160: Sphere003
+    4300162: Circle004
+    7400000: Take 001
+    7400002: Take 0010
+    7400004: Take 0011
+    7400006: Take 0012
+    9500000: //RootNode
+    13700000: Cuerpo_Humano_circ_Flecha_003
+    13700002: Cuerpo_Humano_circ_Flecha_004
+    13700004: Cuerpo_Humano_circ_Flecha_005
+    13700006: Cuerpo_Humano_circ_Flecha_006
+    13700008: Cuerpo_Humano_circ_Flecha_007
+    13700010: Cuerpo_Humano_circ_Flecha_008
+    13700012: Cuerpo_Humano_circ_Flecha_009
+    13700014: Cuerpo_Humano_circ_Flecha_010
+    13700016: Cuerpo_Humano_circ_Flecha_011
+    13700018: Cuerpo_Humano_circ_Flecha_013
+    13700020: Cuerpo_Humano_circ_Flecha_014
+    13700022: Cuerpo_Humano_circ_Flecha_015
+    13700024: Cuerpo_Humano_circ_Flecha_016
+    13700026: Cuerpo_Humano_circ_Flecha_018
+    13700028: Cuerpo_Humano_circ_Flecha_019
+    13700030: Cuerpo_Humano_circ_Flecha_020
+    13700032: Cuerpo_Humano_circ_Flecha_021
+    13700034: Cuerpo_Humano_circ_Flecha_023
+    13700036: Cuerpo_Humano_circ_Flecha_024
+    13700038: Cuerpo_Humano_circ_Flecha_025
+    13700040: Cuerpo_Humano_circ_Flecha_026
+    13700042: Cuerpo_Humano_circ_Flecha_027
+    13700044: Cuerpo_Humano_circ_Flecha_028
+    13700046: Cuerpo_Humano_circ_Flecha_029
+    13700048: Cuerpo_Humano_circ_Flecha_030
+    13700050: Cuerpo_Humano_circ_Flecha_031
+    13700052: Cuerpo_Humano_circ_Flecha_032
+    13700054: Cuerpo_Humano_circ_Flecha_033
+    13700056: Cuerpo_Humano_circ_Flecha_034
+    13700058: Cuerpo_Humano_circ_Flecha_035
+    13700060: Cuerpo_Humano_circ_Flecha_037
+    13700062: Cuerpo_Humano_circ_Flecha_038
+    13700064: Cuerpo_Humano_circ_Flecha_039
+    13700066: Cuerpo_Humano_circ_Flecha_040
+    13700068: Cuerpo_Humano_circ_Flecha_042
+    13700070: Cuerpo_Humano_circ_Flecha_043
+    13700072: Cuerpo_Humano_circ_Flecha_044
+    13700074: Cuerpo_Humano_circ_Flecha_045
+    13700076: Lungs
+    13700078: Cardio
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 1060
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Circle004
+        weight: 1
+      - path: Cuerpo_Humano_circ_Flecha_032
+        weight: 1
+      - path: Cuerpo_Humano_circ_Flecha_033
+        weight: 1
+      - path: Cuerpo_Humano_circ_Flecha_034
+        weight: 1
+      - path: Cuerpo_Humano_circ_Flecha_035
+        weight: 1
+      - path: Cuerpo_Humano_dig_Text_01
+        weight: 1
+      - path: Cuerpo_Humano_dig_Text_01b
+        weight: 1
+      - path: Cuerpo_Humano_dig_Text_01c
+        weight: 1
+      - path: Cuerpo_Humano_dig_Text_01d
+        weight: 1
+      - path: Cuerpo_Humano_dig_Text_01e
+        weight: 1
+      - path: Cuerpo_Humano_dig_Text_01f
+        weight: 1
+      - path: Cuerpo_Humano_dig_Text_02
+        weight: 1
+      - path: Cuerpo_Humano_dig_Text_03
+        weight: 1
+      - path: Scene_Root
+        weight: 1
+      - path: Scene_Root/Anatomy
+        weight: 1
+      - path: Scene_Root/Anatomy/Appendix
+        weight: 1
+      - path: Scene_Root/Anatomy/Bladder
+        weight: 1
+      - path: Scene_Root/Anatomy/Cardio
+        weight: 1
+      - path: Scene_Root/Anatomy/Colon
+        weight: 1
+      - path: Scene_Root/Anatomy/Diaphragm
+        weight: 1
+      - path: Scene_Root/Anatomy/Digestive
+        weight: 1
+      - path: Scene_Root/Anatomy/Falciform_ligament
+        weight: 1
+      - path: Scene_Root/Anatomy/Gull_Bladder
+        weight: 1
+      - path: Scene_Root/Anatomy/Kidney_L
+        weight: 1
+      - path: Scene_Root/Anatomy/Kidney_R
+        weight: 1
+      - path: Scene_Root/Anatomy/Larynx
+        weight: 1
+      - path: Scene_Root/Anatomy/Liver
+        weight: 1
+      - path: Scene_Root/Anatomy/Lungs
+        weight: 1
+      - path: Scene_Root/Anatomy/Man
+        weight: 1
+      - path: Scene_Root/Anatomy/Pancreas
+        weight: 1
+      - path: Scene_Root/Anatomy/Prostate_gland
+        weight: 1
+      - path: Scene_Root/Anatomy/Suprarenal_gland_L
+        weight: 1
+      - path: Scene_Root/Anatomy/Suprarenal_gland_R
+        weight: 1
+      - path: Scene_Root/Anatomy/Urethra_L
+        weight: 1
+      - path: Scene_Root/Anatomy/Urethra_Right
+        weight: 1
+      - path: Scene_Root/Anatomy/Windpipe
+        weight: 1
+      - path: Sphere001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Take 0011
+      takeName: Take 001
+      firstFrame: 1060
+      lastFrame: 1560
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Circle004
+        weight: 1
+      - path: Cuerpo_Humano_circ_Flecha_032
+        weight: 1
+      - path: Cuerpo_Humano_circ_Flecha_033
+        weight: 1
+      - path: Cuerpo_Humano_circ_Flecha_034
+        weight: 1
+      - path: Cuerpo_Humano_circ_Flecha_035
+        weight: 1
+      - path: Cuerpo_Humano_dig_Text_01
+        weight: 1
+      - path: Cuerpo_Humano_dig_Text_01b
+        weight: 1
+      - path: Cuerpo_Humano_dig_Text_01c
+        weight: 1
+      - path: Cuerpo_Humano_dig_Text_01d
+        weight: 1
+      - path: Cuerpo_Humano_dig_Text_01e
+        weight: 1
+      - path: Cuerpo_Humano_dig_Text_01f
+        weight: 1
+      - path: Cuerpo_Humano_dig_Text_02
+        weight: 1
+      - path: Cuerpo_Humano_dig_Text_03
+        weight: 1
+      - path: Scene_Root
+        weight: 1
+      - path: Scene_Root/Anatomy
+        weight: 1
+      - path: Scene_Root/Anatomy/Appendix
+        weight: 1
+      - path: Scene_Root/Anatomy/Bladder
+        weight: 1
+      - path: Scene_Root/Anatomy/Cardio
+        weight: 1
+      - path: Scene_Root/Anatomy/Colon
+        weight: 1
+      - path: Scene_Root/Anatomy/Diaphragm
+        weight: 1
+      - path: Scene_Root/Anatomy/Digestive
+        weight: 1
+      - path: Scene_Root/Anatomy/Falciform_ligament
+        weight: 1
+      - path: Scene_Root/Anatomy/Gull_Bladder
+        weight: 1
+      - path: Scene_Root/Anatomy/Kidney_L
+        weight: 1
+      - path: Scene_Root/Anatomy/Kidney_R
+        weight: 1
+      - path: Scene_Root/Anatomy/Larynx
+        weight: 1
+      - path: Scene_Root/Anatomy/Liver
+        weight: 1
+      - path: Scene_Root/Anatomy/Lungs
+        weight: 1
+      - path: Scene_Root/Anatomy/Man
+        weight: 1
+      - path: Scene_Root/Anatomy/Pancreas
+        weight: 1
+      - path: Scene_Root/Anatomy/Prostate_gland
+        weight: 1
+      - path: Scene_Root/Anatomy/Suprarenal_gland_L
+        weight: 1
+      - path: Scene_Root/Anatomy/Suprarenal_gland_R
+        weight: 1
+      - path: Scene_Root/Anatomy/Urethra_L
+        weight: 1
+      - path: Scene_Root/Anatomy/Urethra_Right
+        weight: 1
+      - path: Scene_Root/Anatomy/Windpipe
+        weight: 1
+      - path: Sphere001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Take 0010
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 1560
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Circle004
+        weight: 1
+      - path: Cuerpo_Humano_circ_Flecha_032
+        weight: 1
+      - path: Cuerpo_Humano_circ_Flecha_033
+        weight: 1
+      - path: Cuerpo_Humano_circ_Flecha_034
+        weight: 1
+      - path: Cuerpo_Humano_circ_Flecha_035
+        weight: 1
+      - path: Cuerpo_Humano_dig_Text_01
+        weight: 1
+      - path: Cuerpo_Humano_dig_Text_01b
+        weight: 1
+      - path: Cuerpo_Humano_dig_Text_01c
+        weight: 1
+      - path: Cuerpo_Humano_dig_Text_01d
+        weight: 1
+      - path: Cuerpo_Humano_dig_Text_01e
+        weight: 1
+      - path: Cuerpo_Humano_dig_Text_01f
+        weight: 1
+      - path: Cuerpo_Humano_dig_Text_02
+        weight: 1
+      - path: Cuerpo_Humano_dig_Text_03
+        weight: 1
+      - path: Scene_Root
+        weight: 1
+      - path: Scene_Root/Anatomy
+        weight: 1
+      - path: Scene_Root/Anatomy/Appendix
+        weight: 1
+      - path: Scene_Root/Anatomy/Bladder
+        weight: 1
+      - path: Scene_Root/Anatomy/Cardio
+        weight: 1
+      - path: Scene_Root/Anatomy/Colon
+        weight: 1
+      - path: Scene_Root/Anatomy/Diaphragm
+        weight: 1
+      - path: Scene_Root/Anatomy/Digestive
+        weight: 1
+      - path: Scene_Root/Anatomy/Falciform_ligament
+        weight: 1
+      - path: Scene_Root/Anatomy/Gull_Bladder
+        weight: 1
+      - path: Scene_Root/Anatomy/Kidney_L
+        weight: 1
+      - path: Scene_Root/Anatomy/Kidney_R
+        weight: 1
+      - path: Scene_Root/Anatomy/Larynx
+        weight: 1
+      - path: Scene_Root/Anatomy/Liver
+        weight: 1
+      - path: Scene_Root/Anatomy/Lungs
+        weight: 1
+      - path: Scene_Root/Anatomy/Man
+        weight: 1
+      - path: Scene_Root/Anatomy/Pancreas
+        weight: 1
+      - path: Scene_Root/Anatomy/Prostate_gland
+        weight: 1
+      - path: Scene_Root/Anatomy/Suprarenal_gland_L
+        weight: 1
+      - path: Scene_Root/Anatomy/Suprarenal_gland_R
+        weight: 1
+      - path: Scene_Root/Anatomy/Urethra_L
+        weight: 1
+      - path: Scene_Root/Anatomy/Urethra_Right
+        weight: 1
+      - path: Scene_Root/Anatomy/Windpipe
+        weight: 1
+      - path: Sphere001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.2
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
