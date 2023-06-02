@@ -35,6 +35,6 @@ public class Card : MonoBehaviour
     }
     public void StartAR()
     {
-        ContentLister.instance.StartAR(systems,model,title);
+        ContentLister.instance.StartAR(systems,model,title,description);
     }
 }

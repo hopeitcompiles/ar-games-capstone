@@ -57,7 +57,7 @@ public class TimerManager : MonoBehaviour
             }
             if (time > timeLimit)
             {
-                AudioManager.Instance.PlayOnShot(timeEnded);
+                //AudioManager.Instance.PlayOnShot(timeEnded);
                 Debug.Log("End corroutine");
                 CancelInvoke("TimerInvoke");
                 OnRunOutTime?.Invoke();
@@ -86,12 +86,13 @@ public class TimerManager : MonoBehaviour
             yield return new WaitForSeconds(waitTimeseconds);
         }
     }
-    public void StopTimer()
+    public float StopTimer()
     {
         if(timerCorroutine != null)
         {
             StopCoroutine(timerCorroutine);
         }
         CancelInvoke("TimerInvoke");
+        return time;
     }
 }

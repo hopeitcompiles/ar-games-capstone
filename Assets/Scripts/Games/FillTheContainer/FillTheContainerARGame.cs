@@ -9,10 +9,11 @@ public class FillTheContainerARGame : ARGame
     [SerializeField]
     private int correctModel;
     private ContainerPiece[] pieces;
-
+    readonly int layer=9;
     public override void EndGame()
     {
-        throw new System.NotImplementedException();
+        ResultsManager.Instance.Description = "Este juego aún no tiene estadísticas asignadas";
+        ResultsManager.Instance.Activate(true);
     }
 
     public override void StartGame()
@@ -24,7 +25,7 @@ public class FillTheContainerARGame : ARGame
         TimerManager.Instance.StartTimer(timeLimit, false);
     }
 
-    void Start()
+    protected override void Start()
     {
         base.Start();
         ContainerPiece[] _pieces = new ContainerPiece[0];
@@ -33,12 +34,12 @@ public class FillTheContainerARGame : ARGame
             var system=Instantiate(item, transform);
             _pieces=_pieces.Concat(system.GetComponentsInChildren<ContainerPiece>()).ToArray();
             system.SetActive(false);
-            Destroy(item,5);
         }
         List<ContainerPiece> temp = new();
-        Vector3 offset = new Vector3(0f, 0f, -0.5f); // Ajusta los valores para el desplazamiento deseado
+        Vector3 offset = new(0f, 0f, -0.5f); // Ajusta los valores para el desplazamiento deseado
         foreach (ContainerPiece piece in _pieces)
         {
+            piece.SetUp(layer);
             piece.IsCorrect = true;
             piece.MakeItDrop(true);
             var pi = Instantiate(piece, transform.position + offset, transform.rotation);
@@ -48,10 +49,11 @@ public class FillTheContainerARGame : ARGame
         }
         pieces=_pieces.ToArray();
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        foreach(ContainerPiece piece in pieces)
+        {
+            piece.gameObject.SetActive(false);
+        }
     }
 }

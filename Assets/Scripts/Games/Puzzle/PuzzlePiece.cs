@@ -1,30 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
+using Lean.Touch;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 [RequireComponent(typeof(Touchable))]
 [RequireComponent(typeof(Data))]
-public class PuzzlePiece : MonoBehaviour
+public class PuzzlePiece : MonoBehaviour, IPiece
 {
     Rigidbody rb;
     Touchable touchable;
+    LeanDragTranslate lean;
     public Touchable Touchable
     {
         get { return touchable; }
-    }
-    public int LayerMask
-    {
-        set
-        {
-            GetComponent<Collider>().gameObject.layer = value;
-        }
-    }
-
-    void Awake()
-    {
-        touchable = GetComponent<Touchable>();
-        
     }
 
     public void MakeItDrop(bool state)
@@ -32,15 +18,26 @@ public class PuzzlePiece : MonoBehaviour
         if (rb == null)
         {
             gameObject.AddComponent<Rigidbody>();
-            rb = GetComponent<Rigidbody>();
+            rb = gameObject.GetComponent<Rigidbody>();
             gameObject.AddComponent<SphereCollider>();
             rb.freezeRotation = true;
             rb.isKinematic = true;
+
         }
-        rb.isKinematic = !state; 
+        rb.isKinematic = !state;
     }
-    public void Move(Vector3 position)
+
+    public void SetUp(int layer)
     {
-        transform.position = position;
+        gameObject.GetComponent<MeshCollider>().gameObject.layer = layer;
+        touchable = gameObject.GetComponent<Touchable>();
+        if (lean == null)
+        {
+            if (!gameObject.TryGetComponent(out lean))
+            {
+                lean = gameObject.AddComponent<LeanDragTranslate>();
+            }
+            lean.Camera = FindAnyObjectByType<Camera>();
+        }
     }
 }

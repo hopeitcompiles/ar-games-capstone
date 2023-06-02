@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Rompecabezas
   image: {fileID: 21300000, guid: 49e49f1145522334f87c2486e5b7d40c, type: 3}
-  description: "Habr\xE1n distintas partes del sistema dispersas por el suelo, deber\xE1s
-    tomarlas y armar el sistema en cuesti\xF3n, igual que un rompecabezas."
+  description: "Distintas partes del sistema dispersas por el suelo, deber\xE1s tomarlas
+    y colocarlas en su posici\xF3n."
   models:
   - system: {fileID: 11400000, guid: 3070a41c54f79fa4795881ca6c57b3a2, type: 2}
     gameObject: {fileID: 7642258412231839618, guid: ab877d29fbf9bcd449d5e4a2d5b25af6,

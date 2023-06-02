@@ -46,7 +46,7 @@ public class ContentLister : MonoBehaviour
 
 
 
-    public void StartAR(List<MicroGame.SystemData> systems, GameObject model, string title)
+    public void StartAR(List<MicroGame.SystemData> systems, GameObject model, string title, string description)
     {
         if (model == null && systems==null)
         {
@@ -80,7 +80,7 @@ public class ContentLister : MonoBehaviour
             newItem.Image = obj.system.image;
             newItem.Model = obj.gameObject;
         }
-        popUpText.text = "Elija el sistema para iniciar el juego: \n"+title;
+        popUpText.text = description+"\nEscoge el sistema para jugar";
     }
 
 

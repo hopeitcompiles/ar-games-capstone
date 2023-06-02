@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Touchable : MonoBehaviour
 {
-    Renderer renderer;
+    Renderer _renderer;
     Material material;
     void Awake()
     {
-        renderer = GetComponent<Renderer>();
-        material = renderer.material;
+        _renderer = GetComponent<Renderer>();
+        material = _renderer.material;
         gameObject.AddComponent<MeshCollider>();
 
     }
     public void MakeItGlow(bool state)
     {
-        renderer.material = state ? MaterialProvider.Instance.GlowMaterial : material;
+        _renderer.material = state ? MaterialProvider.Instance.GlowMaterial : material;
     }
 }

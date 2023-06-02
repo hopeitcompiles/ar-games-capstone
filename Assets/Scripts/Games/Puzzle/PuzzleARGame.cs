@@ -6,11 +6,8 @@ public class PuzzleARGame : ARGame
 {
     PuzzlePiece[] pieces;
     PuzzlePiece selectedPiece;
-    private int touchID = -1;
-    private Vector3 offset;
-    int gameLayer = 8;
+    readonly int layer = 8;
     private bool isDragging = false;
-    private Vector2 dragStartPosition;
 
     public override void EndGame()
     {
@@ -34,8 +31,7 @@ public class PuzzleARGame : ARGame
         pieces = GetComponentsInChildren<PuzzlePiece>();
         foreach (PuzzlePiece piece in pieces)
         {
-            piece.MakeItDrop(true);
-            piece.LayerMask = gameLayer;
+            piece.SetUp(layer);
         }
        
     }
@@ -53,15 +49,13 @@ public class PuzzleARGame : ARGame
                 Ray ray = _camera.ScreenPointToRay(touch.position);
                 RaycastHit hit;
 
-                if (Physics.Raycast(ray, out hit))
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity, layer))
                 {
-                    PuzzlePiece puzzlePiece = hit.collider.GetComponent<PuzzlePiece>();
-
-                    if (puzzlePiece != null)
+                    
+                    if (hit.collider.TryGetComponent<PuzzlePiece>(out var puzzlePiece))
                     {
                         isDragging = true;
                         selectedPiece = puzzlePiece;
-                        dragStartPosition = touch.position;
                     }
                 }
                 break;

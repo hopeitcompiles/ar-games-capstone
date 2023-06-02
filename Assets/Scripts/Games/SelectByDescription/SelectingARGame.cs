@@ -13,7 +13,6 @@ public class SelectingARGame : ARGame
     [SerializeField] Button nextButton;
     [SerializeField] Button clearButton;
     GameObject canvas;
-    GameObject results;
 
     SelectablePiece[] pieceList;
     string[] responses; 
@@ -21,12 +20,11 @@ public class SelectingARGame : ARGame
     TextMeshProUGUI title;
     TextMeshProUGUI description;
     SelectablePiece selectedPiece;
-
+    readonly int layer =6;
 
     private void Awake()
     {
         canvas=transform.GetChild(0).gameObject;
-        results= canvas.transform.GetChild(1).gameObject;
         content.SetActive(false);
         canvas.SetActive(false);
         
@@ -36,12 +34,15 @@ public class SelectingARGame : ARGame
         PauseManager.Instance.OnResume += OnResumeGame;
         nextButton.transform.localScale = Vector3.zero;
         clearButton.transform.localScale = Vector3.zero;
-        results.transform.localScale = Vector3.zero;
     }
     protected override void Start()
     {
         base.Start();
         pieceList = GetComponentsInChildren<SelectablePiece>();
+        foreach (SelectablePiece piece in pieceList)
+        {
+            piece.SetUp(layer);
+        }
         index = pieceList.Length - 1;
         title = content.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         description = content.transform.GetChild(2).GetComponent<TextMeshProUGUI>();
@@ -72,20 +73,18 @@ public class SelectingARGame : ARGame
     private void OnPauseGame()
     {
         content.transform.DOScale(Vector3.zero, 0.3f).SetUpdate(true);
-        results.transform.DOScale(Vector3.zero, 0.3f).SetUpdate(true);
 
     }    
     private void OnResumeGame()
     {
         content.transform.DOScale(Vector3.one, 0.3f).SetUpdate(true);
-        results.transform.DOScale(Vector3.one, 0.3f).SetUpdate(true);
     }
 
     
     public override void StartGame()
     {
         Debug.Log("the game has started");
-        title.text = "Toca la parte del sistema digestivo a la cual pertenezca esta descripcion";
+        title.text = "Toca la parte del sistema a la cual pertenece esta descripción";
         description.text = pieceList[index].Description;
         canvas.SetActive(true);
         content.SetActive(true);
@@ -93,30 +92,30 @@ public class SelectingARGame : ARGame
     }
     public override void EndGame()
     {
+        float time = TimerManager.Instance.StopTimer();
         int asserts = 0;
         for (int i = 0; i < pieceList.Length; i++)
         {
-            if (pieceList[i].Description == responses[i])
+            if (pieceList[i].PieceName == responses[i])
             {
                 asserts++;
             }
         }
         content.transform.DOScale(Vector3.zero, .3f);
         
-        results.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text =asserts+" aciertos de "+pieceList.Length;
-        results.transform.DOScale(Vector3.one, .3f);
+        ResultsManager.Instance.Description=asserts+" aciertos de "+pieceList.Length+ "\nTiempo: " + time.ToString() + " segundos";
+        ResultsManager.Instance.Activate(true);
     }
     public void NextPiece()
     {
         if (index == 0)
         {
-            TimerManager.Instance.StopTimer();
             EndGame();
             return;
         }
         if(selectedPiece!= null)
         {
-            responses[index] = selectedPiece.Description;
+            responses[index] = selectedPiece.PieceName;
             index--;
             description.text = pieceList[index].Description;
             ResetTitleAndButtons(true);
@@ -125,7 +124,7 @@ public class SelectingARGame : ARGame
         }
         else
         {
-            title.text = "Algo no ha salido bien!";
+            title.text = "Toca la parte del sistema a la cual pertenece esta descripción";
         }
         
     }
@@ -135,17 +134,13 @@ public class SelectingARGame : ARGame
         Vector3 scale=Vector3.one;
         if (state)
         {
-            title.text = "Toca la parte del sistema digestivo a la cual pertenezca esta descripci�n";
+            title.text = "Toca la parte del sistema a la cual pertenece esta descripción";
             scale = Vector3.zero;
         }
         nextButton.transform.DOScale(scale, .3f);
         clearButton.transform.DOScale(scale, .3f);
     }
-    public void CloseGame()
-    {
-        results.transform.DOScale(Vector3.zero, .3f);
-        GameManager.Instance.MainMenu();
-    }
+
     void FixedUpdate()
     {
         if(Input.touchCount == 0)
@@ -159,14 +154,14 @@ public class SelectingARGame : ARGame
         {
             RaycastHit hit;
             Ray ray=_camera.ScreenPointToRay(position);
+            //if(Physics.Raycast(ray, out hit, Mathf.Infinity, layer))
             if(Physics.Raycast(ray, out hit))
             {
                 if(selectedPiece != null)
                 {
                     selectedPiece.Touchable.MakeItGlow(false);
                 }
-                selectedPiece =hit.collider.gameObject.GetComponent<SelectablePiece>();
-                if(selectedPiece != null)
+                if(hit.collider.gameObject.TryGetComponent(out selectedPiece))
                 {
                     if (DificultManager.Instance.DificultLevel == DificultLevel.HARD)
                     {

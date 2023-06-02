@@ -58,8 +58,13 @@ public class ARinteractionManager : MonoBehaviour
 
     public void OnDestroy()
     {
-        itemModel.SetActive(false);
-        aRPointer?.SetActive(false);
+        if (itemModel!=null) { 
+            itemModel.SetActive(false);
+        } 
+        if (aRPointer != null)
+        {
+            aRPointer?.SetActive(false);
+        }
         GameManager.Instance.MainMenu();
     }
     // Update is called once per frame

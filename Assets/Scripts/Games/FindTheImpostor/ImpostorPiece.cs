@@ -4,28 +4,17 @@ using UnityEngine;
 
 
 [RequireComponent(typeof(Touchable))]
-public class ImpostorPiece : MonoBehaviour
+public class ImpostorPiece : MonoBehaviour, IPiece
 {
-    private int layerMask;
     private Touchable touchable;
 
     public Touchable Touchable { get { return touchable; } }
     
-    public void ChangePosition(Vector3 position)
-    {
-        transform.localPosition = position;
-    }
-    public int LayerMask
-    {
-        get { return layerMask; }
-        set { 
-            layerMask = value;
-            GetComponent<Collider>().gameObject.layer = value;
-        }
-    }
-    private void Awake()
-    {
-        touchable = GetComponent<Touchable>();
-    }
+  
 
+    public void SetUp(int layer)
+    {
+        gameObject.GetComponent<MeshCollider>().gameObject.layer = layer;
+        touchable = gameObject.GetComponent<Touchable>();
+    }
 }

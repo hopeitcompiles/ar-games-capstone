@@ -5,7 +5,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Data))]
 [RequireComponent(typeof(Touchable))]
-public class SelectablePiece : MonoBehaviour
+public class SelectablePiece : MonoBehaviour, IPiece
 {
     private Data data;
     private Touchable touchable;
@@ -20,10 +20,11 @@ public class SelectablePiece : MonoBehaviour
         get { return data.GetRamdonFact(DificultManager.Instance.DificultLevel); }
     }
 
-    private void Start()
+    public void SetUp(int layer)
     {
-        data = GetComponent<Data>();
-        touchable = GetComponent<Touchable>();
+        gameObject.GetComponent<Collider>().gameObject.layer = layer;
+        data = gameObject.GetComponent<Data>();
+        touchable = gameObject.GetComponent<Touchable>();
     }
   
 }

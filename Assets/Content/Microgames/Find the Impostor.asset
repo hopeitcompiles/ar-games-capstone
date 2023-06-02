@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Encuentra al impostor
   image: {fileID: 21300012, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
-  description: "Algunas piezas estar\xE1n cambiadas entre s\xED, por pares, deber\xE1s
-    identificar qu\xE9 par de piezas han cambiado posiciones en el sistema."
+  description: "Algunas piezas no corresponden al sistema anat\xF3mico, encuentra
+    cu\xE1les son las impostoras."
   models:
   - system: {fileID: 11400000, guid: 3070a41c54f79fa4795881ca6c57b3a2, type: 2}
     gameObject: {fileID: 7642258412231839618, guid: 5d13903cd33ad5b44a980305212a3993,
