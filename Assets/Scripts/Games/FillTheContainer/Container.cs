@@ -12,7 +12,7 @@ public class Container : MonoBehaviour
     {
         if (container == null)
         {
-            container = gameObject.GetComponentInChildren<bauScript>();
+            container = gameObject.GetComponentInParent<bauScript>();
         }
         active = false;
         GameManager.Instance.OnGame += SetUp;

@@ -94,7 +94,7 @@ public class ContentLister : MonoBehaviour
     }
     public void ShowPopUpPanel()
     {
-        uiPopUpPannel.DOScale(Vector3.one, 0.3f);
+        uiPopUpPannel.DOScale(Vector3.one, 0.3f).SetEase(Ease.Linear);
     }
 
 }

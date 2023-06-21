@@ -104,7 +104,17 @@ public class SelectingARGame : ARGame
         content.transform.DOScale(Vector3.zero, .3f);
         
         ResultsManager.Instance.Description=asserts+" aciertos de "+pieceList.Length+ "\nTiempo: " + time.ToString() + " segundos";
-        ResultsManager.Instance.Activate(true);
+        Result result;
+        if (asserts > pieceList.Length * 0.8)
+        {
+            result = Result.GOOD;
+        }
+        else
+        {
+            result = asserts < pieceList.Length * 0.5 ? Result.BAD : Result.OK;
+        }
+        
+        ResultsManager.Instance.Activate(true, result);
     }
     public void NextPiece()
     {

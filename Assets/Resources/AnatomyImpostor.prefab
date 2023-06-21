@@ -11,11 +11,8 @@ GameObject:
   - component: {fileID: 3790072168451591081}
   - component: {fileID: 3810610598322649413}
   - component: {fileID: 3802877637864593683}
-  - component: {fileID: 3802877637864593682}
   - component: {fileID: 7121809540731511615}
   - component: {fileID: 6241071781117317076}
-  - component: {fileID: 4732121727325669717}
-  - component: {fileID: 4830384889497148446}
   m_Layer: 0
   m_Name: Colon
   m_TagString: Untagged
@@ -89,18 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3802877637864593682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3788849939983760987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fec639e60626d144a81650a32cab00d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7121809540731511615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,30 +114,6 @@ MonoBehaviour:
   easyFacts: []
   mediumFacts: []
   hardFacts: []
---- !u!114 &4732121727325669717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3788849939983760987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44d43a0b08522e642936194bb96d4017, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4830384889497148446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3788849939983760987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51c8aa9d63c47d546a28a57c46cd2895, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3788849940900451339
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +125,6 @@ GameObject:
   - component: {fileID: 3790072170039884887}
   - component: {fileID: 3810610596190636961}
   - component: {fileID: 3802877637948821031}
-  - component: {fileID: 3802877637948821030}
   - component: {fileID: 3185834538697579271}
   - component: {fileID: 2685836171592118559}
   m_Layer: 0
@@ -239,18 +199,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3802877637948821030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3788849940900451339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fec639e60626d144a81650a32cab00d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3185834538697579271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,11 +280,8 @@ GameObject:
   - component: {fileID: 3790072169208628145}
   - component: {fileID: 3810610593938190195}
   - component: {fileID: 3802877639814011745}
-  - component: {fileID: 7959046492578520671}
   - component: {fileID: 885310730587250676}
-  - component: {fileID: 1164391891368679226}
   - component: {fileID: 2713346580641080295}
-  - component: {fileID: 1432675765705861603}
   m_Layer: 0
   m_Name: Pancreas
   m_TagString: Untagged
@@ -409,18 +354,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7959046492578520671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3788849941703367451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83c8b9678d7c75849ae807a68777c0fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &885310730587250676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,18 +389,6 @@ MonoBehaviour:
       de hormonas, incluyendo la insulina y el glucag\xF3n."
   - fact: Es fundamental para el equilibrio de la glucosa en el cuerpo y el metabolismo
       de los carbohidratos.
---- !u!114 &1164391891368679226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3788849941703367451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fec639e60626d144a81650a32cab00d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2713346580641080295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,18 +399,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0832282f2de77e944a869270d6b088e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1432675765705861603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3788849941703367451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44d43a0b08522e642936194bb96d4017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3788849942006592759
@@ -503,10 +412,8 @@ GameObject:
   - component: {fileID: 3790072169988244815}
   - component: {fileID: 3810610594876846815}
   - component: {fileID: 3802877639060566247}
-  - component: {fileID: 5422050030339989745}
   - component: {fileID: 327841012031484724}
   - component: {fileID: 7846654791028622767}
-  - component: {fileID: 1182849088663581900}
   m_Layer: 0
   m_Name: Kidney_L
   m_TagString: Untagged
@@ -579,18 +486,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5422050030339989745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3788849942006592759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83c8b9678d7c75849ae807a68777c0fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &327841012031484724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -631,18 +526,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0832282f2de77e944a869270d6b088e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1182849088663581900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3788849942006592759}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44d43a0b08522e642936194bb96d4017, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3788849942673643505
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,11 +537,8 @@ GameObject:
   - component: {fileID: 3790072170172875679}
   - component: {fileID: 3810610595229250567}
   - component: {fileID: 3802877640309025655}
-  - component: {fileID: 7815890769705336406}
   - component: {fileID: 9152225930700388873}
   - component: {fileID: 6925530746020399710}
-  - component: {fileID: 7888930438408358926}
-  - component: {fileID: 822484857265706857}
   m_Layer: 0
   m_Name: Kidney_R
   m_TagString: Untagged
@@ -731,18 +611,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7815890769705336406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3788849942673643505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83c8b9678d7c75849ae807a68777c0fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &9152225930700388873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -781,30 +649,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0832282f2de77e944a869270d6b088e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7888930438408358926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3788849942673643505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fec639e60626d144a81650a32cab00d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &822484857265706857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3788849942673643505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44d43a0b08522e642936194bb96d4017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3788849942812883545
@@ -957,12 +801,8 @@ GameObject:
   - component: {fileID: 3790072169086433233}
   - component: {fileID: 3810610595060913669}
   - component: {fileID: 3802877637990726405}
-  - component: {fileID: 468596144243652919}
   - component: {fileID: 1108929461325606334}
   - component: {fileID: 5529799044445800452}
-  - component: {fileID: 296694437580010572}
-  - component: {fileID: 6320171258082324508}
-  - component: {fileID: 7403647466161326051}
   m_Layer: 0
   m_Name: Liver
   m_TagString: Untagged
@@ -1035,18 +875,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &468596144243652919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3788849943153453461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83c8b9678d7c75849ae807a68777c0fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1108929461325606334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1091,42 +919,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0832282f2de77e944a869270d6b088e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &296694437580010572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3788849943153453461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fec639e60626d144a81650a32cab00d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6320171258082324508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3788849943153453461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44d43a0b08522e642936194bb96d4017, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7403647466161326051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3788849943153453461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51c8aa9d63c47d546a28a57c46cd2895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3788849943180021487

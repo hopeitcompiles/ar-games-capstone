@@ -13,7 +13,7 @@ public class FillTheContainerARGame : ARGame
     public override void EndGame()
     {
         ResultsManager.Instance.Description = "Este juego aún no tiene estadísticas asignadas";
-        ResultsManager.Instance.Activate(true);
+        ResultsManager.Instance.Activate(true,Result.OK);
     }
 
     public override void StartGame()

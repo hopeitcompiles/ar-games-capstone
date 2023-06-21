@@ -30,7 +30,16 @@ public class FindTheImpostorARGame : ARGame
         float time=TimerManager.Instance.StopTimer();
         ResultsManager.Instance.Title = "Resultados";
         ResultsManager.Instance.Description = "Aciertos: " + asserts.ToString()+"\nErrores: "+fails.ToString()+ "\nTiempo: "+time.ToString()+" segundos";
-        ResultsManager.Instance.Activate(true);
+        Result result;
+        if (asserts - fails > pieces.Length)
+        {
+            result = Result.GOOD;
+        }
+        else
+        {
+            result = asserts < fails ? Result.BAD : Result.OK;
+        }
+        ResultsManager.Instance.Activate(true,result);
     }
 
     public override void StartGame()

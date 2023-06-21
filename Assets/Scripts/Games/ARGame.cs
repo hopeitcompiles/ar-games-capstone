@@ -4,11 +4,32 @@ using UnityEngine;
 
 public abstract class ARGame : MonoBehaviour
 {
+    [SerializeField] int gameId;
     [SerializeField] GameObject modelPrefab;
     protected float[] timeByDificult = { 60, 45, 30 };
     protected float timeLimit;
     protected Camera _camera;
 
+    int classId;
+    public int ClassId
+    {
+        get { return classId; }
+        set { classId = value; }    
+    }
+
+    protected float Score;
+    protected float TimeElapsed;
+    protected float PercentageOfCompletion;
+    protected bool IsGameCompleted;
+    protected int SuccessCount;
+    protected int FailureCount;
+    protected string Difficulty;
+    protected string Comments;
+    
+    protected bool SendGameStats()
+    {
+        return true;
+    }
     protected virtual void Start()
     {
         if(modelPrefab == null)
@@ -37,7 +58,6 @@ public abstract class ARGame : MonoBehaviour
     }
     private void TimerManager_OnRunOutTime()
     {
-        Debug.Log("start on ARGame class");
         EndGame();
     }
 

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public event Action OnMainMenu;
     public event Action OnARPosition;
     public event Action OnGame;
+    public event Action OnProfile;
 
     public static GameManager Instance
     {
@@ -37,6 +38,11 @@ public class GameManager : MonoBehaviour
     {
         OnGame?.Invoke();
         Debug.Log("Gaming");
+    }
+    public void Profile()
+    {
+        OnProfile?.Invoke();
+        Debug.Log("Profile");
     }
 
 

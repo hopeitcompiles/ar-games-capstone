@@ -9,7 +9,6 @@ public class TimerManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI uiTimer;
     [SerializeField] private AudioClip lowTimeTicSound;
-    [SerializeField] private AudioClip timeEnded;
     public static event Action OnRunOutTime;
     private float time;
     private float timeLimit;
@@ -39,29 +38,32 @@ public class TimerManager : MonoBehaviour
         time = 0;
         this.timeLimit = limitTime;
         this.increasing = increasing;
+        uiTimer.color = Color.white;
         timerCorroutine = Timer(1);
         CancelInvoke("TimerInvoke");
         InvokeRepeating("TimerInvoke", 0, 1);
+
         // StartCoroutine(timerCorroutine);
     }
     private void TimerInvoke()
     {
         if (timeLimit >= time) { 
-            time += 1;
-            uiTimer.text = "" + ((increasing ? time : timeLimit - time) + 1);
-            if (time > timeLimit - 3)
+            uiTimer.text = "" + ((increasing ? time : timeLimit - time));
+            if (time >= timeLimit - 3)
             {
                 float intensity = time - timeLimit;
                 AudioManager.Instance.PlayOnShot(lowTimeTicSound);
                 uiTimer.color = new Color(255, 38 * (intensity), 38 * (intensity), 1);
             }
-            if (time > timeLimit)
+            if (time >= timeLimit)
             {
                 //AudioManager.Instance.PlayOnShot(timeEnded);
                 Debug.Log("End corroutine");
                 CancelInvoke("TimerInvoke");
                 OnRunOutTime?.Invoke();
             }
+            time += 1;
+
         }
     }
     IEnumerator Timer(float waitTimeseconds)
@@ -76,9 +78,8 @@ public class TimerManager : MonoBehaviour
                 AudioManager.Instance.PlayOnShot(lowTimeTicSound);
                 uiTimer.color = new Color(255, 38*(intensity), 38 * (intensity), 1);
             }
-            if (time > timeLimit)
+            if (time >= timeLimit)
             {
-                AudioManager.Instance.PlayOnShot(timeEnded);
                 Debug.Log("End corroutine");
                 StopCoroutine(timerCorroutine);
                 OnRunOutTime?.Invoke();

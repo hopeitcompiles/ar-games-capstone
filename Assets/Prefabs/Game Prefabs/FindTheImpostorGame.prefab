@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Toca las partes impostoras,  que no pertenecen al sistema digestivo
+  m_text: Toca las partes impostoras, que no pertenecen al sistema digestivo
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -401,8 +401,8 @@ MonoBehaviour:
   nextButton: {fileID: 4004212934318362317}
   cancelButton: {fileID: 670092336435553007}
   impostorsModel: {fileID: 0}
-  correctAudio: {fileID: 0}
-  failAudio: {fileID: 8300000, guid: 0e003ad67b4ed8442a29129e7fd958f5, type: 3}
+  correctAudio: {fileID: 8300000, guid: 66852431e1babd74b828f9b901e038be, type: 3}
+  failAudio: {fileID: 8300000, guid: fd38fe302db84034fad5daa4a037d679, type: 3}
 --- !u!1 &7642258412300302872
 GameObject:
   m_ObjectHideFlags: 0
