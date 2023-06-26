@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Llena el contenedor
   image: {fileID: 21300000, guid: 7d98bd0ef20fcdf4ebbca487fa2594d5, type: 3}
-  description: "Hay varias partes de distintos sistemas anat\xF3micos por el suelo, 
-    toma las adecuadas y lanzarlas al contenedor."
+  description: "Hay varias partes de distintos sistemas anat\xF3micos por el suelo,
+    toma las adecuadas y l\xE1nzalas al contenedor."
   models:
   - system: {fileID: 11400000, guid: 3070a41c54f79fa4795881ca6c57b3a2, type: 2}
     gameObject: {fileID: 7642258412231839618, guid: 879e61a282be3714db96f70829c0d03c,

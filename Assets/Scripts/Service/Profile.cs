@@ -1,6 +1,6 @@
 using DG.Tweening;
-using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,6 +31,7 @@ public class Profile : MonoBehaviour
 
     ServiceApi service;
     Models.ProfileData user;
+    List<Models.ClassData> classes;
 
     bool registering;
 
@@ -45,9 +46,18 @@ public class Profile : MonoBehaviour
     {
         get { return user; }
     }
+
+    public List<Models.ClassData> Classes
+    {
+        get { return classes; }
+        set { classes = value; }
+    }
+
     private void Awake()
     {
         instance = this; 
+
+
     }
 
     void Start()
@@ -55,7 +65,8 @@ public class Profile : MonoBehaviour
         _name.gameObject.SetActive(false);
         _lastName.gameObject.SetActive(false);
         _age.gameObject.SetActive(false);  
-        RoleSelector.instance.gameObject.SetActive(false);
+
+        //RoleSelector.instance.gameObject.SetActive(false);
         loginButton.onClick.AddListener(HandleLogin);
         registerButton.onClick.AddListener(HandleRegister);
         service = new();
@@ -65,11 +76,12 @@ public class Profile : MonoBehaviour
         Debug.Log(information);
         try
         {
-            user = JsonConvert.DeserializeObject<Models.ProfileData>(information);
+            user = JsonUtility.FromJson<Models.ProfileData>(information);
             LoggedIn.Invoke();
         }
         catch (Exception ex)
         {
+            Debug.Log("no se pudo transformar");
             user = null;
         }
         registering = false;
@@ -83,6 +95,7 @@ public class Profile : MonoBehaviour
     private void Profile_LoggedOut()
     {
         user = null;
+        classes = null;
         HideLoginForm(false);
         PlayerPrefs.DeleteKey("UserData");
         ProfileOptions.instance.HideProfileOptions();
@@ -96,7 +109,7 @@ public class Profile : MonoBehaviour
         _name.text = "";
         _lastName.text = "";
         _age.text = "";
-        string information = JsonConvert.SerializeObject(user);
+        string information = JsonUtility.ToJson(user);
         PlayerPrefs.SetString("UserData", information);
         ProfileOptions.instance.EnableProfileOptions();
         loginPanel.transform.localScale = Vector3.zero;
@@ -133,7 +146,6 @@ public class Profile : MonoBehaviour
         _lastName.transform.DOScale(scale, 0.3f);
         _age.gameObject.SetActive(!state);
         _age.transform.DOScale(scale, 0.3f);
-        RoleSelector.instance.gameObject.SetActive(!state);
         RoleSelector.instance.transform.DOScale(scale, 0.3f);
         errorText.text = "";
     }

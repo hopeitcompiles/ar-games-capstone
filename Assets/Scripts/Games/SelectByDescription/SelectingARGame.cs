@@ -1,9 +1,7 @@
 using DG.Tweening;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,14 +12,15 @@ public class SelectingARGame : ARGame
     [SerializeField] Button clearButton;
     GameObject canvas;
 
-    SelectablePiece[] pieceList;
-    string[] responses; 
-    int index;
+    List<SelectablePiece> pieceList;
+    SelectablePiece current;
+    [SerializeField]
     TextMeshProUGUI title;
+    [SerializeField]
     TextMeshProUGUI description;
     SelectablePiece selectedPiece;
     readonly int layer =6;
-
+    int pieceQuanty;
     private void Awake()
     {
         canvas=transform.GetChild(0).gameObject;
@@ -37,20 +36,17 @@ public class SelectingARGame : ARGame
     }
     protected override void Start()
     {
+        instance = this;
         base.Start();
-        pieceList = GetComponentsInChildren<SelectablePiece>();
+        pieceList = GetComponentsInChildren<SelectablePiece>().ToList();
+        pieceQuanty = pieceList.Count;
         foreach (SelectablePiece piece in pieceList)
         {
             piece.SetUp(layer);
         }
-        index = pieceList.Length - 1;
-        title = content.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-        description = content.transform.GetChild(2).GetComponent<TextMeshProUGUI>();
-        responses = new string[pieceList.Length];
-
-
         nextButton.onClick.AddListener(NextPiece);
         clearButton.onClick.AddListener(ClearSelection);
+        
     }
     public void ClearSelection()
     {
@@ -72,20 +68,20 @@ public class SelectingARGame : ARGame
 
     private void OnPauseGame()
     {
-        content.transform.DOScale(Vector3.zero, 0.3f).SetUpdate(true);
-
-    }    
+        RectTransform rectTransform = content.GetComponent<RectTransform>();
+        rectTransform.DOAnchorPos(new Vector2(0, -rectTransform.rect.height*1.5f), 0.3f).SetUpdate(true);
+    }
     private void OnResumeGame()
     {
-        content.transform.DOScale(Vector3.one, 0.3f).SetUpdate(true);
+        RectTransform rectTransform = content.GetComponent<RectTransform>();
+        rectTransform.DOAnchorPos(new Vector2(0, 588.1556f), 0.3f).SetUpdate(true);
     }
 
     
     public override void StartGame()
     {
+        LoadNextQuestion();
         Debug.Log("the game has started");
-        title.text = "Toca la parte del sistema a la cual pertenece esta descripción";
-        description.text = pieceList[index].Description;
         canvas.SetActive(true);
         content.SetActive(true);
         TimerManager.Instance.StartTimer(timeLimit, false);
@@ -93,58 +89,86 @@ public class SelectingARGame : ARGame
     public override void EndGame()
     {
         float time = TimerManager.Instance.StopTimer();
-        int asserts = 0;
-        for (int i = 0; i < pieceList.Length; i++)
-        {
-            if (pieceList[i].PieceName == responses[i])
-            {
-                asserts++;
-            }
-        }
+       
         content.transform.DOScale(Vector3.zero, .3f);
-        
-        ResultsManager.Instance.Description=asserts+" aciertos de "+pieceList.Length+ "\nTiempo: " + time.ToString() + " segundos";
+
         Result result;
-        if (asserts > pieceList.Length * 0.8)
+        if (metric.score > 7)
         {
-            result = Result.GOOD;
+            result = metric.score >= 9?Result.GOOD: Result.OK;
         }
         else
         {
-            result = asserts < pieceList.Length * 0.5 ? Result.BAD : Result.OK;
+            result = metric.score < 5 ? Result.IMCOMPLETE : Result.BAD;
         }
-        
-        ResultsManager.Instance.Activate(true, result);
+        canvas.SetActive(false);
+        metric.timeElapsed = time;
+        ResultsManager.Instance.Activate(true, result,metric);
+    }
+    private void SetDefaultTitle()
+    {
+        title.text = "¿A qué pertenece esta descripción?";
+
     }
     public void NextPiece()
     {
-        if (index == 0)
+        bool isCorrect = false;
+        if(selectedPiece!= null)
+        {
+            if (selectedPiece.PieceName == current.PieceName)
+            {
+                isCorrect = true;
+                metric.successCount++;
+                metric.score = 10*((double)metric.successCount /pieceQuanty);
+            }
+            else{
+                metric.failureCount++;
+            }
+            metric.percentageOfCompletion = 100 * ((double)(metric.successCount + metric.failureCount) / pieceQuanty);
+            if (pieceList.Count >= 1)
+            {
+                AudioManager.Instance.CorrectPlay(isCorrect);
+                if (isCorrect)
+                {
+                    Vibration.instance.Vibrate();
+                    if (DificultManager.Instance.DificultLevel != DificultLevel.EASY)
+                    {
+                        selectedPiece.gameObject.SetActive(false);
+                    }
+                }
+                LoadNextQuestion();
+                ResetTitleAndButtons(true);
+                selectedPiece.Touchable.MakeItGlow(false);
+            }
+        }
+        else
+        {
+            SetDefaultTitle();
+        }
+        if (metric.failureCount+metric.successCount == pieceQuanty)
         {
             EndGame();
             return;
         }
-        if(selectedPiece!= null)
-        {
-            responses[index] = selectedPiece.PieceName;
-            index--;
-            description.text = pieceList[index].Description;
-            ResetTitleAndButtons(true);
-            selectedPiece.gameObject.SetActive(false);
-            selectedPiece.Touchable.MakeItGlow(false);
-        }
-        else
-        {
-            title.text = "Toca la parte del sistema a la cual pertenece esta descripción";
-        }
-        
     }
-
+    private void LoadNextQuestion()
+    {
+        if(pieceList.Count <= 0)
+        {
+            return;
+        }
+        int index =pieceList.Count==1?0: Random.Range(0, pieceList.Count);
+        current = pieceList[index];
+        pieceList.RemoveAt(index);
+        description.text = current.Description;
+        SetDefaultTitle();
+    }
     public void ResetTitleAndButtons(bool state)
     {
         Vector3 scale=Vector3.one;
         if (state)
         {
-            title.text = "Toca la parte del sistema a la cual pertenece esta descripción";
+            SetDefaultTitle();
             scale = Vector3.zero;
         }
         nextButton.transform.DOScale(scale, .3f);

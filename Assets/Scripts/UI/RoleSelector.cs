@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class RoleSelector : MonoBehaviour
 {
     [SerializeField]
+    GameObject container;
+    [SerializeField]
     Button studentButton;
     [SerializeField]
     Button teacherButton;
@@ -26,7 +28,11 @@ public class RoleSelector : MonoBehaviour
 
     private void Start()
     {
-        studentCheck=studentButton.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>();
+        if(container.activeSelf)
+        {
+            container.SetActive(false);
+        }
+        studentCheck =studentButton.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>();
         teachertCheck = teacherButton.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>();
         role = Role.STUDENT;
         teacherButton.onClick.AddListener(HandleRoleChangedToTeacher);

@@ -8,6 +8,9 @@ public class Classes : MonoBehaviour
 {
     [SerializeField]
     private GameObject container;
+
+    [SerializeField]
+    private GameObject panel;
     [SerializeField]
     private ClassItem classPrefab;
     [SerializeField]
@@ -17,13 +20,20 @@ public class Classes : MonoBehaviour
     void Awake()
     {
         instance = this;
-        transform.localScale = Vector3.zero;
+        if(panel.activeSelf)
+        {
+            panel.transform.localScale = Vector3.zero;
+        }
     }
 
     public void ShowClasses(bool show)
     {
+        if(show && !panel.activeSelf)
+        {
+            panel.SetActive(show);
+        }
         Vector3 scale = show ? Vector3.one : Vector3.zero;
-        transform.DOScale(scale,0.3f).SetEase(show?Ease.InOutBounce:Ease.Linear);
+        panel.transform.DOScale(scale,0.3f).SetEase(show?Ease.InOutBounce:Ease.Linear);
     }
 
     public void InstantiateClasses(List<Models.ClassData> classes)

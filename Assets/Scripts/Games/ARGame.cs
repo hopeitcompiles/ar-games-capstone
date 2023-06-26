@@ -9,29 +9,23 @@ public abstract class ARGame : MonoBehaviour
     protected float[] timeByDificult = { 60, 45, 30 };
     protected float timeLimit;
     protected Camera _camera;
+    protected  Models.GameMetric metric;
+    
+    public static ARGame instance;
 
-    int classId;
-    public int ClassId
+    public Models.GameMetric getStats()
     {
-        get { return classId; }
-        set { classId = value; }    
+        return metric;
     }
 
-    protected float Score;
-    protected float TimeElapsed;
-    protected float PercentageOfCompletion;
-    protected bool IsGameCompleted;
-    protected int SuccessCount;
-    protected int FailureCount;
-    protected string Difficulty;
-    protected string Comments;
-    
     protected bool SendGameStats()
     {
         return true;
     }
     protected virtual void Start()
     {
+        instance = this;
+        metric=new Models.GameMetric();
         if(modelPrefab == null)
         {
             modelPrefab = (GameObject) Resources.Load("Anatomy");
@@ -42,7 +36,9 @@ public abstract class ARGame : MonoBehaviour
         timeLimit = timeByDificult[(int)DificultManager.Instance.DificultLevel];
         GameManager.Instance.OnGame += Instance_OnGame;
         GameManager.Instance.OnMainMenu += Instance_OnMainMenu;
-
+        metric.difficulty = DificultManager.Instance.DificultLevel.ToString();
+        metric.gameId = gameId;
+        metric.userId = Profile.instance.User != null ? Profile.instance.User.id : -1 ;
     }
 
     private void Instance_OnMainMenu()

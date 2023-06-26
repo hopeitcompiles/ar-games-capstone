@@ -1,7 +1,10 @@
 using DG.Tweening;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
+using UnityEngine.UI;
 
 public class FindTheImpostorARGame : ARGame
 {
@@ -10,46 +13,41 @@ public class FindTheImpostorARGame : ARGame
     [SerializeField]
     GameObject canvas;
     [SerializeField]
-    GameObject nextButton;
+    Button nextButton;
     [SerializeField]
-    GameObject cancelButton;
-    [SerializeField]
-    GameObject impostorsModel;
-    [SerializeField]
-    private AudioClip correctAudio;
-    [SerializeField]
-    private AudioClip failAudio;
-    private GameObject selectedPiece;
-    private ImpostorPiece[] pieces;
-    int asserts = 0;
-    int fails = 0;
+    Button cancelButton;
 
-    int layer=6;
+    private GameObject selectedPiece;
+    private List<ImpostorPiece> pieces;
+    int reduceMultiplier=0;
+    
     public override void EndGame()
     {
+        OnPauseGame();
         float time=TimerManager.Instance.StopTimer();
-        ResultsManager.Instance.Title = "Resultados";
-        ResultsManager.Instance.Description = "Aciertos: " + asserts.ToString()+"\nErrores: "+fails.ToString()+ "\nTiempo: "+time.ToString()+" segundos";
         Result result;
-        if (asserts - fails > pieces.Length)
+        if (metric.score > 7)
         {
-            result = Result.GOOD;
+            result = metric.score >= 9 ? Result.GOOD : Result.OK;
         }
         else
         {
-            result = asserts < fails ? Result.BAD : Result.OK;
+            result = metric.score < 5 ? Result.IMCOMPLETE : Result.BAD;
         }
-        ResultsManager.Instance.Activate(true,result);
+        metric.timeElapsed = time;
+        ResultsManager.Instance.Activate(true,result, metric);
     }
 
     public override void StartGame()
     {
+        if (DificultManager.Instance.DificultLevel != DificultLevel.EASY)
+        {
+            reduceMultiplier = DificultManager.Instance.DificultLevel == DificultLevel.MEDIUM ? 1 : 2;
+        }
         Debug.Log("game has started"); 
         TimerManager.Instance.StartTimer(timeLimit, false);
         canvas.SetActive(true);
         canvas.transform.DOScale(Vector3.one, .3f);
-        asserts = 0;
-        fails = 0;
     }
 
     // Start is called before the first frame update
@@ -66,31 +64,49 @@ public class FindTheImpostorARGame : ARGame
         base.Start();
         canvas.transform.localScale = Vector3.zero;
         canvas.SetActive(false);
-        pieces=GetComponentsInChildren<ImpostorPiece>();
+
+        pieces=GetComponentsInChildren<ImpostorPiece>().ToList();
         foreach (ImpostorPiece piece in pieces)
         {
-            piece.SetUp(layer);
+            piece.SetUp(0);
         }
+        nextButton.onClick.AddListener(NextMove);
+        cancelButton.onClick.AddListener(CancelMove);
+        PauseManager.Instance.OnPause += OnPauseGame;
+        PauseManager.Instance.OnResume += OnResumeGame;
     }
+    private void OnPauseGame()
+    {
+        RectTransform rectTransform = canvas.transform.GetChild(0).GetComponent<RectTransform>();
+        rectTransform.DOAnchorPos(new Vector2(0, -rectTransform.rect.height * 1.5f), 0.3f).SetUpdate(true);
+    }
+    private void OnResumeGame()
+    {
+        RectTransform rectTransform = canvas.transform.GetChild(0).GetComponent<RectTransform>();
+        rectTransform.DOAnchorPos(new Vector2(0, 346.2505f), 0.3f).SetUpdate(true);
+    }
+
+
     private void MakePoint(bool marked)
     {
+        Debug.Log(pieces.Count);
         if(marked)
         {
-            asserts++;
-            AudioManager.Instance.PlayOnShot(correctAudio);
+            metric.successCount++;
         }
         else
         {
-            fails++;
-            AudioManager.Instance.PlayOnShot(failAudio);
+            metric.failureCount++;
         }
+        AudioManager.Instance.CorrectPlay(marked);
+
+        metric.score = 10 * ((double)metric.successCount / pieces.Count)
+        - (reduceMultiplier > 0 ? 5*(double)reduceMultiplier*metric.failureCount/pieces.Count : 0);
+
+        metric.percentageOfCompletion= 100 * ((double)(metric.successCount) / pieces.Count);
         if (UIPoints != null)
         {
-            UIPoints.text =(asserts-fails).ToString()+ " puntos";
-        }
-        if (asserts >= pieces.Length)
-        {
-            EndGame();
+            UIPoints.text =metric.score.ToString(metric.score % 2 ==0 ? "0" : "0.00") + (metric.score==1?" punto": " puntos");
         }
     }
     public void CancelMove()
@@ -123,7 +139,7 @@ public class FindTheImpostorARGame : ARGame
         }
         FadeButtons(false);
         selectedPiece = null;
-        if (pieces.Length <= asserts)
+        if (pieces.Count <= metric.successCount)
         {
             EndGame();
         }
@@ -157,6 +173,10 @@ public class FindTheImpostorARGame : ARGame
             //if (Physics.Raycast(ray, out hit, Mathf.Infinity, layer))
             if (Physics.Raycast(ray, out hit))
             {
+                if(selectedPiece != null)
+                {
+                    selectedPiece.GetComponent<Touchable>().MakeItGlow(false);
+                }
                 selectedPiece=hit.collider.gameObject;
                 if(DificultManager.Instance.DificultLevel==DificultLevel.HARD)
                 {
@@ -166,6 +186,10 @@ public class FindTheImpostorARGame : ARGame
                 FadeButtons(true);
                 if (hit.collider.gameObject.TryGetComponent<Touchable>(out var touchable))
                 {
+                    if (touchable.gameObject.TryGetComponent<Data>(out var data))
+                    {
+                        UIPoints.text = data.PartName;
+                    }
                     touchable.MakeItGlow(true);
                 }
 

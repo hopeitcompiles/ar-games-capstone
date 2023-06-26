@@ -7,7 +7,7 @@ public class Header : MonoBehaviour
 {
     [SerializeField]
     TMP_Text username;
-    void Start()
+    void Awake()
     {
         username.text = "";
         Profile.instance.LoggedIn += Instance_LoggedIn;
@@ -22,6 +22,7 @@ public class Header : MonoBehaviour
     private void Instance_LoggedIn()
     {
         username.text = Profile.instance.User.firstname;
+        Debug.Log("Changed name");
     }
 
     // Update is called once per frame

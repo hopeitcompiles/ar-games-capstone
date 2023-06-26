@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -15,7 +16,7 @@ public class UIManager : MonoBehaviour
     private GameObject uIARGamePanel;    
     [SerializeField]
     private GameObject uIProfilePanel;
-
+    private const string CAMERA_PERMISSION = "android.permission.CAMERA";
 
     void Start()
     {
@@ -28,6 +29,9 @@ public class UIManager : MonoBehaviour
         uIARGamePanel.transform.localScale = Vector3.zero;
         uIARPlacingPanel.transform.localScale = Vector3.zero;
         uIProfilePanel.transform.localScale = Vector3.zero;
+        uIProfilePanel.SetActive(true);
+        uIARGamePanel.SetActive(true);
+        uIARPlacingPanel.SetActive(true);
     }
 
     private void Instance_OnProfile()
@@ -68,6 +72,10 @@ public class UIManager : MonoBehaviour
 
     private void Instance_OnARPosition()
     {
+        if (!Permission.HasUserAuthorizedPermission(CAMERA_PERMISSION))
+        {
+            Permission.RequestUserPermission(CAMERA_PERMISSION);
+        }
         FadeMenu(false);
         FadeARPlacing(true);
     }
@@ -108,10 +116,13 @@ public class UIManager : MonoBehaviour
     }
     private void FadeARPauseMenu(bool state)
     {
+        RectTransform button= uIARGamePanel?.transform.GetChild(0).GetComponent<RectTransform>();  
         Vector3 scale = state ? Vector3.one : Vector3.zero;
-        Vector3 scale2 = !state ? Vector3.one : Vector3.zero;
+        Vector2 scaleDOAnchor = state ? new Vector2(0, ( button.rect.height)) : new Vector2(0, -136.7f);
+
+
+        button.DOAnchorPos(scaleDOAnchor,0.3f).SetEase(Ease.InOutQuart).SetUpdate(true);
         uIARGamePanel?.transform.GetChild(1).DOScale(scale, 0.3f).SetUpdate(true);
-        uIARGamePanel?.transform.GetChild(0).DOScale(scale2, 0.3f).SetUpdate(true);
 
     }
 }

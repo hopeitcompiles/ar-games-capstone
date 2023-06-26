@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Find the Impostor
   m_EditorClassIdentifier: 
   title: Encuentra al impostor
-  image: {fileID: 21300012, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  image: {fileID: 21300000, guid: d586251183637c942a0a299e684b1744, type: 3}
   description: "Algunas piezas no corresponden al sistema anat\xF3mico, encuentra
     cu\xE1les son las impostoras."
   models:

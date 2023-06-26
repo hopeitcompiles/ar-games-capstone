@@ -10,6 +10,8 @@ using UnityEngine.UI;
 public class ProfileOptions : MonoBehaviour
 {
     [SerializeField]
+    GameObject panel;
+    [SerializeField]
     TextMeshProUGUI title;
     [SerializeField]
     TextMeshProUGUI role; 
@@ -32,10 +34,11 @@ public class ProfileOptions : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        panel.SetActive(false);
+        panel.transform.localScale = Vector3.zero;
     }
     void Start()
     {
-        transform.localScale = Vector3.zero;
         error.text = string.Empty;
         logOut.onClick.AddListener(Profile.instance.LogOut);
         codeButton.onClick.AddListener(HandleButtonClick);
@@ -43,13 +46,13 @@ public class ProfileOptions : MonoBehaviour
 
     public void HideProfileOptions()
     {
-        transform.DOScale(Vector3.zero, 0.2f);
+        panel.transform.DOScale(Vector3.zero, 0.2f);
     }
     public void EnableProfileOptions()
     {
         
         title.text = Profile.instance.User.getNames();
-        _role = Profile.instance.User.role;
+        _role = (Role)Enum.Parse(typeof(Role), Profile.instance.User.role);
         TextMeshProUGUI classText=codeButton.GetComponentInChildren<TextMeshProUGUI>();
         switch (_role)
         {
@@ -77,7 +80,11 @@ public class ProfileOptions : MonoBehaviour
                     break;
             }
         }
-        transform.DOScale(Vector3.one, 0.3f).SetUpdate(true);
+        if (!panel.activeSelf)
+        {
+            panel.gameObject.SetActive(true);
+        }
+        panel.transform.DOScale(Vector3.one, 0.3f).SetUpdate(true);
     }
 
     private void ShowClases()
@@ -91,6 +98,7 @@ public class ProfileOptions : MonoBehaviour
         Models.ApiResponse<List<Models.ClassData>> response=await serive.GetClassesByUSerId(Profile.instance.User.id.ToString(), false);
         if(response.code == 200)
         {
+            Profile.instance.Classes=response.data;
             Classes.instance.InstantiateClasses(response.data);
         }
     }

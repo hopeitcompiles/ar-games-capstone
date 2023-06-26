@@ -58,7 +58,6 @@ public class TimerManager : MonoBehaviour
             if (time >= timeLimit)
             {
                 //AudioManager.Instance.PlayOnShot(timeEnded);
-                Debug.Log("End corroutine");
                 CancelInvoke("TimerInvoke");
                 OnRunOutTime?.Invoke();
             }

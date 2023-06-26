@@ -1,38 +1,62 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using UnityEngine;
 
 public class Models
 {
+    [Serializable]
     public class ApiResponse<T>
     {
-        public int code { get; set; }
-        public string message { get; set; }
-        public T data { get; set; }
-        public string codeText { get; set; }
+        public int code;
+        public string message;
+        public T data;
+        public string codeText;
     }
-    public class ProfileData 
+
+    [Serializable]
+    public class ProfileData
     {
-        public int id { get; set; }
-        public string firstname { get; set; }
-        public string lastname { get; set; }
-        public int age { get; set; }
-        public string email { get; set; }
-        public Role role { get; set; }
-        public string status { get; set; }
-        public string token { get; set; }
-        public DateTime createDate { get; set; }
+        public int id;
+        public string firstname;
+        public string lastname;
+        public int age;
+        public string email;
+        public string role;
+        public string status;
+        public string token;
+        public DateTime createDate;
         public string getNames()
         {
             return firstname + " " + lastname;
         }
     }
+
+    [Serializable]
     public class ClassData
     {
-        public int id { get; set; }
-        public string className { get; set; }
-        public string grade { get; set; }
-        public string code { get; set; }
+        public int id;
+        public string className;
+        public string grade;
+        public string code;
     }
+
+    [Serializable]
+    public class GameMetric
+    {
+        public int id;
+        public int gameId;
+        public int userId;
+        public int classId = 0;
+        public double score = 0;
+        public double timeElapsed = 0;
+        public bool isGameCompleted = false;
+        public double percentageOfCompletion = 0;
+        public int successCount = 0;
+        public int failureCount = 0;
+        public string difficulty = "";
+        public string comments = "";
+    }
+
 }

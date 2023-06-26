@@ -14,7 +14,7 @@ public class ImpostorPiece : MonoBehaviour, IPiece
 
     public void SetUp(int layer)
     {
-        gameObject.GetComponent<MeshCollider>().gameObject.layer = layer;
+        //gameObject.GetComponent<MeshCollider>().gameObject.layer = layer;
         touchable = gameObject.GetComponent<Touchable>();
     }
 }

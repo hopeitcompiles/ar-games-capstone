@@ -80,7 +80,7 @@ public class ContentLister : MonoBehaviour
             newItem.Image = obj.system.image;
             newItem.Model = obj.gameObject;
         }
-        popUpText.text = description+"\nEscoge el sistema para jugar";
+        popUpText.text = description;
     }
 
 

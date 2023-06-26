@@ -1,19 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public enum Result
 {
-    GOOD,OK,BAD
+    GOOD,OK,BAD, IMCOMPLETE
 }
 public class ResultsManager : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI title;
+    private Results results;
     [SerializeField]
-    private TextMeshProUGUI description;
+    private Sprite goldMedal;
+    [SerializeField]
+    private Sprite silverMedal;
+    [SerializeField]
+    private Sprite bronzeMedal;
+    [SerializeField]
+    private Sprite failMedal;
+    
     [SerializeField]
     private AudioClip audioOk;    
     [SerializeField]
@@ -21,66 +27,89 @@ public class ResultsManager : MonoBehaviour
     [SerializeField]
     private AudioClip audioBad;
 
-    private Transform parent;
+    [SerializeField]
+    TMP_InputField comments;
+    [SerializeField]
+    Button sendStatsButton;
+    [SerializeField]
+    TextMeshProUGUI error;
+    Models.GameMetric metrics;
+
 
     private static ResultsManager instance;
     public static ResultsManager Instance
     {
         get { return instance; }
     }
+  
     void Awake()
     {
         instance = this;
-        parent = title.gameObject.transform.parent.parent.parent;
-        parent.localScale = Vector3.zero;
         GameManager.Instance.OnMainMenu += Reset;
         GameManager.Instance.OnARPosition += Reset;
-
+        results.transform.localScale=Vector3.zero;
+        sendStatsButton.onClick.AddListener(SendMetrics);
     }
 
     private void Reset()
     {
-        title.text = "Resultados";
-        description.text = "";
-        parent.localScale = Vector3.zero;
+        results.Stats = null;
+        results.transform.localScale = Vector3.zero;
     }
 
-    public string Title
+    public void Activate(bool state, Result result, Models.GameMetric metric)
     {
-        set { title.text = value; }
-    }
-
-    public string Description
-    {
-        set { description.text = value; }
-    }
-
-    public void Activate(bool state, Result result)
-    {
+        Models.ProfileData user = Profile.instance.User;
+        if (user == null || user.role!=Role.STUDENT.ToString())
+        {
+            comments.gameObject.SetActive(false);
+            sendStatsButton.gameObject.SetActive(false);
+            error.text = "Inicia sesión y únete a una clase para enviar tus stats a tu docente";
+        }
+        else
+        {
+            comments.gameObject.SetActive(true);
+            sendStatsButton.gameObject.SetActive(true);
+            sendStatsButton.interactable = true;
+        }
+        metrics=metric;
         Vector3 scale = state ? Vector3.one : Vector3.zero;
-        parent.DOScale(scale, 0.3f).SetUpdate(true);
+        results.gameObject.SetActive(state);
+        results.transform.DOScale(scale, 0.3f).SetUpdate(true);
         if(!state)
         {
             return;
         }
-        if(result==Result.GOOD && audioGood != null)
+        results.Stats = metric;
+        if (result==Result.GOOD && audioGood != null)
         {
             AudioManager.Instance.PlayOnShot(audioGood);
+            results.Medal = silverMedal;
             return;
         }
         if (result == Result.BAD && audioBad != null)
         {
             AudioManager.Instance.PlayOnShot(audioBad);
+            results.Medal = bronzeMedal;
             return;
         }
-
+        if (result == Result.IMCOMPLETE && audioBad != null)
+        {
+            AudioManager.Instance.PlayOnShot(audioBad);
+            results.Medal = failMedal;
+            return;
+        }
         if (audioOk!=null)
         {
             AudioManager.Instance.PlayOnShot(audioOk);
+            results.Medal = goldMedal;
         }
     }
-    public void Close()
+    public async void SendMetrics()
     {
-        GameManager.Instance.MainMenu();
+        sendStatsButton.interactable = false;
+        metrics.comments = comments.text;
+        string value=await GameStatsSender.instance.SendStats(metrics);
+        error.text= value;
     }
 }

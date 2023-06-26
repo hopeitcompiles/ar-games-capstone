@@ -1017,6 +1017,7 @@ GameObject:
   - component: {fileID: 5308034553148002868}
   - component: {fileID: 6495792521676357438}
   - component: {fileID: 5223833289074764972}
+  - component: {fileID: 8704826750564974365}
   m_Layer: 0
   m_Name: Lungs
   m_TagString: Untagged
@@ -1130,6 +1131,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300040, guid: 3309fb09b54f95049b3510ab076f0a14, type: 3}
+--- !u!114 &8704826750564974365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6645566507517242161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abde4c53a2bb1794092b31e02da6fce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partName: Pulmones
+  easyFacts: []
+  mediumFacts: []
+  hardFacts: []
 --- !u!1 &6645566508603503871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,6 +1160,7 @@ GameObject:
   - component: {fileID: 6659680793378490037}
   - component: {fileID: 2115679050815769871}
   - component: {fileID: 474907499547222909}
+  - component: {fileID: 2720893546847397446}
   m_Layer: 0
   m_Name: Windpipe
   m_TagString: Untagged
@@ -1239,6 +1257,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83c8b9678d7c75849ae807a68777c0fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2720893546847397446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6645566508603503871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abde4c53a2bb1794092b31e02da6fce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partName: "Tr\xE1quea"
+  easyFacts: []
+  mediumFacts: []
+  hardFacts: []
 --- !u!1 &6645566508938238405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1252,6 +1286,7 @@ GameObject:
   - component: {fileID: 6659680791736106651}
   - component: {fileID: 6866167616789847469}
   - component: {fileID: 4789902941087144241}
+  - component: {fileID: 2380673817433452650}
   m_Layer: 0
   m_Name: Diaphragm
   m_TagString: Untagged
@@ -1348,3 +1383,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83c8b9678d7c75849ae807a68777c0fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2380673817433452650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6645566508938238405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abde4c53a2bb1794092b31e02da6fce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  partName: 'Diafragma '
+  easyFacts: []
+  mediumFacts: []
+  hardFacts: []

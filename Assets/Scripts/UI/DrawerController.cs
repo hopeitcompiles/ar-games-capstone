@@ -13,7 +13,8 @@ public class DrawerController : MonoBehaviour
     void Awake()
     {
         instance = this;
-        
+        drawerPanel.transform.localScale = Vector3.zero;
+        drawerPanel.SetActive(true);
         CloseDrawer();
     }
     public void ShowDrawer()

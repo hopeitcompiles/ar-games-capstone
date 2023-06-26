@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PauseManager : MonoBehaviour
@@ -8,7 +9,15 @@ public class PauseManager : MonoBehaviour
     public event Action OnPause;
     public event Action OnResume;
     private bool isPaused;
-    private static PauseManager instance;
+
+    [SerializeField]
+    private TextMeshProUGUI score;
+    [SerializeField]
+    private TextMeshProUGUI percentage;
+    [SerializeField]
+    private TextMeshProUGUI asserts;
+    [SerializeField]
+    private TextMeshProUGUI fails;
 
     public static PauseManager Instance
     {
@@ -27,6 +36,12 @@ public class PauseManager : MonoBehaviour
     
     public void PauseGame()
     {
+        Models.GameMetric stats= ARGame.instance.getStats();
+        score.text = stats.score.ToString(stats.score % 1 == 0 ? "0" : "0.00") + (stats.score == 1 ? " punto" : " puntos");
+        percentage.text = stats.percentageOfCompletion.ToString(stats.percentageOfCompletion % 1 == 0 ? "0" : "0.00") + "% completado";
+        asserts.text = stats.successCount.ToString("0") + (stats.successCount == 1 ? " acierto" : " aciertos");
+        fails.text = stats.failureCount.ToString("0") + (stats.failureCount==1? " error":" errores");
+
         isPaused = true;
         Time.timeScale = 0;
         OnPause?.Invoke();
