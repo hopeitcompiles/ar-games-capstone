@@ -17,6 +17,7 @@ public class SplashScreen : MonoBehaviour
 
     private IEnumerator LoadMainScene()
     {
+        yield return new WaitForSeconds(0.01f);
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(mainSceneName); // Carga de forma asíncrona la escena principal
         asyncLoad.allowSceneActivation = false; // Evita que la escena se active automáticamente
 
