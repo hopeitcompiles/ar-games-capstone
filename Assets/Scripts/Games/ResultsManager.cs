@@ -62,13 +62,21 @@ public class ResultsManager : MonoBehaviour
         Models.ProfileData user = Profile.instance.User;
         if (user == null || user.role!=Role.STUDENT.ToString())
         {
-            comments.gameObject.SetActive(false);
+            comments.transform.parent.gameObject.SetActive(false);
             sendStatsButton.gameObject.SetActive(false);
-            error.text = "Inicia sesión y únete a una clase para enviar tus stats a tu docente";
+            if (user == null)
+            {
+                error.text = "Inicia sesión y únete a una clase para enviar tus resultados a tu docente";
+            }
+            else
+            {
+                error.text = user.role == Role.TEACHER.ToString() ? "Envía tus resultados a tu docente... Espera, tú eres el docente." 
+                    : "Administradores no pueden enviar sus estadísticas";
+            }
         }
         else
         {
-            comments.gameObject.SetActive(true);
+            comments.transform.parent.gameObject.SetActive(true);
             sendStatsButton.gameObject.SetActive(true);
             sendStatsButton.interactable = true;
         }

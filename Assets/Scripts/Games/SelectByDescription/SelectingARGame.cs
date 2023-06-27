@@ -36,6 +36,7 @@ public class SelectingARGame : ARGame
     }
     protected override void Start()
     {
+        timeByDificult[2] = 3;
         instance = this;
         base.Start();
         pieceList = GetComponentsInChildren<SelectablePiece>().ToList();
