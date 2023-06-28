@@ -21,22 +21,13 @@ public class ContainerPiece : MonoBehaviour, IPiece
     }
     public void SetUp(int layer)
     {
-        gameObject.GetComponent<MeshCollider>().gameObject.layer = layer;
+        //gameObject.GetComponent<MeshCollider>().gameObject.layer = layer;
         GameManager.Instance.OnMainMenu += Instance_OnMainMenu;
         rb = gameObject.AddComponent<Rigidbody>();
-        gameObject.AddComponent<SphereCollider>();
-        LeanDragTranslate leanDrag = gameObject.AddComponent<LeanDragTranslate>();
-        leanDrag.Camera = FindAnyObjectByType<Camera>();
+        rb.isKinematic= true;
+        rb.useGravity= true;
+        GetComponent<MeshCollider>().convex = true; 
+        GetComponent<MeshCollider>().isTrigger = true;
+        gameObject.AddComponent<ObjectManipulator>();
     }
-
-    public void MakeItDrop(bool state)
-    {
-        if (rb != null)
-        {
-            rb.freezeRotation = true;
-            rb.isKinematic = true;
-            rb.useGravity = true;
-        }
-    }
-
 }

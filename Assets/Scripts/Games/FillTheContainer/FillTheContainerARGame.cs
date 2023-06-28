@@ -13,19 +13,18 @@ public class FillTheContainerARGame : ARGame
     public override void EndGame()
     {
         ResultsManager.Instance.Activate(true,Result.OK,metric);
+        GameManager.Instance.ActivateManomotion(false);
+
     }
 
     public override void StartGame()
     {
-        foreach (ContainerPiece piece in pieces)
-        {
-            piece.MakeItDrop(false);
-        }
         TimerManager.Instance.StartTimer(timeLimit, false);
     }
 
     protected override void Start()
     {
+        GameManager.Instance.ActivateManomotion(true);
         base.Start();
         ContainerPiece[] _pieces = new ContainerPiece[0];
         foreach (GameObject item in systems)
@@ -40,16 +39,20 @@ public class FillTheContainerARGame : ARGame
         {
             piece.SetUp(layer);
             piece.IsCorrect = true;
-            piece.MakeItDrop(true);
             var pi = Instantiate(piece, transform.position + offset, transform.rotation);
             pi.transform.localScale *= 5f;
             pi.gameObject.SetActive(true);
             temp.Add(pi);
         }
         pieces=_pieces.ToArray();
+        
     }
     private void OnDisable()
     {
+        if (pieces == null)
+        {
+            return;
+        }
         foreach(ContainerPiece piece in pieces)
         {
             piece.gameObject.SetActive(false);

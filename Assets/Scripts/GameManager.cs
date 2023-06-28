@@ -5,6 +5,8 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject manomotion;
     public event Action OnMainMenu;
     public event Action OnARPosition;
     public event Action OnGame;
@@ -50,5 +52,10 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Close App");
         Application.Quit();
+    }
+
+    public void ActivateManomotion(bool state)
+    {
+        manomotion.SetActive(state);
     }
 }
