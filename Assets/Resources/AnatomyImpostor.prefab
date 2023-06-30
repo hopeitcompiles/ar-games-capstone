@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6241071781117317076}
   m_Layer: 0
   m_Name: Colon
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 2685836171592118559}
   m_Layer: 0
   m_Name: Digestive
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 3790072170243206699}
   m_Layer: 0
   m_Name: AnatomyImpostor
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 2713346580641080295}
   m_Layer: 0
   m_Name: Pancreas
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 7846654791028622767}
   m_Layer: 0
   m_Name: Kidney_L
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -541,7 +541,7 @@ GameObject:
   - component: {fileID: 6925530746020399710}
   m_Layer: 0
   m_Name: Kidney_R
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -667,7 +667,7 @@ GameObject:
   - component: {fileID: 9070020153329421276}
   m_Layer: 0
   m_Name: Appendix
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -805,7 +805,7 @@ GameObject:
   - component: {fileID: 5529799044445800452}
   m_Layer: 0
   m_Name: Liver
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -934,7 +934,7 @@ GameObject:
   - component: {fileID: 3802877637315420327}
   m_Layer: 2
   m_Name: Man
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1020,7 +1020,7 @@ GameObject:
   - component: {fileID: 8704826750564974365}
   m_Layer: 0
   m_Name: Lungs
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1163,7 +1163,7 @@ GameObject:
   - component: {fileID: 2720893546847397446}
   m_Layer: 0
   m_Name: Windpipe
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1289,7 +1289,7 @@ GameObject:
   - component: {fileID: 2380673817433452650}
   m_Layer: 0
   m_Name: Diaphragm
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

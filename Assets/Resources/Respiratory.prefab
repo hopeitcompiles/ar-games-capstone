@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23000012712374928}
   m_Layer: 0
   m_Name: Man
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 2743140229587604329}
   m_Layer: 0
   m_Name: Lungs
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 2316510603388687656}
   m_Layer: 0
   m_Name: Windpipe
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 7037867255510174613}
   m_Layer: 0
   m_Name: Diaphragm
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 4091134186752229747}
   m_Layer: 0
   m_Name: Larynx
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -532,7 +532,7 @@ GameObject:
   - component: {fileID: 4000011187409392}
   m_Layer: 0
   m_Name: Respiratory
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -10,9 +10,13 @@ public abstract class ARGame : MonoBehaviour
     protected float timeLimit;
     protected Camera _camera;
     protected  Models.GameMetric metric;
-    
+    protected bool hasStarted;
     public static ARGame instance;
 
+    protected GameObject Model
+    {
+        get { return modelPrefab; }
+    }
     public Models.GameMetric getStats()
     {
         return metric;
@@ -39,6 +43,7 @@ public abstract class ARGame : MonoBehaviour
         metric.difficulty = DificultManager.Instance.DificultLevel.ToString();
         metric.gameId = gameId;
         metric.userId = Profile.instance.User != null ? Profile.instance.User.id : -1 ;
+        hasStarted = false;
     }
 
     private void Instance_OnMainMenu()

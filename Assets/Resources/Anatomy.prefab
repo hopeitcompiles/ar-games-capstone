@@ -12,14 +12,14 @@ GameObject:
   - component: {fileID: 3810610598322649413}
   - component: {fileID: 3802877637864593683}
   - component: {fileID: 3802877637864593682}
-  - component: {fileID: 2582293399170543162}
   - component: {fileID: 7121809540731511615}
   - component: {fileID: 6241071781117317076}
   - component: {fileID: 4732121727325669717}
   - component: {fileID: 4830384889497148446}
+  - component: {fileID: 3847276548721901049}
   m_Layer: 0
   m_Name: Colon
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,18 +102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fec639e60626d144a81650a32cab00d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2582293399170543162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3788849939983760987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83c8b9678d7c75849ae807a68777c0fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7121809540731511615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +161,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c8aa9d63c47d546a28a57c46cd2895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3847276548721901049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3788849939983760987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c8aa9d63c47d546a28a57c46cd2895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3788849940900451339
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,9 +187,10 @@ GameObject:
   - component: {fileID: 3802877637948821030}
   - component: {fileID: 3185834538697579271}
   - component: {fileID: 2685836171592118559}
+  - component: {fileID: 2601222674695402834}
   m_Layer: 0
   m_Name: Digestive
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -302,6 +303,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0832282f2de77e944a869270d6b088e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2601222674695402834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3788849940900451339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c8aa9d63c47d546a28a57c46cd2895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3788849941361037125
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,7 +326,7 @@ GameObject:
   - component: {fileID: 3790072170243206699}
   m_Layer: 0
   m_Name: Anatomy
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -358,9 +371,10 @@ GameObject:
   - component: {fileID: 1164391891368679226}
   - component: {fileID: 2713346580641080295}
   - component: {fileID: 1432675765705861603}
+  - component: {fileID: 674041065839975833}
   m_Layer: 0
   m_Name: Pancreas
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -513,6 +527,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d43a0b08522e642936194bb96d4017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &674041065839975833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3788849941703367451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c8aa9d63c47d546a28a57c46cd2895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3788849942006592759
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,9 +554,11 @@ GameObject:
   - component: {fileID: 327841012031484724}
   - component: {fileID: 7846654791028622767}
   - component: {fileID: 1182849088663581900}
+  - component: {fileID: 2767240826989296092}
+  - component: {fileID: 2271170481249231753}
   m_Layer: 0
   m_Name: Kidney_L
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -664,6 +692,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d43a0b08522e642936194bb96d4017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2767240826989296092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3788849942006592759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fec639e60626d144a81650a32cab00d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2271170481249231753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3788849942006592759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c8aa9d63c47d546a28a57c46cd2895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3788849942673643505
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,9 +732,10 @@ GameObject:
   - component: {fileID: 6925530746020399710}
   - component: {fileID: 7888930438408358926}
   - component: {fileID: 822484857265706857}
+  - component: {fileID: 376005733389921551}
   m_Layer: 0
   m_Name: Kidney_R
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -828,6 +881,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d43a0b08522e642936194bb96d4017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &376005733389921551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3788849942673643505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c8aa9d63c47d546a28a57c46cd2895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3788849942812883545
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,7 +909,7 @@ GameObject:
   - component: {fileID: 9070020153329421276}
   m_Layer: 0
   m_Name: Appendix
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -984,9 +1049,10 @@ GameObject:
   - component: {fileID: 296694437580010572}
   - component: {fileID: 6320171258082324508}
   - component: {fileID: 7403647466161326051}
+  - component: {fileID: 1290166970833252015}
   m_Layer: 0
   m_Name: Liver
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1150,6 +1216,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c8aa9d63c47d546a28a57c46cd2895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1290166970833252015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3788849943153453461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c8aa9d63c47d546a28a57c46cd2895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3788849943180021487
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,7 +1241,7 @@ GameObject:
   - component: {fileID: 3802877637315420327}
   m_Layer: 2
   m_Name: Man
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1247,7 +1325,7 @@ GameObject:
   - component: {fileID: 1785317436033736720}
   m_Layer: 0
   m_Name: Base
-  m_TagString: Untagged
+  m_TagString: ar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

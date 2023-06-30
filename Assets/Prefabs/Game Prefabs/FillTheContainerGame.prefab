@@ -257,11 +257,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 815e3831003cdca488760f77f8fbbd7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameId: 0
   modelPrefab: {fileID: 5851040435389705218, guid: 07d730a820b6a0a40937a7a1c596cb28,
     type: 3}
-  systems:
-  - {fileID: 3788849941361037125, guid: dc0fc5b3550b5cc429a395880a533b41, type: 3}
-  - {fileID: 1000014224275718, guid: c31403e230e97c84aa0c3fbbaa3ca75a, type: 3}
+  correctSystem: {fileID: 3788849941361037125, guid: dc0fc5b3550b5cc429a395880a533b41,
+    type: 3}
+  wrongSystem: {fileID: 3788849941361037125, guid: 0b0a40841055ec14b8a7b9cc6ba61037,
+    type: 3}
   correctModel: 0
 --- !u!1 &7642258412300302872
 GameObject:

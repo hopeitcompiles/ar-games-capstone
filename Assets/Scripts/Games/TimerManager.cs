@@ -14,7 +14,7 @@ public class TimerManager : MonoBehaviour
     private float timeLimit;
     private bool increasing;
     private float timeStamp;
-
+    private float lowTime;
 
     private IEnumerator timerCorroutine;
     private static TimerManager instance;
@@ -44,6 +44,7 @@ public class TimerManager : MonoBehaviour
     public void StartTimer(float limitTime, bool increasing)
     {
         time = 0;
+        lowTime = 3;
         this.timeLimit = limitTime;
         this.increasing = increasing;
         uiTimer.color = Color.white;
@@ -57,8 +58,9 @@ public class TimerManager : MonoBehaviour
     {
         if (timeLimit >= time) { 
             uiTimer.text = ((increasing ? time : timeLimit - time)).ToString("0");
-            if (time >= timeLimit - 3)
+            if (time > timeLimit - lowTime)
             {
+                lowTime -= 1;
                 float intensity = time - timeLimit;
                 AudioManager.Instance.PlayOnShot(lowTimeTicSound);
                 uiTimer.color = new Color(255, 38 * (intensity), 38 * (intensity), 1);
