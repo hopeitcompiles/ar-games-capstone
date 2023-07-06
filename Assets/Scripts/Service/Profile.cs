@@ -65,8 +65,6 @@ public class Profile : MonoBehaviour
         _name.gameObject.SetActive(false);
         _lastName.gameObject.SetActive(false);
         _age.gameObject.SetActive(false);  
-
-        //RoleSelector.instance.gameObject.SetActive(false);
         loginButton.onClick.AddListener(HandleLogin);
         registerButton.onClick.AddListener(HandleRegister);
         service = new();
@@ -146,6 +144,7 @@ public class Profile : MonoBehaviour
         _lastName.transform.DOScale(scale, 0.3f);
         _age.gameObject.SetActive(!state);
         _age.transform.DOScale(scale, 0.3f);
+        RoleSelector.instance.HideRoleSelector(!state);
         RoleSelector.instance.transform.DOScale(scale, 0.3f);
         errorText.text = "";
     }

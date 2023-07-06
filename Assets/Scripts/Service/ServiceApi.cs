@@ -14,7 +14,7 @@ public class ServiceApi : MonoBehaviour
 
     public ServiceApi()
     {
-        _baseUrl = "https://arappbackend.azurewebsites.net/";
+        _baseUrl = "https://arappbackend.onrender.com";
     }
 
     public async Task<Models.ApiResponse<Models.ProfileData>> LoginRequest(string username, string password)

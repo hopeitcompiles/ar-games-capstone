@@ -1,6 +1,4 @@
 using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,12 +24,13 @@ public class RoleSelector : MonoBehaviour
         instance = this;
     }
 
+    public void HideRoleSelector(bool state)
+    {
+        container.SetActive(state);
+    }
     private void Start()
     {
-        if(container.activeSelf)
-        {
-            container.SetActive(false);
-        }
+        container.SetActive(false);
         studentCheck =studentButton.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>();
         teachertCheck = teacherButton.transform.GetChild(0).GetChild(0).gameObject.GetComponent<Image>();
         role = Role.STUDENT;
