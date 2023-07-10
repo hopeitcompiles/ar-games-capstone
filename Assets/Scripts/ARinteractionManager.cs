@@ -20,6 +20,19 @@ public class ARinteractionManager : MonoBehaviour
     bool isPlacing;
     public static ARinteractionManager Instance;
     public Camera Camera { get { return arCamera; } }
+
+    private Vector2 modelInitialPosition;
+    private IPiece selectedPiece;
+    private bool isSelected;
+
+    private float screenFactor = 0.001f;
+    private float speedMovement = 2f;
+    private bool isAxisX;
+    public bool IsAxisX
+    {
+        get { return isAxisX; }
+        set { isAxisX = value; }
+    }
     public GameObject ItemModel
     {
         set
@@ -153,6 +166,68 @@ public class ARinteractionManager : MonoBehaviour
         if(Physics.Raycast(ray,out  RaycastHit hit))
         {
             if (hit.collider.CompareTag("ar")){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public IPiece Manage3DModelDrag<T>()
+    {
+        if (Input.touchCount ==0)
+        {
+            return null;
+        }
+        Touch touch = Input.GetTouch(0);
+        if (Input.touchCount == 1)
+        {
+            switch (touch.phase)
+            {
+                case TouchPhase.Began:
+                    {
+                        modelInitialPosition = touch.position;
+
+                        isSelected = CheckTouchOnARObject<T>(modelInitialPosition);
+                        break;
+                    }
+                case TouchPhase.Moved:
+                    {
+                        if (isSelected)
+                        {
+                            float multiplier = Configuration.instance.DragSpeed;
+                            Vector2 diffPosition = (touch.position - modelInitialPosition) * screenFactor;
+                            selectedPiece.Transform().position = selectedPiece.Transform().position +
+                                new Vector3(diffPosition.x * speedMovement * multiplier*(isAxisX?0:1), 
+                                diffPosition.y * speedMovement * multiplier, 
+                                diffPosition.x * speedMovement * multiplier*(isAxisX?1:0));
+                            modelInitialPosition = touch.position;
+                        }
+                        break;
+                    }
+                case TouchPhase.Ended:
+                    {
+                        if (selectedPiece != null)
+                        {
+                            selectedPiece.GameObject().GetComponent<Touchable>().MakeItGlow(false);
+                            selectedPiece = null;
+                        }
+                        isSelected= false;
+                        break;
+                    }
+            }
+        }
+        return selectedPiece;
+    }
+
+    private bool CheckTouchOnARObject<T>(Vector2 position)
+    {
+        Ray ray = arCamera.ScreenPointToRay(position);
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            if (hit.collider.CompareTag(Dragable.dragTag))
+            {
+                selectedPiece = (IPiece)hit.transform.gameObject.GetComponent<T>();
+                selectedPiece.GameObject().GetComponent<Touchable>().MakeItGlow(true);
                 return true;
             }
         }

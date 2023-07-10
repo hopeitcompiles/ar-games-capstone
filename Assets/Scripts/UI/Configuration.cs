@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,9 +9,13 @@ using UnityEngine.UI;
 public class Configuration : MonoBehaviour
 {
     [SerializeField]
-    GameObject panel;
-    Slider volume;
-
+    GameObject panel; 
+    [SerializeField]
+    Slider volume; 
+    [SerializeField]
+    Slider drag;
+    [SerializeField]
+    TextMeshProUGUI dragText;
     [SerializeField]
     Image uiDisabledMusic;
     bool disabledMusic;
@@ -23,42 +28,71 @@ public class Configuration : MonoBehaviour
     Image uiDisabledVibration;
     bool disabledVibration;
 
+    private float dragSpeed = 0f;
+    public static Configuration instance;
+    private int[] fpsSteps = { 30, 60,90,100,120,144};
+    public float DragSpeed
+    {
+        get { return dragSpeed; }
+    }
+    
     void Awake()
     {
+        instance = this;
         panel.SetActive(false);
         panel.transform.localScale = Vector3.zero;
         volume=panel.GetComponentInChildren<Slider>();
         volume.onValueChanged.AddListener(ChangeVolume);
+        drag.onValueChanged.AddListener(ChangeDrag);
         disabledMusic = true;
         disabledEffects = true;
         disabledVibration = true;
     }
+
+    private void ChangeDrag(float speed)
+    {
+        dragSpeed = speed;
+        dragText.text = "Sensibilidad "+(dragSpeed*100).ToString("0")+"%";
+    }
+
     private void Start()
     {
         string _volume = PlayerPrefs.GetString("volume");
-        if (_volume != null)
+        if (_volume != null && _volume != "")
         {
             volume.value = float.Parse(_volume);
         }
-        else
-        {
-            volume.value = 1;
-        }
+        
         string _disabledMusic = PlayerPrefs.GetString("music");
         if (_disabledMusic != null && _disabledMusic != "")
         {
             disabledMusic = !bool.Parse(_disabledMusic);
         }
+        
         string _disabledEffects = PlayerPrefs.GetString("effects");
         if (_disabledEffects != null && _disabledEffects != "")
         {
             disabledEffects = !bool.Parse(_disabledEffects);
         }
+
         string _disabledVibration = PlayerPrefs.GetString("vibration");
         if (_disabledVibration != null && _disabledVibration!="")
         {
             disabledVibration = !bool.Parse(_disabledVibration);
         }
+
+      
+        string _drag = PlayerPrefs.GetString("drag");
+        if (_drag != null && _drag != "")
+        {
+            dragSpeed = float.Parse(_drag);
+        }
+        else
+        {
+            dragSpeed = 1f;
+        }
+        drag.value = dragSpeed;
+        ChangeDrag(dragSpeed);
         DisabledMusic();
         DisabledEffects();
         DisabledVibration();
@@ -104,6 +138,7 @@ public class Configuration : MonoBehaviour
     private void OnDisable()
     {
         PlayerPrefs.SetString("volume",volume.value.ToString());
+        PlayerPrefs.SetString("drag",drag.value.ToString());
         PlayerPrefs.SetString("music",disabledMusic.ToString());
         PlayerPrefs.SetString("effects",disabledMusic.ToString());
     }
@@ -115,5 +150,11 @@ public class Configuration : MonoBehaviour
             panel.SetActive(true);
         }
         panel.transform.DOScale(state ? Vector3.one : Vector3.zero, 0.3f).SetUpdate(true);
+    }
+
+    public void ChangeFPSLimit(float value)
+    {
+        //fpsText.text ="Límite " +fpsSteps[(int)value]+" FPS";
+        LimitFPS.instance.TargetFrameRate(fpsSteps[(int)value]);
     }
 }

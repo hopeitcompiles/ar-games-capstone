@@ -1,4 +1,3 @@
-using Lean.Touch;
 using UnityEngine;
 
 [RequireComponent(typeof(Touchable))]
@@ -7,7 +6,6 @@ public class PuzzlePiece : MonoBehaviour, IPiece
 {
     Rigidbody rb;
     Touchable touchable;
-    LeanDragTranslate lean;
     public Touchable Touchable
     {
         get { return touchable; }
@@ -29,15 +27,16 @@ public class PuzzlePiece : MonoBehaviour, IPiece
 
     public void SetUp(int layer)
     {
-        gameObject.GetComponent<MeshCollider>().gameObject.layer = layer;
-        touchable = gameObject.GetComponent<Touchable>();
-        if (lean == null)
-        {
-            if (!gameObject.TryGetComponent(out lean))
-            {
-                lean = gameObject.AddComponent<LeanDragTranslate>();
-            }
-            lean.Camera = FindAnyObjectByType<Camera>();
-        }
+        
+    }
+
+    public GameObject GameObject()
+    {
+        return gameObject;
+    }
+
+    public Transform Transform()
+    {
+        return transform;
     }
 }

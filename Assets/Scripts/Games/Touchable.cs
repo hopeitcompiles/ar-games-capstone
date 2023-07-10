@@ -10,11 +10,15 @@ public class Touchable : MonoBehaviour
     {
         _renderer = GetComponent<Renderer>();
         material = _renderer.material;
-        gameObject.AddComponent<MeshCollider>();
-
+        if(GetComponent<MeshCollider>()== null)
+        {
+            gameObject.AddComponent<MeshCollider>();
+        }
     }
+    
     public void MakeItGlow(bool state)
     {
         _renderer.material = state ? MaterialProvider.Instance.GlowMaterial : material;
     }
+  
 }

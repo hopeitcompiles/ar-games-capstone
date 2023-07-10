@@ -5,73 +5,69 @@ using System.Linq;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using UnityEngine.EventSystems;
+using TMPro;
+using DG.Tweening;
 
 public class FillTheContainerARGame : ARGame
 {
     [SerializeField]
-    private GameObject correctSystem;
+    GameObject canvas;
     [SerializeField]
-    private GameObject wrongSystem;
-
+    TextMeshProUGUI title;
     private List<ContainerPiece> correctPieces=new();
-    private List<ContainerPiece> wrongPieces = new();
 
 
     private ARRaycastManager raycastManager;
-    private List<ARRaycastHit> hits = new();
-    private bool isOverUI;
-    private bool isOver3DModel;
     private ContainerPiece selectedPiece;
 
-    readonly float raycastDownwardDistance = 1f;
-    readonly float distanceFromContainer = 0.0005f;
+
+    public static FillTheContainerARGame ExplicitInstance;
+    private string lastPieceSelected;
+    private void Awake()
+    {
+        ExplicitInstance = this;
+    }
     protected override void Start()
     {
+        if (canvas == null)
+        {
+            canvas = transform.GetChild(0).gameObject;
+        }
+        canvas.SetActive(false);
+        timeByDificult[1] = 3000;
         raycastManager = FindObjectOfType<ARRaycastManager>();
         raycastManager.SetTrackablesActive(true);
         base.Start();
+        PauseManager.Instance.OnPause += Instance_OnPause;
+        PauseManager.Instance.OnResume += Instance_OnResume;
     }
-    
+
+    private void Instance_OnResume()
+    {
+        canvas.transform.DOScale(Vector3.one, 0.4f).SetUpdate(true);
+
+    }
+
+    private void Instance_OnPause()
+    {
+        canvas.transform.DOScale(Vector3.zero, 0.4f).SetUpdate(true);
+    }
 
     public override void StartGame()
     {
-        List<ContainerPiece> _correctPieces=correctSystem.GetComponentsInChildren<ContainerPiece>().ToList();
-        List<ContainerPiece> _wrongPieces = wrongSystem.GetComponentsInChildren<ContainerPiece>().ToList();
+        correctPieces=GetComponentsInChildren<ContainerPiece>().ToList();
 
-        Vector3 containerPosition = base.Model.transform.position;
-        Quaternion containerRotation = base.Model.transform.rotation;
-        float angleStep = 360f / _correctPieces.Count;
-
-        for (int i = 0; i < _correctPieces.Count; i++)
+        for (int i = 0; i < correctPieces.Count; i++)
         {
-            // Calcular la posición relativa del elemento en base al ángulo
-            Quaternion elementRotation = containerRotation * Quaternion.Euler(0f, angleStep * i, 0f);
-            Vector3 elementPosition = containerPosition + (elementRotation * Vector3.forward * distanceFromContainer);
+            correctPieces[i].gameObject.AddComponent<Dragable>();
+            correctPieces[i].SetUp(1);
 
-            // Buscar una posición válida utilizando raycasting
-            if (FindValidPosition(ref elementPosition))
-            {
-                ContainerPiece element = Instantiate(_correctPieces[i], elementPosition, elementRotation);
-                element.SetUp(1);
-                correctPieces.Add(element);
-            }
         }
         TimerManager.Instance.StartTimer(timeLimit, false);
         hasStarted = true;
+        canvas.SetActive(true);
     }
-    private bool FindValidPosition(ref Vector3 position)
-    {
-        return true;
-        // Lanzar un rayo desde la posición hacia abajo para detectar el plano
-        Ray ray = new Ray(position + Vector3.up * raycastDownwardDistance, Vector3.down);
-        if (raycastManager.Raycast(ray, hits, TrackableType.PlaneWithinPolygon))
-        {
-            // Verificar si el rayo intersecta con un plano
-            position = hits[0].pose.position; // Actualizar la posición con la posición del raycast hit
-            return true;
-        }
-        return false;
-    }
+    
     public override void EndGame()
     {
         ResultsManager.Instance.Activate(true, Result.OK, metric);
@@ -82,82 +78,25 @@ public class FillTheContainerARGame : ARGame
         {
             return;
         }
-        if (Input.touchCount > 0)
+        selectedPiece=(ContainerPiece)ARinteractionManager.Instance.Manage3DModelDrag<ContainerPiece>();
+        
+        if(selectedPiece != null)
         {
-            Touch touchOne = Input.GetTouch(0);
-            if (touchOne.phase == TouchPhase.Began)
-            {
-                var touchPosition = touchOne.position;
-                isOverUI = IsTapOverUI(touchPosition);
-                isOver3DModel = IsTapOver3DModel(touchPosition);
-            }
-
-            if (touchOne.phase != TouchPhase.Moved)
-            {
-                //if (raycastManager.Raycast(touchOne.position, hits, TrackableType.Planes))
-                //{
-                    Pose pose = hits[0].pose;
-                    if (!isOverUI && isOver3DModel)
-                    {
-                        if(selectedPiece != null)
-                        {
-                            selectedPiece.transform.position = pose.position;
-                        }
-                    }
-                //}
-            }
-            if(touchOne.phase == TouchPhase.Ended)
-            {
-                DeselectPiece();
-            }
+            lastPieceSelected= selectedPiece.GetComponent<Data>().PartName;
+        }
+        else
+        {
+            lastPieceSelected = "Toca con tu dedo una pieza y muévela";
+        }
+        if(title.text!=lastPieceSelected)
+        {
+            title.text = lastPieceSelected;
         }
     }
-    public void SelectPiece(ContainerPiece piece)
-    {
-        // Deseleccionar la pieza anteriormente seleccionada, si hay alguna
-        DeselectPiece();
 
-        // Seleccionar la nueva pieza
-        selectedPiece = piece;
-        selectedPiece.GetComponent<Touchable>().MakeItGlow(true);
-    }
-
-    public void DeselectPiece()
+    public void MakePoint(bool correct)
     {
-        // Deseleccionar la pieza actual
-        if (selectedPiece != null)
-        {
-            selectedPiece.GetComponent<Touchable>().MakeItGlow(false);
-            selectedPiece = null;
-        }
-    }
-    private bool IsTapOverUI(Vector2 touchPosition)
-    {
-        PointerEventData eventData = new(EventSystem.current)
-        {
-            position = new Vector2(touchPosition.x, touchPosition.y)
-        };
-        List<RaycastResult> results = new();
-        EventSystem.current.RaycastAll(eventData, results);
-        return results.Count > 0;
-    }
-
-    private bool IsTapOver3DModel(Vector2 touchPosition)
-    {
-        Ray ray = ARinteractionManager.Instance.Camera.ScreenPointToRay(touchPosition);
-        if (Physics.Raycast(ray, out RaycastHit hit))
-        {
-            if (hit.collider.TryGetComponent(out ContainerPiece piece))
-            {
-                if (piece != null)
-                {
-                    SelectPiece(piece);
-
-                    return true;
-                }
-            }
-        }
-        DeselectPiece();
-        return false;
+        metric.successCount++;
+        metric.score = metric.successCount - metric.failureCount;
     }
 }

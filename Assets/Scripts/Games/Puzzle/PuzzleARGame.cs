@@ -5,78 +5,101 @@ using UnityEngine;
 public class PuzzleARGame : ARGame
 {
     PuzzlePiece[] pieces;
-    PuzzlePiece selectedPiece;
     readonly int layer = 8;
-    private bool isDragging = false;
+    PuzzlePiece selectedPiece;
 
     public override void EndGame()
     {
-        throw new System.NotImplementedException();
+        metric.isGameCompleted = false;
+        metric.timeElapsed = TimerManager.Instance.StopTimer();
+        ResultsManager.Instance.Activate(true, Result.OK, metric);
+
     }
 
     public override void StartGame()
     {
         Debug.Log("Started Puzzle Game");
-        foreach (PuzzlePiece piece in pieces)
-        {
-            piece.MakeItDrop(false);
-        }
         TimerManager.Instance.StartTimer(timeLimit, false);
-
     }
 
     protected override void Start()
     {
         base.Start();
         pieces = GetComponentsInChildren<PuzzlePiece>();
-        foreach (PuzzlePiece piece in pieces)
+        for (int i = 0; i < pieces.Length; i++)
         {
-            piece.SetUp(layer);
+            pieces[i].SetUp(layer);
+            pieces[i].gameObject.AddComponent<Dragable>();
         }
-       
+
     }
-    private void FixedUpdatessss()
+    private void Update()
     {
-        if (Input.touchCount == 0)
-        {
-            return;
-        }
-        Touch touch = Input.GetTouch(0);
-        switch (touch.phase)
-        {
-            case TouchPhase.Began:
-                // Inicia el arrastre al tocar la pantalla
-                Ray ray = _camera.ScreenPointToRay(touch.position);
-                RaycastHit hit;
-
-                if (Physics.Raycast(ray, out hit, Mathf.Infinity, layer))
-                {
-                    
-                    if (hit.collider.TryGetComponent<PuzzlePiece>(out var puzzlePiece))
-                    {
-                        isDragging = true;
-                        selectedPiece = puzzlePiece;
-                    }
-                }
-                break;
-
-
-            case TouchPhase.Moved:
-                // Mueve el objeto mientras arrastras el dedo
-                if (isDragging && selectedPiece != null)
-                {
-                    Vector3 touchPosition = _camera.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, _camera.nearClipPlane));
-                    selectedPiece.transform.position = touchPosition;
-                }
-                break;
-
-            case TouchPhase.Ended:
-                // Finaliza el arrastre al soltar el dedo
-                isDragging = false;
-                selectedPiece = null;
-                break;
-        }
+        selectedPiece=(PuzzlePiece)ARinteractionManager.Instance.Manage3DModelDrag<PuzzlePiece>();
     }
+        //if (Input.touchCount == 0)
+        //{
+        //    return;
+        //}
+        //Touch touch = Input.GetTouch(0);
+        //if(Input.touchCount == 1)
+        //{
+        //    switch (touch.phase)
+        //    {
+        //        case TouchPhase.Began:
+        //            {
+        //                initialPosition=touch.position;
+        //                isSelected = CheckTouchOnARObject(initialPosition);
+        //                break;
+        //            }
+        //            case TouchPhase.Moved:
+        //            {
+        //                if(isSelected)
+        //                {
+        //                    float multiplier = Configuration.instance.DragSpeed;
+        //                    Vector2 diffPosition=(touch.position - initialPosition)*screenFactor;
+        //                    selectedPiece.transform.position=selectedPiece.transform.position + 
+        //                        new Vector3(diffPosition.x*speedMovement* multiplier, diffPosition.y*speedMovement* multiplier, 0);
+        //                    initialPosition=touch.position;
+        //                }
+        //                break;
+        //            }
+        //    }
+        //}
+        //switch (touch.phase)
+        //{
+        //    case TouchPhase.Began:
+        //        // Inicia el arrastre al tocar la pantalla
+        //        Ray ray = _camera.ScreenPointToRay(touch.position);
+        //        RaycastHit hit;
+
+        //        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layer))
+        //        {
+                    
+        //            if (hit.collider.TryGetComponent<PuzzlePiece>(out var puzzlePiece))
+        //            {
+        //                isDragging = true;
+        //                selectedPiece = puzzlePiece;
+        //            }
+        //        }
+        //        break;
+
+
+        //    case TouchPhase.Moved:
+        //        // Mueve el objeto mientras arrastras el dedo
+        //        if (isDragging && selectedPiece != null)
+        //        {
+        //            Vector3 touchPosition = _camera.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, _camera.nearClipPlane));
+        //            selectedPiece.transform.position = touchPosition;
+        //        }
+        //        break;
+
+        //    case TouchPhase.Ended:
+        //        // Finaliza el arrastre al soltar el dedo
+        //        isDragging = false;
+        //        selectedPiece = null;
+        //        break;
+        //}
 
     //void FixedUpdate()
     //{
