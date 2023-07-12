@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d43a0b08522e642936194bb96d4017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOriginal: 0
 --- !u!114 &4830384889497148446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c8aa9d63c47d546a28a57c46cd2895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNotCorrect: 0
 --- !u!114 &3847276548721901049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c8aa9d63c47d546a28a57c46cd2895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNotCorrect: 0
 --- !u!1 &3788849940900451339
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,11 +289,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partName: "Est\xF3mago e intestino delgado"
   easyFacts:
-  - fact: "Est\xF3mago e intestino delgado (hay que separar)"
+  - fact: "Un \xF3rgano con forma de saco conectado con un tubo delgado de casi 6
+      metros de largo"
   mediumFacts:
-  - fact: "Est\xF3mago e intestino delgado (hay que separar)"
+  - fact: "Un \xF3rgano con forma de saco conectado con un tubo delgado de casi 6
+      metros de largo"
   hardFacts:
-  - fact: "Est\xF3mago e intestino delgado (hay que separar)"
+  - fact: "Un \xF3rgano con forma de saco conectado con un tubo delgado de casi 6
+      metros de largo"
 --- !u!114 &2685836171592118559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,6 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c8aa9d63c47d546a28a57c46cd2895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNotCorrect: 0
 --- !u!1 &3788849941361037125
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,6 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d43a0b08522e642936194bb96d4017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOriginal: 0
 --- !u!1 &3788849942006592759
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,6 +685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d43a0b08522e642936194bb96d4017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOriginal: 0
 --- !u!114 &2767240826989296092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -853,6 +862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d43a0b08522e642936194bb96d4017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOriginal: 0
 --- !u!1 &3788849942812883545
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,6 +1172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d43a0b08522e642936194bb96d4017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOriginal: 0
 --- !u!1 &3788849943180021487
 GameObject:
   m_ObjectHideFlags: 0
