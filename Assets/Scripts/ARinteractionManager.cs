@@ -186,8 +186,11 @@ public class ARinteractionManager : MonoBehaviour
                 case TouchPhase.Began:
                     {
                         modelInitialPosition = touch.position;
-
                         isSelected = CheckTouchOnARObject<T>(modelInitialPosition);
+                        if (isSelected)
+                        {
+                            AudioManager.Instance.SelectPlay(true);
+                        }
                         break;
                     }
                 case TouchPhase.Moved:

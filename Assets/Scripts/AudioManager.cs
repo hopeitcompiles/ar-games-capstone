@@ -11,10 +11,15 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     AudioClip fail;
     [SerializeField]
+    AudioClip selection;
+    [SerializeField]
+    AudioClip deselection;
+    [SerializeField]
     List<AudioClip> background;
     static AudioSource m_AudioSource;
     bool stopMusic;
     bool disabledEffects;
+    
     public bool StopMusic
     {
         set { 
@@ -44,6 +49,10 @@ public class AudioManager : MonoBehaviour
         m_AudioSource = GetComponent<AudioSource>();
     }
     
+    public void SelectPlay(bool state)
+    {
+        PlayOnShot(state?selection:deselection);
+    }
 
     public void PlayOnShot(AudioClip clip)
     {

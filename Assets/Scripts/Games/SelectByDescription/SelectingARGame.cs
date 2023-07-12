@@ -108,7 +108,7 @@ public class SelectingARGame : ARGame
     }
     private void SetDefaultTitle()
     {
-        title.text = "¿A qué pertenece esta descripción?";
+        title.text = "Toca la parte a la que pertenece esta descripción";
 
     }
     public void NextPiece()

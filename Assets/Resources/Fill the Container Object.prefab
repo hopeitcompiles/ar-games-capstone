@@ -486,6 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c8aa9d63c47d546a28a57c46cd2895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNotCorrect: 1
 --- !u!1 &3729312059697920756
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,6 +613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c8aa9d63c47d546a28a57c46cd2895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNotCorrect: 1
 --- !u!1 &3729312062830601530
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,6 +743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c8aa9d63c47d546a28a57c46cd2895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNotCorrect: 1
 --- !u!64 &5536068891104866762
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -934,6 +937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c8aa9d63c47d546a28a57c46cd2895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNotCorrect: 0
 --- !u!1 &6587733788596999440
 GameObject:
   m_ObjectHideFlags: 0
@@ -1079,6 +1083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c8aa9d63c47d546a28a57c46cd2895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNotCorrect: 0
 --- !u!1 &6587733788829604346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,6 +1222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c8aa9d63c47d546a28a57c46cd2895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNotCorrect: 0
 --- !u!1 &6587733789311444894
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,6 +1367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c8aa9d63c47d546a28a57c46cd2895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNotCorrect: 0
 --- !u!1 &6587733789781947474
 GameObject:
   m_ObjectHideFlags: 0
@@ -1627,6 +1634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c8aa9d63c47d546a28a57c46cd2895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNotCorrect: 0
 --- !u!1 &6587733791563127296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1753,3 +1761,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c8aa9d63c47d546a28a57c46cd2895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNotCorrect: 0

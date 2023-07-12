@@ -15,11 +15,11 @@ public class FillTheContainerARGame : ARGame
     [SerializeField]
     TextMeshProUGUI title;
     private List<ContainerPiece> correctPieces=new();
-
+    private int correctCount;
 
     private ARRaycastManager raycastManager;
     private ContainerPiece selectedPiece;
-
+    int reduceMultiplier = 0;
 
     public static FillTheContainerARGame ExplicitInstance;
     private string lastPieceSelected;
@@ -34,7 +34,6 @@ public class FillTheContainerARGame : ARGame
             canvas = transform.GetChild(0).gameObject;
         }
         canvas.SetActive(false);
-        timeByDificult[1] = 3000;
         raycastManager = FindObjectOfType<ARRaycastManager>();
         raycastManager.SetTrackablesActive(true);
         base.Start();
@@ -44,25 +43,36 @@ public class FillTheContainerARGame : ARGame
 
     private void Instance_OnResume()
     {
-        canvas.transform.DOScale(Vector3.one, 0.4f).SetUpdate(true);
-
+        //canvas.transform.DOScale(Vector3.one, 0.4f).SetUpdate(true);
+        canvas.SetActive(true);
     }
 
     private void Instance_OnPause()
     {
-        canvas.transform.DOScale(Vector3.zero, 0.4f).SetUpdate(true);
+        canvas.SetActive(false);
+        //canvas.transform.DOScale(Vector3.zero, 0.4f).SetUpdate(true);
     }
 
     public override void StartGame()
     {
         correctPieces=GetComponentsInChildren<ContainerPiece>().ToList();
-
-        for (int i = 0; i < correctPieces.Count; i++)
+        if (DificultManager.Instance.DificultLevel != DificultLevel.EASY)
         {
-            correctPieces[i].gameObject.AddComponent<Dragable>();
-            correctPieces[i].SetUp(1);
+            reduceMultiplier = DificultManager.Instance.DificultLevel == DificultLevel.MEDIUM ? 1 : 2;
+        }
+        correctCount = 0;
+        foreach (ContainerPiece piece in correctPieces)
+        {
+            piece.gameObject.AddComponent<Dragable>();
+            piece.SetUp(1);
+            if (piece.IsCorrect)
+            {
+                correctCount++;
+            }
 
         }
+        Debug.Log(correctCount.ToString());
+        Debug.Log(correctPieces.Count.ToString());
         TimerManager.Instance.StartTimer(timeLimit, false);
         hasStarted = true;
         canvas.SetActive(true);
@@ -70,6 +80,8 @@ public class FillTheContainerARGame : ARGame
     
     public override void EndGame()
     {
+        canvas.SetActive(false);
+        metric.timeElapsed = TimerManager.Instance.StopTimer();
         ResultsManager.Instance.Activate(true, Result.OK, metric);
     }
     private void Update()
@@ -96,7 +108,25 @@ public class FillTheContainerARGame : ARGame
 
     public void MakePoint(bool correct)
     {
-        metric.successCount++;
-        metric.score = metric.successCount - metric.failureCount;
+        if (correct)
+        {
+            metric.successCount++;
+            
+        }
+        else
+        {
+            metric.failureCount++;
+        }
+        if (metric.successCount < correctCount)
+        {
+            AudioManager.Instance.CorrectPlay(correct);
+        }
+        metric.score = 10 * ((double)metric.successCount / correctCount)
+       - (reduceMultiplier > 0 ? 5 * (double)reduceMultiplier * metric.failureCount / correctCount : 0);
+
+        metric.percentageOfCompletion = 100 * ((double)(metric.successCount) / correctCount);
+        if(metric.successCount >= correctCount) {
+            EndGame();
+        }
     }
 }

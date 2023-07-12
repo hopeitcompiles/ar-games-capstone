@@ -12,7 +12,7 @@ public class DragAxis : MonoBehaviour
     void Start()
     {
         ChangeMode();
-        changeModeButton.onClick.AddListener(ChangeMode);
+        //changeModeButton.onClick.AddListener(ChangeMode);
     }
 
     // Update is called once per frame
@@ -20,6 +20,8 @@ public class DragAxis : MonoBehaviour
     {
         isXmode=!isXmode;
         ARinteractionManager.Instance.IsAxisX = isXmode;
-        changeModeButton.transform.DORotate(new Vector3(0,180,0),0.5f,RotateMode.Fast);
+        changeModeButton.GetComponent<RectTransform>().transform.DORotate(new Vector3(0, 0, (isXmode ? 0 : 90)),0.3f,RotateMode.FastBeyond360);
+            //Quaternion.Euler(0f, 0f, 90f) :
+            //Quaternion.Euler(0f, 0f, 0f));
     }
 }

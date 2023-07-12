@@ -34,6 +34,10 @@ public class FindTheImpostorARGame : ARGame
         {
             result = metric.score < 5 ? Result.IMCOMPLETE : Result.BAD;
         }
+        if (metric.score < 0)
+        {
+            metric.score = 0;
+        }
         metric.timeElapsed = time;
         ResultsManager.Instance.Activate(true,result, metric);
     }

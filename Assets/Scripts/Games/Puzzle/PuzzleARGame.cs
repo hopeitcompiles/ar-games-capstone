@@ -1,167 +1,166 @@
-using System.Collections;
+using DG.Tweening;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PuzzleARGame : ARGame
 {
-    PuzzlePiece[] pieces;
-    readonly int layer = 8;
-    PuzzlePiece selectedPiece;
+    [SerializeField]
+    Button finishButton;
+    [SerializeField]
+    GameObject infoIcon;
+    [SerializeField]
+    GameObject confirmPanel;
 
+    [SerializeField]
+    GameObject canvas;
+    [SerializeField]
+    TextMeshProUGUI title;
+    PuzzlePiece[] pieces;
+    List<PuzzlePiece> target;
+    readonly float proximityThreshold = 0.08f;
+
+    PuzzlePiece selectedPiece;
+    PuzzlePiece lastSelectedPiece;
+    int pieceCount; 
+    int reduceMultiplier = 0;
+
+    Dictionary<string, string> responses;
     public override void EndGame()
     {
+        int empty = 0;
+        foreach (var response in responses)
+        {
+            if (response.Value == "")
+            {
+                empty++;
+            }
+            else
+            {
+                if (response.Key == response.Value)
+                {
+                    metric.successCount++;
+                }
+                else
+                {
+                    metric.failureCount++;
+                }
+            }
+            
+        }
+        metric.score = 10 * ((double)metric.successCount / pieceCount)
+        - (reduceMultiplier > 0 ? 5 * (double)reduceMultiplier * metric.failureCount / pieceCount : 0);
+        if(metric.score<0)
+        {
+            metric.score = 0;
+        }
+        metric.percentageOfCompletion = 100 * ((double)(metric.successCount) / pieceCount);
+
+        canvas.SetActive(false);
         metric.isGameCompleted = false;
         metric.timeElapsed = TimerManager.Instance.StopTimer();
         ResultsManager.Instance.Activate(true, Result.OK, metric);
 
     }
-
+    public void ConfirmFinish()
+    {
+        Time.timeScale = 0;
+        confirmPanel.SetActive(true);
+        confirmPanel.transform.DOScale(Vector3.one, 0.3f).SetUpdate(true);
+    }
+    public void CancelFinish()
+    {
+        Time.timeScale = 1;
+        confirmPanel.transform.DOScale(Vector3.zero, 0.3f).SetUpdate(true);
+    }
     public override void StartGame()
     {
+        if (DificultManager.Instance.DificultLevel != DificultLevel.EASY)
+        {
+            reduceMultiplier = DificultManager.Instance.DificultLevel == DificultLevel.MEDIUM ? 1 : 2;
+        }
         Debug.Log("Started Puzzle Game");
+        canvas.SetActive(true);
         TimerManager.Instance.StartTimer(timeLimit, false);
+        finishButton.onClick.AddListener(ConfirmFinish);
     }
 
     protected override void Start()
     {
+        canvas.SetActive(false);
+        confirmPanel.SetActive(false );
+        finishButton.transform.localScale= Vector3.zero;
+        finishButton.gameObject.SetActive(false);
         base.Start();
+        pieceCount = 0;
+        target = new();
+        responses = new();
         pieces = GetComponentsInChildren<PuzzlePiece>();
-        for (int i = 0; i < pieces.Length; i++)
+        foreach (PuzzlePiece piece in pieces)
         {
-            pieces[i].SetUp(layer);
-            pieces[i].gameObject.AddComponent<Dragable>();
+            if (piece.IsOriginal)
+            {
+                pieceCount++;
+                target.Add(piece);
+                responses[piece.GetComponent<Data>().PartName] = "";
+            }
+            else
+            {
+                piece.SetUp(1);
+                piece.gameObject.AddComponent<Dragable>();
+            }
         }
-
+        PauseManager.Instance.OnPause += Instance_OnPause;
+        PauseManager.Instance.OnResume += Instance_OnResume; ;
     }
+
+    private void Instance_OnResume()
+    {
+        canvas.SetActive(true);
+    }
+
+    private void Instance_OnPause()
+    {
+        canvas.SetActive(false);
+    }
+
     private void Update()
     {
         selectedPiece=(PuzzlePiece)ARinteractionManager.Instance.Manage3DModelDrag<PuzzlePiece>();
-    }
-        //if (Input.touchCount == 0)
-        //{
-        //    return;
-        //}
-        //Touch touch = Input.GetTouch(0);
-        //if(Input.touchCount == 1)
-        //{
-        //    switch (touch.phase)
-        //    {
-        //        case TouchPhase.Began:
-        //            {
-        //                initialPosition=touch.position;
-        //                isSelected = CheckTouchOnARObject(initialPosition);
-        //                break;
-        //            }
-        //            case TouchPhase.Moved:
-        //            {
-        //                if(isSelected)
-        //                {
-        //                    float multiplier = Configuration.instance.DragSpeed;
-        //                    Vector2 diffPosition=(touch.position - initialPosition)*screenFactor;
-        //                    selectedPiece.transform.position=selectedPiece.transform.position + 
-        //                        new Vector3(diffPosition.x*speedMovement* multiplier, diffPosition.y*speedMovement* multiplier, 0);
-        //                    initialPosition=touch.position;
-        //                }
-        //                break;
-        //            }
-        //    }
-        //}
-        //switch (touch.phase)
-        //{
-        //    case TouchPhase.Began:
-        //        // Inicia el arrastre al tocar la pantalla
-        //        Ray ray = _camera.ScreenPointToRay(touch.position);
-        //        RaycastHit hit;
+        if(selectedPiece != null)
+        {
+            if (!finishButton.gameObject.activeSelf)
+            {
+                finishButton.gameObject.SetActive(true);
+                finishButton.transform.DOScale(Vector3.one, 0.3f).SetUpdate(true);
+            }
+            lastSelectedPiece = selectedPiece;
+        }
+        else if(lastSelectedPiece != null) {
+            foreach (PuzzlePiece targetObject in target)
+            {
+                Vector3 moveObjectPosition = lastSelectedPiece.transform.position;
+                // Posición del objeto objetivo
+                Vector3 targetObjectPosition = targetObject.transform.position;
 
-        //        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layer))
-        //        {
-                    
-        //            if (hit.collider.TryGetComponent<PuzzlePiece>(out var puzzlePiece))
-        //            {
-        //                isDragging = true;
-        //                selectedPiece = puzzlePiece;
-        //            }
-        //        }
-        //        break;
+                // Calcula la distancia entre los dos objetos
+                float distance = Vector3.Distance(moveObjectPosition, targetObjectPosition);
 
+                // Comprueba si están lo suficientemente cerca
+                if (distance < proximityThreshold && !lastSelectedPiece.IsPlaced)
+                {
+                    // Toma la posición del objeto objetivo
+                    lastSelectedPiece.transform.position = targetObjectPosition;
+                    lastSelectedPiece.IsPlaced = true;
+                    responses[targetObject.GetComponent<Data>().PartName] =
+                        targetObject.GetComponent<Data>().PartName;
+                    break; // Sale del bucle si se encontró un objeto cercano
+                }
+            }
+            lastSelectedPiece.IsPlaced = false;
+        }
 
-        //    case TouchPhase.Moved:
-        //        // Mueve el objeto mientras arrastras el dedo
-        //        if (isDragging && selectedPiece != null)
-        //        {
-        //            Vector3 touchPosition = _camera.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, _camera.nearClipPlane));
-        //            selectedPiece.transform.position = touchPosition;
-        //        }
-        //        break;
-
-        //    case TouchPhase.Ended:
-        //        // Finaliza el arrastre al soltar el dedo
-        //        isDragging = false;
-        //        selectedPiece = null;
-        //        break;
-        //}
-
-    //void FixedUpdate()
-    //{
-    //    if (Input.touchCount == 0)
-    //    {
-    //        return;
-    //    }
-    //    Touch touch = Input.touches[0];
-    //    Vector3 position = touch.position;
-
-    //    if (touch.phase == TouchPhase.Began)
-    //    {
-    //        // Verifica si el toque inicial colisiona con la pieza
-    //        RaycastHit hit;
-    //        Ray ray = _camera.ScreenPointToRay(position);
-    //        if (Physics.Raycast(ray, out hit, Mathf.Infinity,
-    //            LayerMask.GetMask(LayerMask.LayerToName(gameLayer))))
-    //        {
-    //            selectedPiece=hit.collider.gameObject.GetComponent<PuzzlePiece>();
-    //            if (selectedPiece != null)
-    //            {
-    //                touchID = touch.fingerId;
-    //                offset = transform.position - GetTouchWorldPosition(touch.position);
-    //                selectedPiece.Touchable.MakeItGlow(true);
-    //                Debug.Log("tocado" + hit.collider.gameObject.name);
-    //            }
-
-    //        }
-    //        else if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
-    //        {
-    //            // Verifica si el toque actual pertenece al ID del toque inicial
-    //            if (touch.fingerId == touchID)
-    //            {
-    //                if(selectedPiece!=null)
-    //                {
-    //                    selectedPiece.gameObject.transform.position = GetTouchWorldPosition(touch.position) + offset;
-
-    //                }
-    //                // Actualiza la posición de la pieza según el movimiento del toque
-    //            }
-    //        }
-    //        else if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
-    //        {
-    //            // Reinicia el ID del toque cuando se levanta el dedo de la pantalla
-    //            if (touch.fingerId == touchID)
-    //            {
-    //                touchID = -1;
-    //                if(selectedPiece!=null)
-    //                {
-    //                    selectedPiece.Touchable.MakeItGlow(true);
-    //                }
-    //                selectedPiece = null;   
-    //            }
-    //        }
-    //    }
-
-    //}
-    //private Vector3 GetTouchWorldPosition(Vector2 touchPosition)
-    //{
-    //    // Obtiene la posición del toque en el mundo en coordenadas 3D
-    //    Vector3 touchPosition3D = touchPosition;
-    //    touchPosition3D.z = _camera.nearClipPlane;
-    //    return _camera.ScreenToWorldPoint(touchPosition3D);
-    //}
+    } 
 }
