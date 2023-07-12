@@ -200,9 +200,9 @@ public class ARinteractionManager : MonoBehaviour
                             float multiplier = Configuration.instance.DragSpeed;
                             Vector2 diffPosition = (touch.position - modelInitialPosition) * screenFactor;
                             selectedPiece.Transform().position = selectedPiece.Transform().position +
-                                new Vector3(diffPosition.x * speedMovement * multiplier*(isAxisX?0:1), 
+                                new Vector3(diffPosition.x * speedMovement * multiplier*(!isAxisX?0:1), 
                                 diffPosition.y * speedMovement * multiplier, 
-                                diffPosition.x * speedMovement * multiplier*(isAxisX?1:0));
+                                diffPosition.x * speedMovement * multiplier*(!isAxisX?1:0));
                             modelInitialPosition = touch.position;
                         }
                         break;

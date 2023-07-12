@@ -96,6 +96,7 @@ public class Profile : MonoBehaviour
         classes = null;
         HideLoginForm(false);
         PlayerPrefs.DeleteKey("UserData");
+        PlayerPrefs.DeleteKey("classes");
         ProfileOptions.instance.HideProfileOptions();
         loginPanel.transform.DOScale(Vector3.one, 0.6f).SetEase(Ease.InOutBounce);
     }
@@ -131,7 +132,18 @@ public class Profile : MonoBehaviour
             _password.transform.DOScale(scale, 0.3f);
         }
         registerButton.transform.parent.DOScale(scale, 0.3f);
-        errorText.text = "";
+        if (!ConexionChecker.Instance.HasInternet)
+        {
+            errorText.text = "No tienes conexión a internet";
+            loginButton.interactable = false;
+            registerButton.interactable = false;
+        }
+        else
+        {
+            registerButton.interactable = true;
+            loginButton.interactable = true;
+            errorText.text = "";
+        }
     }
     private void HideRegisterForm(bool state)
     {
@@ -203,6 +215,7 @@ public class Profile : MonoBehaviour
             return;
         }
         response = await service.LoginRequest(_username.text, _password.text);
+        Debug.Log(response.message);
         if(response.code==200)
         {
 
@@ -211,7 +224,7 @@ public class Profile : MonoBehaviour
         }
         else
         {
-            errorText.text = response.message=="Incorrect email or password"?"Correo o contraseña incorrecta": response.message;
+            errorText.text = response.message.Contains("Incorrect email or password")?"Correo o contraseña incorrecta": response.message;
         }
     }
    public void LogOut()

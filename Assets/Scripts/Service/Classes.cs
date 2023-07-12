@@ -38,7 +38,11 @@ public class Classes : MonoBehaviour
 
     public void InstantiateClasses(List<Models.ClassData> classes)
     {
-        if(classes.Count == 0)
+        foreach (Transform child in container.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        if (classes.Count == 0)
         {
             subtitle.text = "Aún no has registrado ninguna clase";
             return;

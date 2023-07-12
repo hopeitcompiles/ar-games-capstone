@@ -59,10 +59,11 @@ public class ResultsManager : MonoBehaviour
 
     public void Activate(bool state, Result result, Models.GameMetric metric)
     {
+        error.gameObject.SetActive(true);
         Models.ProfileData user = Profile.instance.User;
         if (user == null || user.role!=Role.STUDENT.ToString())
         {
-            comments.transform.parent.gameObject.SetActive(false);
+            comments.transform.gameObject.SetActive(false);
             sendStatsButton.gameObject.SetActive(false);
             if (user == null)
             {
@@ -74,9 +75,23 @@ public class ResultsManager : MonoBehaviour
                     : "Administradores no pueden enviar sus estadísticas";
             }
         }
+        else if (!ConexionChecker.Instance.HasInternet)
+        {
+            comments.transform.gameObject.SetActive(false);
+            sendStatsButton.gameObject.SetActive(false);
+            error.text = "Necesitas conexión a internet para enviar tus resultados";
+        }
+        else if(Profile.instance.Classes.Count == 0)
+        {
+            comments.transform.gameObject.SetActive(false);
+            sendStatsButton.gameObject.SetActive(false);
+            error.text = "Necesitas unirte a una clase para enviar tus resultados";
+
+        }
         else
         {
-            comments.transform.parent.gameObject.SetActive(true);
+            error.text =string.Empty;
+            comments.transform.gameObject.SetActive(true);
             sendStatsButton.gameObject.SetActive(true);
             sendStatsButton.interactable = true;
         }

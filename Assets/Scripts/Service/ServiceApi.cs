@@ -137,7 +137,7 @@ public class ServiceApi : MonoBehaviour
             response = new Models.ApiResponse<T>()
             {
                 code = 503,
-                message = e.Message
+                message =e.Message.Contains("This service is not ready to serve traffic")?"El servicio no está disponible": e.Message
             };
         }
 

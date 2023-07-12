@@ -40,6 +40,33 @@ public class ProfileOptions : MonoBehaviour
         error.text = string.Empty;
         logOut.onClick.AddListener(Profile.instance.LogOut);
         codeButton.onClick.AddListener(HandleButtonClick);
+
+        string _classes = PlayerPrefs.GetString("clases");
+        Debug.Log(_classes);
+        if (_classes != null && _classes != "")
+        {
+            try
+            {
+                ClassWrapper classes = JsonUtility.FromJson<ClassWrapper>(_classes);
+                Profile.instance.Classes=classes.classes;
+                Classes.instance.InstantiateClasses(classes.classes);
+                HandleShowClassForStudent(classes.classes);   
+            }
+            catch (Exception ex)
+            {
+                Debug.Log(ex.Message);
+            }
+        }
+    }
+    private void HandleShowClassForStudent(List<Models.ClassData> classes)
+    {
+        if (Profile.instance.User.role == Role.STUDENT.ToString() && classes.Count > 0)
+        {
+            inputClass.gameObject.SetActive(false);
+            message.text = "Estás en la clase " + classes[0].className + "\n" + classes[0].grade;
+            error.text = "Código: "+ classes[0].code;
+            codeButton.gameObject.SetActive(false);
+        }
     }
 
     public void HideProfileOptions()
@@ -62,7 +89,7 @@ public class ProfileOptions : MonoBehaviour
                     message.text = "Únete a tu clase";
                     inputClass.placeholder.GetComponent<TextMeshProUGUI>().text = "Código de la clase";
                     classText.text = "Entrar";
-
+                    LoadClases();
                     break;
             }
             case Role.TEACHER:
@@ -97,10 +124,26 @@ public class ProfileOptions : MonoBehaviour
         if(response.code == 200)
         {
             Profile.instance.Classes=response.data;
+            
             Classes.instance.InstantiateClasses(response.data);
+            PlayerPrefs.DeleteKey("clases");
+
+            ClassWrapper _c = new()
+            {
+                classes = response.data
+            };
+
+            string _classes=JsonUtility.ToJson(_c);
+
+            Debug.Log(_classes);
+            PlayerPrefs.SetString("clases", _classes);
+            HandleShowClassForStudent(response.data);
         }
     }
-
+    private void ClearError()
+    {
+        error.text = "";
+    }
 
     public async void HandleButtonClick()
     {
@@ -112,9 +155,16 @@ public class ProfileOptions : MonoBehaviour
                     try
                     {
                         var response = await service.RegisterInClass(Profile.instance.User.id.ToString(), inputClass.text);
-                    }catch(Exception ex)
+                        if (response.code == 200)
+                        {
+                            error.text = "Te has registrado correctamente";
+                            Invoke("ClearError", 2);
+                            LoadClases();
+                        }
+                    }
+                    catch(Exception ex)
                     {
-
+                        error.text = "Algo no ha salido bien";
                     }
 
                     break;
@@ -124,21 +174,32 @@ public class ProfileOptions : MonoBehaviour
                     try
                     {
                         var response = await service.CreateClass(Profile.instance.User.id.ToString(), inputClass.text,inputCourse.text);
+                        Debug.Log(response.message);
                         if (response.code == 200)
                         {
                             inputClass.text = string.Empty;
                             inputCourse.text = string.Empty;
                             Models.ClassData _class=(Models.ClassData)response.data;
                             error.text = "Clase creada con éxito\nComparte este código con tus estudiantes\n" + _class.code;
+                            LoadClases();
+                        }
+                        else
+                        {
+                            throw new Exception(response.message);
                         }
                     }
                     catch (Exception ex)
                     {
-                        error.text = "Se ha producido un error"+ex.Message;
+                        error.text =ex.Message.Contains("already in class")? "No puedes formar parte de otra clase":"Se ha producido un error"+ex.Message;
                     }
                     break;
                 }
         }
     }
-    
+
+    public class ClassWrapper
+    {
+        public List<Models.ClassData> classes;
+    }
+
 }
