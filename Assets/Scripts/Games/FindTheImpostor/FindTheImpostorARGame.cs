@@ -76,6 +76,7 @@ public class FindTheImpostorARGame : ARGame
         }
         nextButton.onClick.AddListener(NextMove);
         cancelButton.onClick.AddListener(CancelMove);
+        FadeButtons(false);
         PauseManager.Instance.OnPause += OnPauseGame;
         PauseManager.Instance.OnResume += OnResumeGame;
     }

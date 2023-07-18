@@ -131,11 +131,12 @@ public class SelectingARGame : ARGame
                 AudioManager.Instance.CorrectPlay(isCorrect);
                 if (isCorrect)
                 {
+                    selectedPiece.gameObject.SetActive(false);
+                }
+                else if(DificultManager.Instance.DificultLevel != DificultLevel.EASY)
+                {
                     Vibration.instance.Vibrate();
-                    if (DificultManager.Instance.DificultLevel != DificultLevel.EASY)
-                    {
-                        selectedPiece.gameObject.SetActive(false);
-                    }
+                    selectedPiece.gameObject.SetActive(false);
                 }
                 LoadNextQuestion();
                 ResetTitleAndButtons(true);

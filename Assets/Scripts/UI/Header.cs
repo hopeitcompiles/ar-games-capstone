@@ -5,18 +5,20 @@ using UnityEngine;
 
 public class Header : MonoBehaviour
 {
+
     [SerializeField]
     TMP_Text username;
+    readonly string DEFAULT_NAME = "Iniciar sesión";
     void Awake()
     {
-        username.text = "";
+        username.text = DEFAULT_NAME;
         Profile.instance.LoggedIn += Instance_LoggedIn;
         Profile.instance.LoggedOut += Instance_LoggedOut;
     }
 
     private void Instance_LoggedOut()
     {
-        username.text = "";
+        username.text = DEFAULT_NAME;
     }
 
     private void Instance_LoggedIn()

@@ -248,8 +248,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Toca el bot\xF3n de la izquierda para cambiar el modo de movimiento"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: edad9327b4ad6df468790ac7ee1d9b2c, type: 2}
+  m_sharedMaterial: {fileID: 6252807442642270597, guid: edad9327b4ad6df468790ac7ee1d9b2c,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -273,7 +274,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 118.6
+  m_fontSize: 103.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1139,8 +1140,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\xBFTerminar el juego?"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: edad9327b4ad6df468790ac7ee1d9b2c, type: 2}
+  m_sharedMaterial: {fileID: 6252807442642270597, guid: edad9327b4ad6df468790ac7ee1d9b2c,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1164,7 +1166,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 120.45
+  m_fontSize: 139.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1408,8 +1410,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Finalizar
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: edad9327b4ad6df468790ac7ee1d9b2c, type: 2}
+  m_sharedMaterial: {fileID: 6252807442642270597, guid: edad9327b4ad6df468790ac7ee1d9b2c,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1433,7 +1436,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 99.9
+  m_fontSize: 82.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1788,8 +1791,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Arrastra las partes correctas su posici\xF3n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: edad9327b4ad6df468790ac7ee1d9b2c, type: 2}
+  m_sharedMaterial: {fileID: 6252807442642270597, guid: edad9327b4ad6df468790ac7ee1d9b2c,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1813,7 +1817,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 107.15
+  m_fontSize: 88.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2119,7 +2123,6 @@ MonoBehaviour:
   confirmPanel: {fileID: 7225647304448708441}
   canvas: {fileID: 7927473052601899437}
   title: {fileID: 7614961044149870845}
-  proximityThreshold: 0.005
 --- !u!114 &4058322254289225048
 MonoBehaviour:
   m_ObjectHideFlags: 0

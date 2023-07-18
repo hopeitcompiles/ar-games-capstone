@@ -68,8 +68,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Toca el bot\xF3n de la izquierda para cambiar el modo de movimiento"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: edad9327b4ad6df468790ac7ee1d9b2c, type: 2}
+  m_sharedMaterial: {fileID: 6252807442642270597, guid: edad9327b4ad6df468790ac7ee1d9b2c,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -93,7 +94,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 118.6
+  m_fontSize: 103.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -614,8 +615,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Arrastra las partes correctas hacia el ba\xFAl"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: edad9327b4ad6df468790ac7ee1d9b2c, type: 2}
+  m_sharedMaterial: {fileID: 6252807442642270597, guid: edad9327b4ad6df468790ac7ee1d9b2c,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -639,7 +641,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100.65
+  m_fontSize: 88.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -675,7 +677,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -1.7748413, y: 0, z: -0.9373779, w: -2.9067993}
+  m_margin: {x: -1.7749023, y: 0, z: -0.9373779, w: -2.9067993}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

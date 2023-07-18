@@ -178,10 +178,10 @@ public class ServiceApi : MonoBehaviour
             return response;
         }
  
-    public async Task<FactCat> GetCatFact()
+    public async Task<string> GetCatFact()
     {
-        string url = "https://catfact.ninja/fact";
-        FactCat response = new();
+        string url = "http://localhost:8080/open-api/fact";
+        string response = string.Empty;
         
         Loading.instance.SetLoading(true, "Veo que tienes buen gusto");
 
@@ -192,7 +192,7 @@ public class ServiceApi : MonoBehaviour
 
             if (httpResponse.IsSuccessStatusCode)
             {
-                response = JsonUtility.FromJson<FactCat>(jsonResponse);
+                response = jsonResponse;
             }
             else
             {
@@ -201,11 +201,7 @@ public class ServiceApi : MonoBehaviour
         }
         catch (Exception e)
         {
-            response = new FactCat()
-            {
-                fact = e.Message,
-                length =0
-            };
+            response = e.Message;
         }
 
         Loading.instance.SetLoading(false);
