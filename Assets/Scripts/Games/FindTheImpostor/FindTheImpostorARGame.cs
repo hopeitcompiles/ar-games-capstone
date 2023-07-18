@@ -20,7 +20,6 @@ public class FindTheImpostorARGame : ARGame
     private GameObject selectedPiece;
     private List<ImpostorPiece> pieces;
     int reduceMultiplier=0;
-    
     public override void EndGame()
     {
         OnPauseGame();
@@ -52,6 +51,7 @@ public class FindTheImpostorARGame : ARGame
         TimerManager.Instance.StartTimer(timeLimit, false);
         canvas.SetActive(true);
         canvas.transform.DOScale(Vector3.one, .3f);
+        hasStarted= true;
     }
 
     // Start is called before the first frame update
@@ -137,7 +137,7 @@ public class FindTheImpostorARGame : ARGame
             MakePoint(true);
             impostorPiece.gameObject.SetActive(false);
         }
-        else
+        else if(selectedPiece.TryGetComponent<Touchable>(out var item))
         {
             MakePoint(false);
             selectedPiece.SetActive(false);
@@ -164,6 +164,10 @@ public class FindTheImpostorARGame : ARGame
     }
     void FixedUpdate()
     {
+        if(!hasStarted)
+        {
+            return;
+        }
         if (Input.touchCount == 0)
         {
             return;
