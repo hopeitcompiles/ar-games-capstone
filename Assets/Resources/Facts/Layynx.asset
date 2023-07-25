@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7278ab6070f38dc41bce15bc7f8bfc77, type: 3}
+  m_Name: Layynx
+  m_EditorClassIdentifier: 
+  easy:
+  - "Es un \xF3rgano ubicado en la parte superior del cuello, justo debajo de la
+    garganta"
+  - "Adem\xE1s de su papel en la producci\xF3n del sonido, tambi\xE9n tiene una funci\xF3n
+    crucial en la respiraci\xF3n, ya que regula el flujo de aire hacia y desde los
+    pulmones"
+  - "La laringitis es una inflamaci\xF3n de esta que puede causar ronquera o p\xE9rdida
+    temporal de la voz debido a la irritaci\xF3n de las cuerdas vocales"
+  medium:
+  - "Es un componente esencial del sistema respiratorio y desempe\xF1a un papel crucial
+    en la producci\xF3n del sonido y la protecci\xF3n de las v\xEDas respiratorias"
+  - Es conocida como la "caja de voz" porque contiene las cuerdas vocales, que son
+    estructuras que vibran cuando el aire pasa por ellas, produciendo sonido y permitiendo
+    el habla
+  - "Est\xE1 formada por varios cart\xEDlagos, siendo el cart\xEDlago tiroides el
+    m\xE1s grande y conocido como la \"manzana de Ad\xE1n\""
+  - "Tiene cuerdas vocales falsas y verdaderas. Las cuerdas vocales verdaderas son
+    las que vibran y producen sonido, mientras que las cuerdas vocales falsas no
+    participan en la producci\xF3n del sonido y tienen una funci\xF3n protectora"
+  hard:
+  - "El tono de la voz se puede modificar cambiando la tensi\xF3n y posici\xF3n de
+    las cuerdas vocales en esta"
+  - "Est\xE1 protegida por una peque\xF1a solapa de tejido llamada epiglotis, que
+    se cierra sobre la tr\xE1quea durante la degluci\xF3n para evitar que los alimentos
+    y l\xEDquidos entren en las v\xEDas respiratorias"

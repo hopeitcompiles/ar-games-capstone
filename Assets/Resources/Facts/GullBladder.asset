@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7278ab6070f38dc41bce15bc7f8bfc77, type: 3}
+  m_Name: GullBladder
+  m_EditorClassIdentifier: 
+  easy:
+  - "Es un \xF3rgano peque\xF1o en forma de pera ubicado debajo del h\xEDgado, en
+    el lado derecho del abdomen"
+  - "Su funci\xF3n principal es almacenar y concentrar la bilis, un l\xEDquido producido
+    por el h\xEDgado que ayuda en la digesti\xF3n de las grasas"
+  - "Cuando ingerimos alimentos, especialmente aquellos que contienen grasas, esta
+    ves\xEDcula libera la bilis a trav\xE9s del conducto biliar com\xFAn hacia el
+    intestino delgado"
+  medium:
+  - "Almacena la bilis que ayuda a descomponer las grasas en part\xEDculas m\xE1s
+    peque\xF1as para facilitar su absorci\xF3n y digesti\xF3n"
+  - "Despu\xE9s de cumplir su funci\xF3n, esta ves\xEDcula se vac\xEDa y se vuelve
+    a llenar con la bilis que se produce continuamente en el h\xEDgado"
+  hard:
+  - "A pesar de su importancia en el proceso digestivo, no es un \xF3rgano vital
+    y se puede vivir sin ella"
+  - "Se puede recomendar la extirpaci\xF3n quir\xFArgica esta si hay problemas como
+    c\xE1lculos biliares o enfermedades que afectan su funcionamiento"
+  - "Su extirpaci\xF3n se conoce como colecistectom\xEDa y, despu\xE9s de la operaci\xF3n,
+    la bilis fluye directamente desde el h\xEDgado hacia el intestino delgado."

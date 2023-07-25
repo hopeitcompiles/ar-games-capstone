@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7278ab6070f38dc41bce15bc7f8bfc77, type: 3}
+  m_Name: Pancreas
+  m_EditorClassIdentifier: 
+  easy:
+  - "Las principales hormonas producidas por este son la insulina y el glucag\xF3n,
+    que regulan los niveles de glucosa en sangre"
+  - "Produce la insulina es una hormona clave para el metabolismo de la glucosa.
+    Ayuda a disminuir los niveles de az\xFAcar en sangre al facilitar la absorci\xF3n
+    de glucosa por parte de las c\xE9lulas del cuerpo"
+  - La diabetes es una enfermedad que ocurre cuando este no produce suficiente insulina
+    o cuando el cuerpo no responde adecuadamente a la insulina
+  medium:
+  - "Es un \xF3rgano ubicado en la parte posterior del abdomen, detr\xE1s del est\xF3mago.
+    Tiene funciones tanto en el sistema digestivo como en el endocrino"
+  - "Tiene una funci\xF3n exocrina, lo que significa que produce enzimas digestivas
+    que son liberadas en el intestino delgado para ayudar en la descomposici\xF3n
+    de los alimentos"
+  - "Tiene una funci\xF3n endocrina, lo que significa que produce hormonas que se
+    liberan directamente en el torrente sangu\xEDneo"
+  hard:
+  - "Produce enzimas como la amilasa, lipasa y tripsina, ayudan a descomponer los
+    carbohidratos, grasas y prote\xEDnas en nutrientes m\xE1s peque\xF1os y absorbibles"
+  - "Las c\xE9lulas que producen hormonas en este se agrupan en peque\xF1os grupos
+    llamados islotes de Langerhans. Estos islotes contienen c\xE9lulas alfa que producen
+    glucag\xF3n y c\xE9lulas beta que producen insulina"
+  - "En algunas condiciones, las enzimas pancre\xE1ticas pueden activarse dentro
+    de este en lugar de ser liberadas en el intestino delgado. Esto puede provocar
+    da\xF1o en su tejido y causar inflamaci\xF3n"

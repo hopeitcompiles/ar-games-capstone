@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7278ab6070f38dc41bce15bc7f8bfc77, type: 3}
+  m_Name: Kidney
+  m_EditorClassIdentifier: 
+  easy:
+  - "Filtran la sangre para eliminar los productos de desecho y el exceso de agua
+    y sales a trav\xE9s de la producci\xF3n de orina"
+  - "Ajustan la cantidad de agua y sales en el cuerpo para mantener un equilibrio
+    adecuado y asegurar el buen funcionamiento de los \xF3rganos y sistemas"
+  - Son dos y tienen forma de frijol.
+  medium:
+  - "son \xF3rganos vitales del sistema excretor y desempe\xF1an un papel crucial
+    en la regulaci\xF3n del equilibrio de agua y sales en el cuerpo, as\xED como
+    en la eliminaci\xF3n de productos de desecho y toxinas"
+  - "Desempe\xF1an un papel en la producci\xF3n de hormonas importantes, como la
+    eritropoyetina, que estimula la producci\xF3n de gl\xF3bulos rojos, y la renina,
+    que regula la presi\xF3n arterial"
+  hard:
+  - "Est\xE1n compuestos de millones de unidades funcionales llamadas nefronas, que
+    son las estructuras responsables de filtrar la sangre y producir la orina"
+  - "Ayudan a eliminar sustancias t\xF3xicas, medicamentos y productos de desecho
+    del cuerpo, lo que contribuye a mantener una buena salud general"
+  - "Las enfermedades renales pueden afectar la funci\xF3n de estps y pueden ser
+    causadas por diversas razones, como infecciones, trastornos autoinmunitarios,
+    enfermedades cardiovasculares y diabetes"

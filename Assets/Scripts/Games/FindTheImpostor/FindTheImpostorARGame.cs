@@ -20,6 +20,8 @@ public class FindTheImpostorARGame : ARGame
     private GameObject selectedPiece;
     private List<ImpostorPiece> pieces;
     int reduceMultiplier=0;
+    int impostorQuanty = 0;
+    int totalPieces = 0;
     public override void EndGame()
     {
         OnPauseGame();
@@ -47,8 +49,11 @@ public class FindTheImpostorARGame : ARGame
         {
             reduceMultiplier = DificultManager.Instance.DificultLevel == DificultLevel.MEDIUM ? 1 : 2;
         }
-        Debug.Log("game has started"); 
         TimerManager.Instance.StartTimer(timeLimit, false);
+        if (canvas == null)
+        {
+            canvas=transform.GetChild(0).gameObject;
+        }
         canvas.SetActive(true);
         canvas.transform.DOScale(Vector3.one, .3f);
         hasStarted= true;
@@ -68,24 +73,30 @@ public class FindTheImpostorARGame : ARGame
         base.Start();
         canvas.transform.localScale = Vector3.zero;
         canvas.SetActive(false);
-
+        impostorQuanty = 0;
+        totalPieces = 0;
         pieces=GetComponentsInChildren<ImpostorPiece>().ToList();
         foreach (ImpostorPiece piece in pieces)
         {
             piece.SetUp(0);
+            if (piece.gameObject.activeSelf) 
+            {
+                if (piece.GetComponent<Data>().System!=SystemManager.instance.ActiveSystem){
+                    impostorQuanty++;
+                }
+                totalPieces++;
+            }
         }
         nextButton.onClick.AddListener(NextMove);
         cancelButton.onClick.AddListener(CancelMove);
         FadeButtons(false);
-        PauseManager.Instance.OnPause += OnPauseGame;
-        PauseManager.Instance.OnResume += OnResumeGame;
     }
-    private void OnPauseGame()
+    public override void OnPauseGame()
     {
         RectTransform rectTransform = canvas.transform.GetChild(0).GetComponent<RectTransform>();
         rectTransform.DOAnchorPos(new Vector2(0, -rectTransform.rect.height * 1.5f), 0.3f).SetUpdate(true);
     }
-    private void OnResumeGame()
+    public override void OnResumeGame()
     {
         RectTransform rectTransform = canvas.transform.GetChild(0).GetComponent<RectTransform>();
         rectTransform.DOAnchorPos(new Vector2(0, 346.2505f), 0.3f).SetUpdate(true);
@@ -105,10 +116,10 @@ public class FindTheImpostorARGame : ARGame
         }
         AudioManager.Instance.CorrectPlay(marked);
 
-        metric.score = 10 * ((double)metric.successCount / pieces.Count)
-        - (reduceMultiplier > 0 ? 5*(double)reduceMultiplier*metric.failureCount/pieces.Count : 0);
+        metric.score = 10 * ((double)metric.successCount / impostorQuanty)
+        - (reduceMultiplier > 0 ? 5*(double)reduceMultiplier*metric.failureCount/ impostorQuanty : 0);
 
-        metric.percentageOfCompletion= 100 * ((double)(metric.successCount) / pieces.Count);
+        metric.percentageOfCompletion= 100 * ((double)(metric.successCount) / impostorQuanty);
         if (UIPoints != null)
         {
             UIPoints.text =metric.score.ToString(metric.score % 2 ==0 ? "0" : "0.00") + (metric.score==1?" punto": " puntos");
@@ -125,6 +136,7 @@ public class FindTheImpostorARGame : ARGame
         }
         FadeButtons(false);
         selectedPiece = null;
+        AudioManager.Instance.SelectPlay(false);
     }
     public void NextMove()
     {
@@ -132,15 +144,24 @@ public class FindTheImpostorARGame : ARGame
         {
             return;
         }
-        if (selectedPiece.TryGetComponent<ImpostorPiece>(out var impostorPiece))
+        if (selectedPiece.TryGetComponent<Data>(out var impostorPiece))
         {
-            MakePoint(true);
-            impostorPiece.gameObject.SetActive(false);
-        }
-        else if(selectedPiece.TryGetComponent<Touchable>(out var item))
-        {
-            MakePoint(false);
-            selectedPiece.SetActive(false);
+            if(impostorPiece.System!=SystemManager.instance.ActiveSystem)
+            {
+                MakePoint(true);
+                impostorPiece.gameObject.SetActive(false);
+            }
+            else
+            {
+                MakePoint(false);
+                if ((int)DificultManager.Instance.DificultLevel >(int) DificultLevel.MEDIUM){
+                    selectedPiece.SetActive(false);
+                }
+                else
+                {
+                    selectedPiece.GetComponent<Touchable>().MakeItGlow(false);
+                }
+            }
         }
         FadeButtons(false);
         selectedPiece = null;
@@ -192,6 +213,7 @@ public class FindTheImpostorARGame : ARGame
                     NextMove();
                     return;
                 }
+                AudioManager.Instance.SelectPlay(true);
                 FadeButtons(true);
                 if (hit.collider.gameObject.TryGetComponent<Touchable>(out var touchable))
                 {

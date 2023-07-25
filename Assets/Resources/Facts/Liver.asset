@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7278ab6070f38dc41bce15bc7f8bfc77, type: 3}
+  m_Name: Liver
+  m_EditorClassIdentifier: 
+  easy:
+  - "Almacena y libera glucosa seg\xFAn las necesidades del cuerpo y regula el nivel
+    de az\xFAcar en sangre"
+  - "Es el \xF3rgano m\xE1s grande del cuerpo humano"
+  - "Almacena gluc\xF3geno, que es una forma de energ\xEDa que se libera cuando los
+    niveles de glucosa en sangre bajan"
+  - "Es responsable de la s\xEDntesis y el control de los niveles de colesterol en
+    el cuerpo"
+  medium:
+  - "Almacena ciertas vitaminas liposolubles como las vitaminas A, D, E y K, as\xED
+    como minerales como el hierro y el cobre"
+  - "Filtra y neutraliza las sustancias t\xF3xicas y los desechos que circulan en
+    la sangre, convirti\xE9ndolos en productos menos da\xF1inos para ser eliminados
+    del cuerpo"
+  - "Produce bilis, un l\xEDquido verdoso que se almacena en la ves\xEDcula biliar
+    y es liberado en el intestino para ayudar en la digesti\xF3n de grasas"
+  hard:
+  - "Sintetiza muchas prote\xEDnas importantes para el cuerpo, como las prote\xEDnas
+    plasm\xE1ticas que ayudan en la coagulaci\xF3n sangu\xEDnea"
+  - "Puede recuperarse y regenerar c\xE9lulas da\xF1adas o perdidas despu\xE9s de
+    lesiones menores o incluso tras una cirug\xEDa parcial."

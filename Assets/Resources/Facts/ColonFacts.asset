@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7278ab6070f38dc41bce15bc7f8bfc77, type: 3}
+  m_Name: ColonFacts
+  m_EditorClassIdentifier: 
+  easy:
+  - "Es la \xFAltima parte del sistema digestivo y es responsable de absorber agua
+    y electrolitos de los alimentos no digeribles"
+  - "Es m\xE1s ancho que el intestino delgado y tiene una longitud de aproximadamente
+    1.5 metros"
+  - Almacena temporalmente las heces antes de ser eliminadas del cuerpo
+  - 'Se divide en cuatro partes principales: ascendente, transverso, descendente
+    y sigmoides'
+  - "Su funci\xF3n principal es formar y eliminar las heces, los productos de desecho
+    del proceso de digesti\xF3n"
+  medium:
+  - "Sus movimientos perist\xE1lticos son ondas musculares que mueven el contenido
+    hacia el recto para su eliminaci\xF3n."
+  - "Los p\xF3lipos son crecimientos anormales que pueden formarse en este, algunos
+    de los cuales pueden volverse malignos y requerir atenci\xF3n m\xE9dica"
+  - "La ingesti\xF3n de alimentos ricos en fibra puede estimular las contracciones
+    de este y promover una digesti\xF3n saludable"
+  hard:
+  - "La diverticulitis es una inflamaci\xF3n de las peque\xF1as bolsas o divert\xEDculos
+    que se forman en la pared de esta parte del sistema digestivo, lo que puede causar
+    molestias y complicaciones"
+  - "El c\xE1ncer es una enfermedad grave que puede desarrollarse a partir de p\xF3lipos
+    que se vuelven malignos en esta regi\xF3n y requiere un diagn\xF3stico temprano
+    para un mejor pron\xF3stico"
+  - "Cada individuo tiene una microbiota \xFAnica en esta parte del sistema digestivo,
+    como una huella digital, influenciada por factores como la dieta, el entorno,
+    la gen\xE9tica y el estilo de vida"

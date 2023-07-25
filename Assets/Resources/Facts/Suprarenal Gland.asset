@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7278ab6070f38dc41bce15bc7f8bfc77, type: 3}
+  m_Name: Suprarenal Gland
+  m_EditorClassIdentifier: 
+  easy:
+  - "Tambi\xE9n conocidas como gl\xE1ndulas adrenales, son peque\xF1os \xF3rganos
+    ubicados en la parte superior de cada ri\xF1\xF3n"
+  - "Forman parte del sistema endocrino, que es responsable de la producci\xF3n y
+    liberaci\xF3n de hormonas en el torrente sangu\xEDneo para regular diversas funciones
+    del cuerpo"
+  - "Tienen aproximadamente el tama\xF1o de una nuez y se encuentran justo encima
+    de los ri\xF1ones, en la parte superior del abdomen"
+  medium:
+  - Producen varias hormonas importantes, incluyendo el cortisol, la adrenalina (epinefrina)
+    y la noradrenalina (norepinefrina).
+  - "Produce las \"hormonas del estr\xE9s\" que se liberan en situaciones de peligro
+    o tensi\xF3n, preparando al cuerpo para la acci\xF3n al aumentar la frecuencia
+    card\xEDaca, la presi\xF3n arterial y la energ\xEDa."
+  - "Los trastornos de estas pueden afectar la producci\xF3n de hormonas y tener
+    consecuencias significativas para la salud. Algunos ejemplos incluyen la enfermedad
+    de Cushing y la insuficiencia suprarrenal"
+  hard:
+  - "Produce el cortisol es una hormona que ayuda al cuerpo a responder al estr\xE9s
+    y a mantener el equilibrio en situaciones de emergencia"
+  - "Est\xE1n controladas por la gl\xE1ndula pituitaria en el cerebro, que libera
+    hormonas que estimulan o inhiben la producci\xF3n de hormonas suprarrenales seg\xFAn
+    las necesidades del cuerpo"

@@ -105,6 +105,6 @@ public class TimerManager : MonoBehaviour
             StopCoroutine(timerCorroutine);
         }
         CancelInvoke("TimerInvoke");
-        return time;
+        return time+timeStamp;
     }
 }

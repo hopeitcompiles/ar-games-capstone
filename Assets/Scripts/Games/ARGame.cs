@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class ARGame : MonoBehaviour
@@ -44,13 +46,27 @@ public abstract class ARGame : MonoBehaviour
         metric.gameId = gameId;
         metric.userId = Profile.instance.User != null ? Profile.instance.User.id : -1 ;
         hasStarted = false;
+
+        PauseManager.Instance.OnPause += OnPauseGame;
+        PauseManager.Instance.OnResume += OnResumeGame;
+
     }
 
     private void Instance_OnMainMenu()
     {
         Debug.Log("Finishing in AR Script");
-        StopAllCoroutines();
-        gameObject.SetActive(false);
+        try
+        {
+            StopAllCoroutines();
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+        if(gameObject != null)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void Instance_OnGame()
@@ -63,10 +79,16 @@ public abstract class ARGame : MonoBehaviour
     }
 
     public abstract void StartGame();
+    public abstract void OnPauseGame();
+    public abstract void OnResumeGame();
     public abstract void EndGame();
     private void OnDisable()
     {
         TimerManager.Instance.StopTimer();
-
+        GameManager.Instance.OnGame -= Instance_OnGame;
+        TimerManager.OnRunOutTime -= TimerManager_OnRunOutTime;
+        GameManager.Instance.OnMainMenu -= Instance_OnMainMenu;
+        PauseManager.Instance.OnPause -= OnPauseGame;
+        PauseManager.Instance.OnResume -= OnResumeGame;
     }
 }

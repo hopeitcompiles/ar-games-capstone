@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -140,7 +142,7 @@ public class ServiceApi : MonoBehaviour
                 message =e.Message.Contains("This service is not ready to serve traffic")?"El servicio no está disponible": e.Message
             };
         }
-
+        request.Dispose();
         Loading.instance.SetLoading(false);
         return response;
     }
@@ -164,6 +166,7 @@ public class ServiceApi : MonoBehaviour
                 {
                     throw new Exception(jsonResponse);
                 }
+                httpResponse.Dispose();
             }
             catch (Exception e)
             {
@@ -173,40 +176,53 @@ public class ServiceApi : MonoBehaviour
                     message = e.Message
                 };
             }
-
+            
             Loading.instance.SetLoading(false);
             return response;
         }
- 
+
     public async Task<string> GetCatFact()
     {
-        string url = "http://localhost:8080/open-api/fact";
-        string response = string.Empty;
-        
-        Loading.instance.SetLoading(true, "Veo que tienes buen gusto");
+        Loading.instance.SetLoading(true);
 
+        string url = "https://api.openai.com/v1/engines/text-davinci-003/completions";
+        
+        
+        string apiKey = "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";
+
+        OpenAIRequest requestData = new OpenAIRequest();
+        requestData.prompt = "Dime un dato curioso sobre alguna parte del sistema digestivo de " +
+            "los humanos en no más de 50 palabras";
+        requestData.max_tokens = 500;
+
+        string jsonRequest = JsonUtility.ToJson(requestData);
+        string jsonResponse = string.Empty;
+        OpenAIResponse response=new();
         try
         {
-            HttpResponseMessage httpResponse = await httpClient.GetAsync(url);
-            string jsonResponse = await httpResponse.Content.ReadAsStringAsync();
-
-            if (httpResponse.IsSuccessStatusCode)
+            using (HttpClient httpClient = new HttpClient())
             {
-                response = jsonResponse;
-            }
-            else
-            {
-                throw new Exception(jsonResponse);
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
+                var content = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
+                HttpResponseMessage httpResponse = await httpClient.PostAsync(url, content);
+                jsonResponse = await httpResponse.Content.ReadAsStringAsync();
+                response=JsonUtility.FromJson<OpenAIResponse>(jsonResponse);
+                if (!httpResponse.IsSuccessStatusCode)
+                {
+                    throw new Exception(jsonResponse);
+                }
             }
         }
         catch (Exception e)
         {
-            response = e.Message;
+            jsonResponse = e.Message;
         }
-
         Loading.instance.SetLoading(false);
-
-        return response;
+        if(response.choices.Length > 0)
+        {
+            return response.choices[0].text;
+        }
+        return jsonResponse;
     }
 
     [Serializable]
@@ -215,5 +231,23 @@ public class ServiceApi : MonoBehaviour
         public string fact;
         public int length;
     }
-  
+
+    [System.Serializable]
+    public class OpenAIRequest
+    {
+        public string prompt;
+        public int max_tokens;
+    }
+    [Serializable]
+    public class OpenAIResponse
+    {
+        public int id;
+        public Choice[] choices;
+    }
+    [Serializable]
+    public class Choice
+    {
+        public int index;
+        public string text;
+    }
 }

@@ -27,6 +27,8 @@ public class ProfileOptions : MonoBehaviour
     Button logOut;
     [SerializeField]
     TextMeshProUGUI error;
+    [SerializeField]
+    TextMeshProUGUI error2;
     Role _role;
     public static ProfileOptions instance;
     private void Awake()
@@ -57,7 +59,20 @@ public class ProfileOptions : MonoBehaviour
                 Debug.Log(ex.Message);
             }
         }
+        Profile.instance.LoggedOut += Instance_LoggedOut;
+        Profile.instance.LoggedIn += Instance_LoggedIn; ;
     }
+
+    private void Instance_LoggedIn()
+    {
+       // EnableProfileOptions();
+    }
+
+    private void Instance_LoggedOut()
+    {
+        ClearError();
+    }
+
     private void HandleShowClassForStudent(List<Models.ClassData> classes)
     {
         if (Profile.instance.User.role == Role.STUDENT.ToString() && classes.Count > 0)
@@ -95,6 +110,8 @@ public class ProfileOptions : MonoBehaviour
             case Role.TEACHER:
             {
                     inputCourse.gameObject.SetActive(true);
+                    inputClass.gameObject.SetActive(true);  
+                    codeButton.gameObject.SetActive(true);
                     showClassesButton.gameObject.SetActive(true);
                     role.text = "Docente";
                     inputClass.placeholder.GetComponent<TextMeshProUGUI>().text = "Nombre de la clase";
@@ -143,6 +160,8 @@ public class ProfileOptions : MonoBehaviour
     private void ClearError()
     {
         error.text = "";
+        error2.text = "";
+        error2.gameObject.SetActive(false);
     }
 
     public async void HandleButtonClick()
@@ -152,25 +171,40 @@ public class ProfileOptions : MonoBehaviour
         {
             case Role.STUDENT:
                 {
+                    if (inputClass.text == "")
+                    {
+                        error.text = "Debes ingresar el código de tu clase";
+                    }
                     try
                     {
                         var response = await service.RegisterInClass(Profile.instance.User.id.ToString(), inputClass.text);
                         if (response.code == 200)
                         {
                             error.text = "Te has registrado correctamente";
-                            Invoke("ClearError", 2);
                             LoadClases();
+                        }
+                        else
+                        {
+
                         }
                     }
                     catch(Exception ex)
                     {
-                        error.text = "Algo no ha salido bien";
+                        error.text = ex.Message.Contains("already in class") ? "No puedes formar parte de otra clase" : "Se ha producido un error";
                     }
 
                     break;
                 }
             case Role.TEACHER:
                 {
+                    if (inputClass.text == "")
+                    {
+                        error.text = "Debes ingresar el nombre tu clase";
+                    }
+                    if(inputCourse.text == "")
+                    {
+                        error.text = "Debes ingresar el cursode tu clase";
+                    }
                     try
                     {
                         var response = await service.CreateClass(Profile.instance.User.id.ToString(), inputClass.text,inputCourse.text);
@@ -180,7 +214,9 @@ public class ProfileOptions : MonoBehaviour
                             inputClass.text = string.Empty;
                             inputCourse.text = string.Empty;
                             Models.ClassData _class=(Models.ClassData)response.data;
-                            error.text = "Clase creada con éxito\nComparte este código con tus estudiantes\n" + _class.code;
+                            error.text = "Clase creada con éxito\nComparte este código con tus estudiantes";
+                            error2.text = _class.code.ToString();
+                            Invoke("ClearError",5);
                             LoadClases();
                         }
                         else

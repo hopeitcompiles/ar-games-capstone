@@ -58,6 +58,14 @@ public class ContentLister : MonoBehaviour
 
         if (model != null)
         {
+            if(title=="Sistema Digestivo")
+            {
+                SystemManager.instance.ActiveSystem = ANATOMIC_SYSTEM.DIGESTIVE;
+            }
+            else if (title == "Sistema Respiratorio")
+            {
+                SystemManager.instance.ActiveSystem = ANATOMIC_SYSTEM.RESPIRATORY;
+            }
             Debug.Log("Inicia modo AR");
             ARinteractionManager interactionManager = FindAnyObjectByType<ARinteractionManager>();
             interactionManager.ItemModel = Instantiate(model);

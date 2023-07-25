@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7278ab6070f38dc41bce15bc7f8bfc77, type: 3}
+  m_Name: Diaphragma
+  m_EditorClassIdentifier: 
+  easy:
+  - "Es un m\xFAsculo en forma de c\xFApula ubicado entre el t\xF3rax y el abdomen,
+    separando estos dos compartimentos corporales"
+  - "Es el principal m\xFAsculo involucrado en la respiraci\xF3n, ya que se contrae
+    y se relaja para permitir la expansi\xF3n y contracci\xF3n de los pulmones durante
+    la inhalaci\xF3n y exhalaci\xF3n"
+  - "El nervio fr\xE9nico es el responsable de la estimulaci\xF3n de este para su
+    movimiento, y cualquier da\xF1o o lesi\xF3n en este nervio puede afectar la funci\xF3n
+    respiratoria"
+  - "Durante la inhalaci\xF3n, este se contrae y se aplana, lo que permite que los
+    pulmones se expandan y se llenen de aire"
+  medium:
+  - "Cuando una persona tiene hipo, significa que este se ha contra\xEDdo involuntariamente
+    de manera brusca, causando una inhalaci\xF3n r\xE1pida y seguida de un cierre
+    repentino de la glotis, lo que produce el sonido caracter\xEDstico del hipo."
+  - "Puede verse afectado por el reflujo gastroesof\xE1gico, ya que el \xE1cido del
+    est\xF3mago puede irritar este m\xFAsculo y causar molestias"
+  - "La disfunci\xF3n de este puede estar asociada con ciertos trastornos respiratorios,
+    como la par\xE1lisis del diafragma, que puede afectar la capacidad de respirar
+    profundamente"
+  - "Es el principal m\xFAsculo involucrado en el proceso de la respiraci\xF3n"
+  hard:
+  - "Este puede estar relacionado con s\xEDntomas de ansiedad, ya que la respiraci\xF3n
+    superficial y r\xE1pida puede ser un mecanismo de respuesta al estr\xE9s"
+  - "En algunos casos, se puede realizar una cirug\xEDa para repararlo o fortalecerlo,
+    especialmente en situaciones donde hay una hernia diafragm\xE1tica"
+  - "Est\xE1 implicado en la t\xE9cnica de canto, ya que su control adecuado puede
+    mejorar la proyecci\xF3n y la calidad de la voz"
+  - "Permite que los pulmones se expandan y se contraigan durante la inhalaci\xF3n
+    y exhalaci\xF3n, permitiendo el intercambio de ox\xEDgeno y di\xF3xido de carbono
+    en el cuerpo"

@@ -37,17 +37,15 @@ public class FillTheContainerARGame : ARGame
         raycastManager = FindObjectOfType<ARRaycastManager>();
         raycastManager.SetTrackablesActive(true);
         base.Start();
-        PauseManager.Instance.OnPause += Instance_OnPause;
-        PauseManager.Instance.OnResume += Instance_OnResume;
     }
 
-    private void Instance_OnResume()
+    public override void OnResumeGame()
     {
         //canvas.transform.DOScale(Vector3.one, 0.4f).SetUpdate(true);
         canvas.SetActive(true);
     }
 
-    private void Instance_OnPause()
+    public override void OnPauseGame()
     {
         canvas.SetActive(false);
         //canvas.transform.DOScale(Vector3.zero, 0.4f).SetUpdate(true);

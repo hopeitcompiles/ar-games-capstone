@@ -4,17 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class MicroGame : ScriptableObject
+public class Facts : ScriptableObject
 {
-    public string title;
-    public Sprite image;
-    [TextArea] public string description;
-    public List<SystemData> models;
+    [TextArea] public List<string> easy;
+    [TextArea] public List<string> medium;
+    [TextArea] public List<string> hard;
 
-    [System.Serializable]
-    public class SystemData
-    {
-        public AnatomicSystem system;
-        public GameObject gameObject;
-    }
 }

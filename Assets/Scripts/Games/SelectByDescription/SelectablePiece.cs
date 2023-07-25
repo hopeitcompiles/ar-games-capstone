@@ -19,7 +19,11 @@ public class SelectablePiece : MonoBehaviour, IPiece
     {
         get { return data.GetRamdonFact(DificultManager.Instance.DificultLevel); }
     }
-
+    private void Start()
+    {
+        data = gameObject.GetComponent<Data>();
+        touchable = gameObject.GetComponent<Touchable>();
+    }
     public GameObject GameObject()
     {
         return gameObject;
@@ -27,9 +31,7 @@ public class SelectablePiece : MonoBehaviour, IPiece
 
     public void SetUp(int layer)
     {
-        gameObject.GetComponent<Collider>().gameObject.layer = layer;
-        data = gameObject.GetComponent<Data>();
-        touchable = gameObject.GetComponent<Touchable>();
+
     }
 
     public Transform Transform()

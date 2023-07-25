@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7278ab6070f38dc41bce15bc7f8bfc77, type: 3}
+  m_Name: BladerFacts
+  m_EditorClassIdentifier: 
+  easy:
+  - "La orina es transportada hacia la vejiga desde los ri\xF1ones a trav\xE9s de
+    dos conductos llamados ur\xE9teres"
+  - "La distensi\xF3n de la vejiga urinaria cuando se llena de orina est\xE1 controlada
+    por se\xF1ales nerviosas que env\xEDan mensajes al cerebro para indicar la necesidad
+    de orinar"
+  - La vejiga tiene una capacidad promedio de almacenar entre 400 a 600 ml de orina
+    antes de sentir la necesidad de orinar
+  - "Es un \xF3rgano muscular en forma de bolsa ubicado en la pelvis, encargado de
+    almacenar temporalmente la orina antes de ser expulsada del cuerpo"
+  - "La contracci\xF3n de los m\xFAsculos de la vejiga durante la micci\xF3n se conoce
+    como \"acto de orinar\" o \"micci\xF3n\""
+  medium:
+  - "La funci\xF3n de este \xF3rgano es regulada por el sistema nervioso aut\xF3nomo,
+    espec\xEDficamente por los nervios simp\xE1ticos y parasimp\xE1ticos"
+  - "La micci\xF3n frecuente y nocturia pueden ser s\xEDntomas de problemas en este
+    \xF3rgano o de condiciones m\xE9dicas subyacentes"
+  - "Este \xF3rgano puede inflamarse debido a una infecci\xF3n bacteriana o irritaci\xF3n,
+    en una condici\xF3n llamada cistitis"
+  - "La hiperactividad de este \xF3rgano puede causar una urgencia repentina y frecuente
+    para eliminar l\xEDquido"
+  - "Los c\xE1lculos, o piedras, pueden formarse dentro de este \xF3rgano debido
+    a minerales presentes en la orina"
+  hard:
+  - "Este \xF3rgano est\xE1 compuesto por tres capas de m\xFAsculo conocidas como
+    m\xFAsculo detrusor, responsables de su capacidad de contracci\xF3n y expansi\xF3n"
+  - "La retenci\xF3n de l\xEDquido es una condici\xF3n en la cual este \xF3rgano
+    no puede vaciarse completamente debido a obstrucciones o disfunci\xF3n muscular"
+  - "La cistometr\xEDa es una prueba urodin\xE1mica utilizada para evaluar la funci\xF3n
+    de este \xF3rgano midiendo su capacidad y presi\xF3n durante el llenado y vaciado"
+  - "En casos graves de disfunci\xF3n, puede ser necesario utilizar cat\xE9teres
+    para drenar el l\xEDquido de este \xF3rgano de forma temporal o permanente"
+  - "Este \xF3rgano juega un papel esencial en el proceso de eliminaci\xF3n de productos
+    de desecho y la regulaci\xF3n del equilibrio de l\xEDquidos en el cuerpo"

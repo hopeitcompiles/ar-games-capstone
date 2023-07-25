@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7278ab6070f38dc41bce15bc7f8bfc77, type: 3}
+  m_Name: Lungs
+  m_EditorClassIdentifier: 
+  easy:
+  - "Son \xF3rganos esponjosos y el\xE1sticos que se encuentran en el interior del
+    t\xF3rax, uno a cada lado del coraz\xF3n"
+  - "La principal funci\xF3n de estos es facilitar el intercambio de gases en el
+    cuerpo, toman ox\xEDgeno y votan C02"
+  - "El derecho es ligeramente m\xE1s grande que el izquierdo debido a la presencia
+    del coraz\xF3n en el lado izquierdo del t\xF3rax"
+  medium:
+  - "Durante la inhalaci\xF3n, toman ox\xEDgeno del aire, que luego se transporta
+    a trav\xE9s de la sangre hacia las c\xE9lulas del cuerpo"
+  - "Eliminan di\xF3xido de carbono y otros productos de desecho del cuerpo durante
+    la exhalaci\xF3n"
+  - "Aproximadamente el 70% de su capacidad se utiliza en la respiraci\xF3n normal,
+    mientras que el 30% restante se reserva para situaciones de mayor demanda de
+    ox\xEDgeno, como el ejercicio"
+  - "Si los escuchas con un estetoscopio, puedes percibir ruidos que se asemejan
+    al crujido de papel o al siseo. Estos sonidos son producidos por el paso del
+    aire a trav\xE9s de los bronquios y alv\xE9olos"
+  hard:
+  - "Est\xE1n formados por una estructura de tubos llamados bronquios, que se dividen
+    en bronquiolos m\xE1s peque\xF1os que terminan en peque\xF1as bolsas de aire
+    llamadas alv\xE9olos"
+  - "La tos es uno de sus mecanismos de defensa que ayuda a limpiar las v\xEDas respiratorias
+    de irritantes y secreciones excesivas"
+  - "Si desplegaras toda su superficie interna, cubrir\xEDan aproximadamente el tama\xF1o
+    de una cancha de tenis. Esto les otorga una enorme \xE1rea para llevar a cabo
+    el intercambio de gases."
+  - "Tienen una capacidad limitada de regenerarse por s\xED mismos. Aunque tienen
+    cierta capacidad de reparaci\xF3n, no pueden reemplazar completamente el tejido
+    da\xF1ado"

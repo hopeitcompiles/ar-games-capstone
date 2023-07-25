@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7278ab6070f38dc41bce15bc7f8bfc77, type: 3}
+  m_Name: Digestive
+  m_EditorClassIdentifier: 
+  easy:
+  - "Es un \xF3rgano en forma de J ubicado en la parte superior del abdomen, unido
+    al intestino m\xE1s largo del sistema digestivo"
+  - "Se encarga de descomponer los alimentos mediante la secreci\xF3n de \xE1cido
+    g\xE1strico y enzimas digestivas"
+  - "Responsable de absorber los nutrientes esenciales de los alimentos descompuestos
+    en por el saco de \xE1cido."
+  - "Parece un saco y tiene \xE1cido."
+  - Parece una manguera y es delgado.
+  medium:
+  - "Tiene un revestimiento que est\xE1 protegido de la acidez del \xE1cido g\xE1strico
+    por una capa de moco y c\xE9lulas especializadas"
+  - "Est\xE1 despu\xE9s del est\xF3mago y se dividide en tres partes: duodeno, yeyuno
+    e \xEDleon, cada una con funciones espec\xEDficas de absorci\xF3n de nutrientes."
+  - "La baja acidez puede dificultar la descomposici\xF3n adecuada de los alimentos,
+    lo que puede llevar a s\xEDntomas como indigesti\xF3n, hinchaz\xF3n y sensaci\xF3n
+    de plenitud despu\xE9s de comer"
+  - "La acidez de este normalmente act\xFAa como una barrera contra las bacterias
+    y pat\xF3genos. La baja acidez puede aumentar el riesgo de infecciones gastrointestinales."
+  hard:
+  - "Tiene la capacidad de expandirse significativamente para acomodar grandes cantidades
+    de alimentos y l\xEDquidos durante las comidas"
+  - "Tiene c\xE9lulas que producen una sustancia llamada factor intr\xEDnseco, que
+    es esencial para la absorci\xF3n de la vitamina B12 en el intestino que le sigue."
+  - "Tiene c\xE9lulas que producen una sustancia llamada factor intr\xEDnseco, que
+    es esencial para la absorci\xF3n de la vitamina B12 en el intestino que le sigue."
+  - "Cuenta con microvellosidades en su revestimiento, lo que aumenta en gran medida
+    su superficie de absorci\xF3n para los nutrientes"
+  - Puede perder acidez y volverse alcalino, esto se llama hipoclorhidria o aclorhidria.

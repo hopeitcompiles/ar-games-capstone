@@ -20,3 +20,6 @@ MonoBehaviour:
   - system: {fileID: 11400000, guid: 3070a41c54f79fa4795881ca6c57b3a2, type: 2}
     gameObject: {fileID: 7642258412231839618, guid: 5d13903cd33ad5b44a980305212a3993,
       type: 3}
+  - system: {fileID: 11400000, guid: e1849ad4b78f26b40960954a978e2ba4, type: 2}
+    gameObject: {fileID: 7642258412231839618, guid: 5d13903cd33ad5b44a980305212a3993,
+      type: 3}

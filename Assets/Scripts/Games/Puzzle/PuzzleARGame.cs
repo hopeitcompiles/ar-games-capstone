@@ -112,16 +112,14 @@ public class PuzzleARGame : ARGame
                 piece.gameObject.AddComponent<Dragable>();
             }
         }
-        PauseManager.Instance.OnPause += Instance_OnPause;
-        PauseManager.Instance.OnResume += Instance_OnResume; ;
     }
 
-    private void Instance_OnResume()
+    public override void OnResumeGame()
     {
         canvas.SetActive(true);
     }
 
-    private void Instance_OnPause()
+    public override void OnPauseGame()
     {
         canvas.SetActive(false);
     }

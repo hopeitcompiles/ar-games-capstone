@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7278ab6070f38dc41bce15bc7f8bfc77, type: 3}
+  m_Name: Windpipe
+  m_EditorClassIdentifier: 
+  easy:
+  - Es un conducto tubular que forma parte del sistema respiratorio y conecta la
+    laringe con los bronquios
+  - "Tiene un papel crucial en el proceso de respiraci\xF3n, permitiendo el paso
+    del aire desde la laringe hacia los pulmones y viceversa durante la inhalaci\xF3n
+    y la exhalaci\xF3n"
+  medium:
+  - "En la base, se divide en dos tubos m\xE1s peque\xF1os llamados bronquios principales,
+    que se dirigen hacia los pulmones, uno para cada pulm\xF3n"
+  - "Durante la inspiraci\xF3n, se expande permitiendo el ingreso del aire en los
+    pulmones. Durante la espiraci\xF3n, se contrae para expulsar el aire de los pulmones."
+  - "Es sensible a la presencia de irritantes y part\xEDculas extra\xF1as. Cuando
+    algo la irrita, se desencadena un reflejo de tos, que es un mecanismo de defensa
+    para eliminar cualquier sustancia no deseada"
+  hard:
+  - "Est\xE1 formada por anillos de cart\xEDlago en forma de C que le dan soporte
+    y evitan que se colapse mientras se mueve el aire"
+  - "Est\xE1 revestida por un epitelio ciliado que contiene peque\xF1os cilios m\xF3viles.
+    Estos cilios atrapan part\xEDculas extra\xF1as, polvo y microorganismos presentes
+    en el aire inhalado"

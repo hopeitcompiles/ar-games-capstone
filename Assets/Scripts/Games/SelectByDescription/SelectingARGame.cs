@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,7 @@ public class SelectingARGame : ARGame
 
     List<SelectablePiece> pieceList;
     SelectablePiece current;
+
     [SerializeField]
     TextMeshProUGUI title;
     [SerializeField]
@@ -26,24 +28,41 @@ public class SelectingARGame : ARGame
         canvas=transform.GetChild(0).gameObject;
         content.SetActive(false);
         canvas.SetActive(false);
-        
-        
-        GameManager.Instance.OnMainMenu += Instance_OnMainMenu;
-        PauseManager.Instance.OnPause += OnPauseGame;
-        PauseManager.Instance.OnResume += OnResumeGame;
         nextButton.transform.localScale = Vector3.zero;
         clearButton.transform.localScale = Vector3.zero;
     }
     protected override void Start()
     {
         instance = this;
+        timeByDificult[0] = 120;
+        timeByDificult[1] = 90;
+        timeByDificult[2] = 60;
         base.Start();
-        pieceList = GetComponentsInChildren<SelectablePiece>().ToList();
-        pieceQuanty = pieceList.Count;
-        foreach (SelectablePiece piece in pieceList)
+        List<Data> dataList = GetComponentsInChildren<Data>().ToList();
+        pieceList = new();
+        int dificult = (int)DificultManager.Instance.DificultLevel;
+        Debug.Log(dificult);
+        Debug.Log((int)DificultLevel.MEDIUM);
+        foreach (Data piece in dataList)
         {
-            piece.SetUp(layer);
+            if (piece.System == SystemManager.instance.ActiveSystem)
+            {
+                pieceList.Add(piece.AddComponent<SelectablePiece>());
+            }
+            else if(dificult >= (int)DificultLevel.MEDIUM)
+            {
+                bool p = Random.Range(0, dificult+1) != 0;
+                if (p)
+                {
+                    piece.gameObject.SetActive(false);
+                }
+            }
+            else
+            {
+                piece.gameObject.SetActive(false);
+            }
         }
+        pieceQuanty=pieceList.Count;
         nextButton.onClick.AddListener(NextPiece);
         clearButton.onClick.AddListener(ClearSelection);
         
@@ -58,20 +77,12 @@ public class SelectingARGame : ARGame
         ResetTitleAndButtons(true);
     }
 
-    private void Instance_OnMainMenu()
-    {
-        canvas.SetActive(false);
-        content.SetActive(false);
-    }
-
-    
-
-    private void OnPauseGame()
+    public override void OnPauseGame()
     {
         RectTransform rectTransform = content.GetComponent<RectTransform>();
         rectTransform.DOAnchorPos(new Vector2(0, -rectTransform.rect.height*1.5f), 0.3f).SetUpdate(true);
     }
-    private void OnResumeGame()
+    public override void OnResumeGame ()
     {
         RectTransform rectTransform = content.GetComponent<RectTransform>();
         rectTransform.DOAnchorPos(new Vector2(0, 588.1556f), 0.3f).SetUpdate(true);
@@ -203,6 +214,7 @@ public class SelectingARGame : ARGame
                         NextPiece();
                         return;
                     }
+                    AudioManager.Instance.SelectPlay(true);
                     selectedPiece.Touchable.MakeItGlow(true);
                     title.text = selectedPiece.PieceName;
                     nextButton.transform.DOScale(Vector3.one, .3f);
